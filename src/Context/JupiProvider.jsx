@@ -5,11 +5,19 @@ const JupiContext = createContext();
 
 const JupiProvider = ( { children } ) => {
 
+    const [pronosticoActual, setpronosticoActual] = useState({})
+
+
+    const cambiarPronostico = (pronostico) => {
+        setpronosticoActual(pronostico);
+    }
+
 
     return (
         <JupiContext.Provider
             value={{
-                
+              pronosticoActual,
+              cambiarPronostico
             }}
         >
             {children}
