@@ -62,7 +62,7 @@ const Listado = () => {
                 <div className='container row'>
                     {sorteos.map( (sorteo) => (
                         <div
-                            className='col-md-4 mb-3'
+                            className='col-md-3 col-sm-4 mb-3'
                             role='button'
                             key={sorteo.id}
                         >
