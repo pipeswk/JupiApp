@@ -1,0 +1,22 @@
+.precio {
+    background-color: #4cb944;
+    color: #FFFF;
+    margin-top: 2rem;
+    /* display: block; */
+    text-align: center;
+    text-decoration: none;
+    font-weight: 900;
+    border: 2px solid #4cb944;
+    transition-property: box-shadow;
+    transition-duration: .2s;
+    box-shadow: 0 0 50px #4cb944
+}
+@media (min-width: 1382px) {
+    .boxImage {
+        height: 17rem;
+    }
+}
+
+.badge {
+    background-color: blueviolet;
+}
