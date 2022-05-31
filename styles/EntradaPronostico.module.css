@@ -1,0 +1,53 @@
+.badge {
+    background-color: blueviolet;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.description {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 3px;
+    box-shadow: 3px;
+}
+
+.pagos {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 3px;
+    box-shadow: 3px;
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.methodCard_Active {
+    width: 90px;
+    background-color: #fff;
+    border-radius: 15px;
+    height: 80px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    border: 7px solid #adff2f;
+    -webkit-box-shadow: 5px 5px 12px 1px rgba(0,0,0,0.41); 
+    box-shadow: 5px 5px 12px 1px rgba(0,0,0,0.41);
+}
+
+.methodCard_Desactive {
+    width: 90px;
+    background-color: #fff;
+    border-radius: 15px;
+    height: 80px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    -webkit-box-shadow: 5px 5px 12px 1px rgba(0,0,0,0.41); 
+    box-shadow: 5px 5px 12px 1px rgba(0,0,0,0.41);
+}
