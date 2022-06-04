@@ -20,3 +20,21 @@
 .badge {
     background-color: blueviolet;
 }
+
+.image {
+    height: 15rem;
+}
+@media (min-width: 576px) {
+    .image {
+        height: 17rem;
+    }
+}
+
+.title {
+    height: 2rem;
+}
+@media (min-width: 576px) {
+    .title {
+        height: 4rem;
+    }
+}
