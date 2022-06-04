@@ -17,12 +17,10 @@ const Pronostico = ( { pronostico } ) => {
   return (
     <div className='card shadow-sm mb-3 position-relative'>
         {sorteo && <span className={`${styles.badge} position-absolute top-0 start-50 translate-middle badge rounded-pill p-2`}>{`STAKE ${descripcion.stake} - SORTEO INCLUIDO`}</span>}
-        <div className={styles.boxImage}>
-            <img src={img} className={`${styles.image} card-img-top img-fluid img-thumbnail`} alt={nombre} />
-        </div>
+        <img src={img} className={`${styles.image} card-img-top img-fluid img-thumbnail`} alt={nombre} />
         <div className='card-body mt-1'>
             <p className='fw-light text-center fs-8'>{categoria}</p>
-            <h2 className='text-center fs-4 fw-bold px-3'>{nombre}</h2>
+            <h2 className={`${styles.title} text-center fs-4 fw-bold px-3`}>{nombre}</h2>
             <ul>
                 <li>{`Tipo: ${descripcion.tipo}`}</li>
                 <li>{`Cuota: ${cuota()}`}</li>
