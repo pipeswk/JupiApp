@@ -1,59 +1,18 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import styles from '../../styles/Listado.module.css'
+import useJupi from '../Hooks/useJupi';
 import Sorteo from './Sorteo';
 
-const sorteos = [
-    {
-        id: 'ajkdnaksjdn1',
-        categoria: 'Vehiculos',
-        nombre: 'KTM DUKE - 390',
-        valorTicket: 20000,
-        nuevo: true,
-        img: '/img/KTM-DUKE.jpg'
-    },
-    {
-        id: 'ajkdnaksjdo2',
-        categoria: 'Consolas',
-        nombre: 'Play Station 5',
-        valorTicket: 20000,
-        nuevo: true,
-        img: '/img/Comprar-PS5.webp'
-    },
-    {
-        id: 'ajkdnaksjds3',
-        categoria: 'Electronica',
-        nombre: 'Iphone 13',
-        valorTicket: 20000,
-        nuevo: true,
-        img: '/img/Iphone-13-Pro-Max-256Gb-Plata-APPLE-MLLC3LZA-3108595_b.webp'
-    },
-    {
-        id: 'ajkdnaksjdn4',
-        categoria: 'Vehiculos',
-        nombre: 'KTM DUKE - 390',
-        valorTicket: 20000,
-        nuevo: true,
-        img: '/img/KTM-DUKE.jpg'
-    },
-    {
-        id: 'ajkdnaksjdo5',
-        categoria: 'Consolas',
-        nombre: 'Play Station 5',
-        valorTicket: 20000,
-        nuevo: true,
-        img: '/img/Comprar-PS5.webp'
-    },
-    {
-        id: 'ajkdnaksjdm6',
-        categoria: 'Electronica',
-        nombre: 'Iphone 13',
-        valorTicket: 20000,
-        nuevo: true,
-        img: '/img/Iphone-13-Pro-Max-256Gb-Plata-APPLE-MLLC3LZA-3108595_b.webp'
-    }
-];
-
 const Listado = () => {
+
+    const router = useRouter();
+    const { sorteos, cambiarSorteo } = useJupi();
+
+    const handleClick = (sorteo) => {
+        cambiarSorteo(sorteo);
+        router.push(`/sorteos/${sorteo.id}`);
+    }
 
   return (
     <div className='container-fluid my-5'>
@@ -65,6 +24,7 @@ const Listado = () => {
                             className='col-md-3 col-sm-4 mb-3'
                             role='button'
                             key={sorteo.id}
+                            onClick={() => handleClick(sorteo)}
                         >
                             <Sorteo
                                 sorteo={sorteo}
