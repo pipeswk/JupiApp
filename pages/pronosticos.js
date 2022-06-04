@@ -4,91 +4,11 @@ import useJupi from '../src/Hooks/useJupi';
 import Layout from '../src/Layout/Layout'
 import styles from '../styles/Pronosticos.module.css'
 
-const pronosticos = [
-  {
-      id: 'ajkdnaksjdn1',
-      categoria: 'Futbol',
-      nombre: 'Liverpool - Real Madrid',
-      descripcion: {
-        tipo: 'Simple',
-        cuota: 'Reservada',
-        stake: 10
-      },
-      valorTicket: 50000,
-      sorteo: true,
-      img: '/img/Futbol.webp'
-  },
-  {
-      id: 'ajkdnaksjdo2',
-      categoria: 'BasketBall',
-      nombre: 'NBA - Stake 10',
-      descripcion: {
-        tipo: 'Combinada',
-        cuota: '@7.2',
-        stake: 10
-      },
-      valorTicket: 50000,
-      sorteo: true,
-      img: '/img/NBA.webp'
-  },
-  {
-      id: 'ajkdnaksjds3',
-      categoria: 'Hockey sobre Hielo',
-      nombre: 'NHL y Champions | Stake 5',
-      descripcion: {
-        tipo: 'Combinada',
-        cuota: '@12',
-        stake: 5
-      },
-      valorTicket: 50000,
-      sorteo: false,
-      img: '/img/NHL.jpg'
-  },
-  {
-    id: 'ajkdnaksjdn4',
-    categoria: 'Futbol',
-    nombre: 'Liverpool - Real Madrid',
-    descripcion: {
-      tipo: 'Simple',
-      cuota: 'Reservada',
-      stake: 10
-    },
-    valorTicket: 50000,
-    sorteo: true,
-    img: '/img/Futbol.webp'
-},
-{
-    id: 'ajkdnaksjdo5',
-    categoria: 'BasketBall',
-    nombre: 'NBA - Stake 10',
-    descripcion: {
-      tipo: 'Combinada',
-      cuota: '@7.2',
-      stake: 10
-    },
-    valorTicket: 50000,
-    sorteo: true,
-    img: '/img/NBA.webp'
-},
-{
-    id: 'ajkdnaksjds6',
-    categoria: 'Hockey sobre Hielo',
-    nombre: 'NHL y Champions | Stake 5',
-    descripcion: {
-      tipo: 'Combinada',
-      cuota: '@12',
-      stake: 5
-    },
-    valorTicket: 50000,
-    sorteo: false,
-    img: '/img/NHL.jpg'
-} 
-];
 
 const Pronosticos = () => {
 
   const router = useRouter()
-  const { cambiarPronostico } = useJupi()
+  const { cambiarPronostico, pronosticos } = useJupi()
 
   const handleClickPronostico = (pronostico) => {
     cambiarPronostico(pronostico)
