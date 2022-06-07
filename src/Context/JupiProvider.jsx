@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import { collection, query, where, onSnapshot } from "firebase/firestore";
+import { collection, query, doc, onSnapshot } from "firebase/firestore";
 import { db } from '../../utils/Firebase';
 
 
@@ -11,6 +11,7 @@ const JupiProvider = ( { children } ) => {
     const [sorteoActual, setSorteoActual] = useState({});
     const [pronosticos, setPronosticos] = useState([]);
     const [sorteos, setSorteos] = useState([]);
+    const [ganadores, setGanadores] = useState([]);
 
     // Consulta en tiempo real de los pronosticos
     const obtenerPronosticos = async () => {
@@ -43,9 +44,17 @@ const JupiProvider = ( { children } ) => {
       });
     }
 
+    const obtenerGanadores = async () => {
+      const conulsta = onSnapshot(doc(db, 'personalizacion', 'ganadores'), (doc) => {
+        setGanadores(doc.data().listado_ganadores);
+      });
+    }
+    
+
     useEffect(() => {
       obtenerPronosticos();
       obtenerSorteos();
+      obtenerGanadores();
     }, []);
     
 
@@ -65,7 +74,8 @@ const JupiProvider = ( { children } ) => {
               cambiarPronostico,
               cambiarSorteo,
               pronosticos,
-              sorteos
+              sorteos,
+              ganadores
             }}
         >
             {children}
