@@ -32,6 +32,8 @@ const FormSorteos = () => {
                 .max(10, 'El teléfono no puede tener más de 10 caracteres')
                 .min(10, 'El teléfono debe tener al menos 10 caracteres')
                 .matches(/^[0-9]*$/, 'El teléfono solo puede contener números'),
+            method: Yup.string()
+                .required('El método de pago es obligatorio'),
             telNequi: Yup.string()
                 .max(10, 'El numero de nequi no puede tener más de 10 caracteres')
                 .min(10, 'El numero de nequi debe tener al menos 10 caracteres')
@@ -160,6 +162,9 @@ const FormSorteos = () => {
             </div>
 
         </div>
+        {formik.touched.method && formik.errors.method ? (
+                <div className="text-danger">{formik.errors.method}</div>
+            ) : null}
         {metodo === 'NEQUI' && (
             <>
             <div className={styles.badge}>
