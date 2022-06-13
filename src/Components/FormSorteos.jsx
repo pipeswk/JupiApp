@@ -3,9 +3,11 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import styles from '../../styles/EntradaPronostico.module.css'
 
-const FormSorteos = () => {
+const FormSorteos = ( { valorTicket } ) => {
 
     const [metodo, setMetodo] = useState('');
+    const [cantidad, setCantidad] = useState('1');
+    const totalPagar = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(cantidad * valorTicket);
 
     const formik = useFormik({
         initialValues: {
@@ -15,7 +17,7 @@ const FormSorteos = () => {
             method: '',
             telNequi: '',
             telDaviplata: '',
-            cantidad: ''
+            cantidad: '1'
         },
         validationSchema: Yup.object({
             nombre: Yup.string()
@@ -116,10 +118,10 @@ const FormSorteos = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
             />
+            </div>
             {formik.touched.telefono && formik.errors.telefono ? (
                 <div className="text-danger">{formik.errors.telefono}</div>
             ) : null}
-            </div>
         </div>
         
         <p className='fw-bold'>Selecciona el metodo de pago (Disponible solo en Colombia):</p>
@@ -227,7 +229,7 @@ const FormSorteos = () => {
         )}
 
         <div className="mb-3">
-            <label htmlFor='cantidad' className="form-label fw-bold">Cantidad</label>
+            <label htmlFor='cantidad' className="form-label fw-bold">Cantidad de tickets a comprar:</label>
             <input
                 type="number"
                 id='cantidad'
@@ -236,17 +238,21 @@ const FormSorteos = () => {
                 placeholder='Cantidad de tickets a comprar'
                 min={1}
                 value={formik.values.cantidad}
-                onChange={formik.handleChange}
+                onChange={(e) => {
+                    formik.setFieldValue('cantidad', e.target.value);
+                    setCantidad(e.target.value);
+
+                }}
                 onBlur={formik.handleBlur}
             />
             {formik.touched.cantidad && formik.errors.cantidad ? (
                 <div className="text-danger">{formik.errors.cantidad}</div>
             ) : null}
         </div>
-        {/* <div className={styles.description}>
+        <div className={styles.description}>
             <p className='fs-4'><span className='fw-bold'>Resumen: </span>{`${cantidad} Ticket/s`}</p>
             <p className='fs-4'><span  className='fw-bold'>Total a pagar: </span>{totalPagar}</p>
-        </div> */}
+        </div>
         <button type='submit' className="btn btn-primary w-100 mt-5 fw-bold">PAGAR</button>
     </form>
   )
