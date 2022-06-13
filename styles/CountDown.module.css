@@ -1,0 +1,10 @@
+.cuadro {
+    background-color: whitesmoke;
+    color: dimgray;
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 4rem;
+    height: 4.5rem;
+    margin-left: 8px;
+    padding: 2px;
+}
