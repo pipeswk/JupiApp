@@ -5,6 +5,8 @@ const TablaGanadores = () => {
 
     const { ganadores } = useJupi()
 
+    const newGanadores = [...ganadores].reverse()
+
   return (
     <div>
         <table className='table table-hover'>
@@ -17,7 +19,7 @@ const TablaGanadores = () => {
             </tr>
         </thead>
         <tbody>
-            {ganadores.map( (ganador, index) => (
+            {newGanadores.map( (ganador, index) => (
                 <tr key={index}>
                     <th scope="row">{index}</th>
                     <td>{ganador.nombre}</td>
