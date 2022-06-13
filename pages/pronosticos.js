@@ -26,7 +26,7 @@ const Pronosticos = () => {
               <div className='row py-lg-5'>
                 <div className='col-lg-6 col-md-8 mx-auto'>
                   <h1 className='fw-bolder text-white'>Pronosticos disponibles</h1>
-                  <p className='text-white lead'>Incididunt elit amet qui reprehenderit incididunt commodo ad non tempor minim ex qui deserunt.</p>
+                  <p className='text-white lead'>Compra pronosticos deportivos de alta confiabilidad. El 90% de nuestros pornosticos incluye un sorteo en el que podras participar ☺</p>
                 </div>
               </div>
             </section>
