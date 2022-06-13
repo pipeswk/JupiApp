@@ -44,12 +44,15 @@ const JupiProvider = ( { children } ) => {
       });
     }
 
+    // Consulta en tiempo real de los ganadores
+
     const obtenerGanadores = async () => {
       const conulsta = onSnapshot(doc(db, 'personalizacion', 'ganadores'), (doc) => {
         setGanadores(doc.data().listado_ganadores);
       });
     }
     
+    // UseEffect que ejecuta las consultas tan pronto se renderiza el componente
 
     useEffect(() => {
       obtenerPronosticos();
