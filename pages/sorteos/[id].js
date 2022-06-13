@@ -5,32 +5,14 @@ import styles from '../../styles/EntradaPronostico.module.css'
 import { db } from '../../utils/Firebase'
 import { doc, getDoc } from "firebase/firestore";
 import FormSorteos from '../../src/Components/FormSorteos'
+import Progress from '../../src/Components/Progress'
 
 const EntradaSorteo = ( { resultado, id } ) => {
-
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [telefono, setTelefono] = useState('');
-    const [metodo, setMetodo] = useState('');
-    const [numNequi, setNumNequi] = useState('');
-    const [cantidad, setCantidad] = useState('1');
   
-    const { nombre, categoria, img, nuevo, valorTicket } = resultado
+    const { nombre, categoria, img, onPronosticos, valorTicket } = resultado
     const moneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(valorTicket);
-    const totalPagar = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(cantidad * valorTicket);
-  
-  
-    const handleSubmit = (e) => {
-      e.preventDefault()
-      console.log({
-        name,
-        email,
-        telefono,
-        metodo,
-        numNequi,
-        id
-      })
-    }
+
+    // TODO: Hacer funcion de lectura en tiempo real de los participantes del torneo
   
   
     return (
@@ -58,8 +40,24 @@ const EntradaSorteo = ( { resultado, id } ) => {
                       </div>
                       {/* Cuerpo */}
   
-                      <p>Ipsum qui dolore occaecat culpa et exercitation exercitation quis Lorem non eu labore ex non. Consequat ea labore laboris in consectetur et proident voluptate do. Sunt ullamco aliquip eiusmod aliqua ad exercitation aute culpa ea fugiat voluptate cupidatat magna eiusmod.</p>
-  
+                      <div>
+                        {/* // TODO: Hacer dinamico el indicado de Cupos disponibles */}
+                        <p className='text-center fw-bold'>{`Cupos Disponibles: 500`}</p>
+                        <Progress />
+                      </div>
+                      <p className='text-decoration-underline fw-bold text-center mt-5'>Instrucciones de compra:</p>
+                      <ol className='d-md-none'>
+                        <li>Llena el formulario de <span className='fw-bold'>abajo.</span></li>
+                        <li>Selecciona el metodo de pago de tu preferencia.</li>
+                        <li>Elige la cantidad de tickets a comprar <span className='fw-bold'>(Entre mas tickets compres mayor probabilidad de ganar tienes).</span></li>
+                        <li>Haz clic en el boton <span className='fw-bold'>"PAGAR"</span> y sigue las instrucciones.</li>
+                      </ol>
+                      <ol className='d-none d-md-block'>
+                        <li>Llena el formulario del lado <span className='fw-bold'>derecho.</span></li>
+                        <li>Selecciona el metodo de pago de tu preferencia.</li>
+                        <li>Elige la cantidad de tickets a comprar <span className='fw-bold'>(Entre mas tickets compres mayor probabilidad de ganar tienes).</span></li>
+                        <li>Haz clic en el boton <span className='fw-bold'>"PAGAR"</span> y sigue las instrucciones.</li>
+                      </ol>
                     </div>
                   </div>
                 </div>
@@ -71,7 +69,7 @@ const EntradaSorteo = ( { resultado, id } ) => {
                         {/* //TODO: validar precio a nivel del servidor */}
                         <p className='fs-4'><span  className='fw-bold'>Precio: </span>{moneda}</p>
                       </div>
-                      <FormSorteos />
+                      <FormSorteos valorTicket={valorTicket} />
                   </div>
                 </div>
               </div>
