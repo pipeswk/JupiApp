@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from '../../styles/Ganador.module.css'
 
 const Ganador = ( { ganador } ) => {
 
@@ -6,10 +7,10 @@ const Ganador = ( { ganador } ) => {
 
   return (
     <div className="col-11 col-md-4 col-lg-3 card mx-1">
-        <img className="card-img-top" src="/img/Comprar-PS5.webp" alt="Title" />
+        <img className={`${styles.image} card-img-top img-fluid`} src={img_src} alt="Title" />
         <div className="card-body">
             <h4 className="card-title text-center">{nombre}</h4>
-            <p className="card-text"><span className='fw-bold'>🔥Premio: </span>{premio}</p>
+            <p className="card-text text-break"><span className='fw-bold text-break'>🔥Premio: </span>{premio}</p>
         </div>
     </div>
   )
