@@ -53,3 +53,14 @@
     -webkit-box-shadow: 5px 5px 12px 1px rgba(0,0,0,0.41); 
     box-shadow: 5px 5px 12px 1px rgba(0,0,0,0.41);
 }
+
+.parrafo {
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+@media (min-width: 768px) {
+    .parrafo {
+        font-size: 15px;
+    }
+}
