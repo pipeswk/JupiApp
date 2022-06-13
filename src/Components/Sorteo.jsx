@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Sorteo = ( { sorteo } ) => {
 
-    const { categoria, nombre, valorTicket, nuevo, img } = sorteo
+    const { categoria, nombre, valorTicket, onPronosticos, img } = sorteo
 
     const moneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(valorTicket)
 
