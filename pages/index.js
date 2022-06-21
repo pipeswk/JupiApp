@@ -2,6 +2,7 @@ import Listado from '../src/Components/Listado'
 import Layout from '../src/Layout/Layout'
 import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router'
+import SectionGanadores from '../src/Components/SectionGanadores';
 
 export default function Home() {
 
@@ -43,6 +44,8 @@ export default function Home() {
       </main>
 
       <Listado />
+
+      <SectionGanadores />
 
     </Layout>
   )
