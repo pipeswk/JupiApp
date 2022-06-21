@@ -7,12 +7,12 @@ const WrapperGanadores = () => {
 
     const { ganadores } = useJupi()
 
-    const newGanadores = [...ganadores].reverse()
+    const newGanadores = [...ganadores].reverse();
 
   return (
       <div className='mt-5'>
         <HorizontalWrapper>
-            {newGanadores.map( (ganador, index) => (
+            {ganadores.map( (ganador, index) => (
                 <Ganador
                     key={index}
                     ganador={ganador}
