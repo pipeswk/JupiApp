@@ -2,15 +2,18 @@ import { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import styles from '../../styles/EntradaPronostico.module.css'
+import useJupi from '../Hooks/useJupi';
 
-const FormSorteos = ( { valorTicket } ) => {
+const FormSorteos = ( { valorTicket, id } ) => {
 
     const [metodo, setMetodo] = useState('');
     const [cantidad, setCantidad] = useState('1');
+    const { pagarSorteo } = useJupi();
     const totalPagar = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(cantidad * valorTicket);
 
     const formik = useFormik({
         initialValues: {
+            idSorteo: id,
             nombre: '',
             email: '',
             telefono: '',
@@ -65,7 +68,7 @@ const FormSorteos = ( { valorTicket } ) => {
     })
 
     const enviarDatos = (values) => {
-        console.log(values);
+        pagarSorteo(values);
     }
 
   return (
