@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Layout from '../../src/Layout/Layout'
 import styles from '../../styles/EntradaPronostico.module.css'
@@ -9,18 +9,27 @@ import CountDown from '../../src/Components/CountDown'
 
 const EntradaPronostico = ( { resultado } ) => {
 
+  const [cuota, setCuota] = useState('');
+
 
   const { nombre, descripcion, img, sorteo, valorTicket } = resultado
   console.log(resultado)
   const moneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(valorTicket);
 
-  const cuota = () => {
+
+  const operacionCuota = () => {
     if(descripcion.tipo === 'Simple') {
-        return 'Reservada'
+      return 'Reservada'
     } else {
-        return descripcion.cuota
+      return descripcion.cuota
     }
-}
+  }
+
+  useEffect(() => {
+    const restriccion = operacionCuota();
+    setCuota(restriccion);
+  }, [])
+  
 
 
   return (
@@ -59,7 +68,7 @@ const EntradaPronostico = ( { resultado } ) => {
                           <div className='col-12 col-md-6'>
                             <p className='text-center fw-bold fs-5'>Descripcion del pronostico:</p>
                             <div className='mt-3 p-md-3'>
-                            <p className={styles.parrafo}><span className='fw-bold'>Cuota: </span>{cuota()}</p>
+                            <p className={styles.parrafo}><span className='fw-bold'>Cuota: </span>{cuota}</p>
                             <p className={styles.parrafo}><span className='fw-bold'>Stake: </span>{descripcion.stake}</p>
                             <p className={styles.parrafo}><span className='fw-bold'>Tipo: </span>{descripcion.tipo}</p>
                           </div>
