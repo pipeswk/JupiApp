@@ -1,4 +1,5 @@
 import styles from '../../styles/Pronostico.module.css'
+import { kebabCase } from '../Helpers/Kebab'
 
 const Pronostico = ( { pronostico } ) => {
 
