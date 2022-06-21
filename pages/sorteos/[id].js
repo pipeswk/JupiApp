@@ -69,7 +69,7 @@ const EntradaSorteo = ( { resultado, id } ) => {
                         {/* //TODO: validar precio a nivel del servidor */}
                         <p className='fs-4'><span  className='fw-bold'>Precio: </span>{moneda}</p>
                       </div>
-                      <FormSorteos valorTicket={valorTicket} />
+                      <FormSorteos id={id} valorTicket={valorTicket} />
                   </div>
                 </div>
               </div>
