@@ -19,7 +19,7 @@ const TablaGanadores = () => {
             </tr>
         </thead>
         <tbody>
-            {newGanadores.map( (ganador, index) => (
+            {ganadores.map( (ganador, index) => (
                 <tr key={index}>
                     <th scope="row">{index}</th>
                     <td>{ganador.nombre}</td>
