@@ -3,17 +3,20 @@ import Image from 'next/image'
 import Layout from '../../src/Layout/Layout'
 import styles from '../../styles/EntradaPronostico.module.css'
 import { db } from '../../utils/Firebase'
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import FormPronosticos from '../../src/Components/FormPronosticos'
 import CountDown from '../../src/Components/CountDown'
+import useJupi from '../../src/Hooks/useJupi'
+import PaymentProcess from '../../src/Components/PaymentProcess'
 
-const EntradaPronostico = ( { resultado } ) => {
+const EntradaPronostico = ( { resultado, id } ) => {
 
   const [cuota, setCuota] = useState('');
+  const [transaction, setTransaction] = useState({});
 
 
   const { nombre, descripcion, img, sorteo, valorTicket } = resultado
-  console.log(resultado)
+  const { pagoEnProceso, refPago } = useJupi();
   const moneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(valorTicket);
 
 
@@ -29,6 +32,18 @@ const EntradaPronostico = ( { resultado } ) => {
     const restriccion = operacionCuota();
     setCuota(restriccion);
   }, [])
+
+  const obtenerTransaccion = async () => {
+    const unsub = onSnapshot(doc(db, "transactions", refPago), (doc) => {
+      setTransaction(doc.data());
+  });
+  }
+  
+  useEffect(() => {
+    if (refPago !== '') {
+      obtenerTransaccion();
+    }
+  }, [refPago])
   
 
 
@@ -100,17 +115,23 @@ const EntradaPronostico = ( { resultado } ) => {
               </div>
               <div className='col-12 col-md-5'>
                 <div className='bg-white shadow-sm p-3 rounded'>
-                    <h4 className='text-center fw-bold'>COMPRAR</h4>
-                    <div className={styles.description}>
-                      <p className='fs-4'><span className='fw-bold'>Descripción de la compra: </span>{sorteo ? (
-                        `Pronostico + Sorteo Elegido`
-                      ) : (
-                        'Pronostico'
-                      )}</p>
-                      {/* //TODO: validar precio a nivel del servidor */}
-                      <p className='fs-4'><span  className='fw-bold'>Precio: </span>{moneda}</p>
-                    </div>
-                    <FormPronosticos moneda={moneda} />
+                    {pagoEnProceso === false ? (
+                      <>
+                        <h4 className='text-center fw-bold'>COMPRAR</h4>
+                        <div className={styles.description}>
+                          <p className='fs-4'><span className='fw-bold'>Descripción de la compra: </span>{sorteo ? (
+                            `Pronostico + Sorteo Elegido`
+                          ) : (
+                            'Pronostico'
+                          )}</p>
+                          {/* //TODO: validar precio a nivel del servidor */}
+                          <p className='fs-4'><span  className='fw-bold'>Precio: </span>{moneda}</p>
+                        </div>
+                        <FormPronosticos moneda={moneda} id={id} />
+                      </>
+                    ) : (
+                      <PaymentProcess datos={transaction} prod={'pronostico'} />
+                    )}
                 </div>
               </div>
             </div>
@@ -141,7 +162,8 @@ export async function getServerSideProps( { params: {id} } ) {
 
   return {
     props: {
-        resultado
+        resultado,
+        id
     }
 }
 }
