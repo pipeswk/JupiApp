@@ -8,7 +8,7 @@ const FormSorteos = ( { valorTicket, id } ) => {
 
     const [metodo, setMetodo] = useState('');
     const [cantidad, setCantidad] = useState('1');
-    const { pagarSorteo } = useJupi();
+    const { pagar } = useJupi();
     const totalPagar = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(cantidad * valorTicket);
 
     const formik = useFormik({
@@ -68,7 +68,7 @@ const FormSorteos = ( { valorTicket, id } ) => {
     })
 
     const enviarDatos = (values) => {
-        pagarSorteo(values);
+        pagar(values, 'sorteo');
     }
 
   return (
@@ -139,7 +139,7 @@ const FormSorteos = ( { valorTicket, id } ) => {
                 formik.setFieldValue('method', 'NEQUI');
             } }
             >
-                <img src='/img/nequi.webp' className="img-fluid" alt="Logo Efecty"></img>
+                <img src='/img/nequi.webp' className="img-fluid" alt="Logo Nequi"></img>
             </div>
 
             <div
@@ -163,7 +163,7 @@ const FormSorteos = ( { valorTicket, id } ) => {
                 formik.setFieldValue('method', 'DAVIPLATA');
             } }
             >
-                <img src='/img/Daviplata.png' className="img-fluid" alt="Logo Efecty"></img>
+                <img src='/img/Daviplata.png' className="img-fluid" alt="Logo PSE"></img>
             </div>
 
         </div>
