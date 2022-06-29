@@ -4,12 +4,12 @@ import * as Yup from 'yup';
 import styles from '../../styles/EntradaPronostico.module.css'
 import useJupi from '../Hooks/useJupi';
 
-const FormPronosticos = ( { moneda } ) => {
+const FormPronosticos = ( { moneda, id } ) => {
 
 
     const [metodo, setMetodo] = useState('');
 
-    const { sorteos } = useJupi();
+    const { sorteos, pagar } = useJupi();
 
     const formik = useFormik({
         initialValues: {
@@ -19,7 +19,8 @@ const FormPronosticos = ( { moneda } ) => {
             sorteo: '',
             method: '',
             telNequi: '',
-            telDaviplata: ''
+            telDaviplata: '',
+            idProdComprado: id
         },
         validationSchema: Yup.object({
             nombre: Yup.string()
@@ -65,7 +66,7 @@ const FormPronosticos = ( { moneda } ) => {
     })
 
     const enviarDatos = (values) => {
-        console.log(values);
+        pagar(values, 'pronostico');
     }
 
   return (
