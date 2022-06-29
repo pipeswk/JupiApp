@@ -4,6 +4,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 
 const app = express();
+const efectivo = express();
 const eventos = express();
 
 dotenv.config();
@@ -29,11 +30,14 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+efectivo.use(cors(corsOptions));
 
 // Routing
 
 app.use("/api/nequi", require("./routes/nequi.routes.js"));
+efectivo.use("/api/mp", require("./routes/efectivo.routes.js"));
 eventos.use("/", require("./routes/eventos.routes.js"));
 
 exports.app = functions.https.onRequest(app);
+exports.efectivo = functions.https.onRequest(efectivo);
 exports.eventos = functions.https.onRequest(eventos);
