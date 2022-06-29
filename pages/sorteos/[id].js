@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Layout from '../../src/Layout/Layout'
 import styles from '../../styles/EntradaPronostico.module.css'
@@ -6,15 +6,21 @@ import { db } from '../../utils/Firebase'
 import { doc, getDoc } from "firebase/firestore";
 import FormSorteos from '../../src/Components/FormSorteos'
 import Progress from '../../src/Components/Progress'
+import useJupi from '../../src/Hooks/useJupi'
+import PaymentProcess from '../../src/Components/PaymentProcess'
 
 const EntradaSorteo = ( { resultado, id } ) => {
-  
-    const { nombre, categoria, img, onPronosticos, valorTicket } = resultado
+    const [datosSorteo, setDatosSorteo] = useState([]);
+    const { nombre, img, valorTicket, participantes } = resultado
+    const { sorteos, pagoEnProceso } = useJupi()
     const moneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(valorTicket);
 
-    // TODO: Hacer funcion de lectura en tiempo real de los participantes del torneo
-  
-  
+
+    useEffect(() => {
+      setDatosSorteo(sorteos.filter(sorteo => sorteo.id === id));
+    }, [sorteos])
+    
+
     return (
       <Layout
           pagina={nombre}
@@ -41,9 +47,7 @@ const EntradaSorteo = ( { resultado, id } ) => {
                       {/* Cuerpo */}
   
                       <div>
-                        {/* // TODO: Hacer dinamico el indicado de Cupos disponibles */}
-                        <p className='text-center fw-bold'>{`Cupos Disponibles: 500`}</p>
-                        <Progress />
+                        <Progress data={datosSorteo[0]} />
                       </div>
                       <p className='text-decoration-underline fw-bold text-center mt-5'>Instrucciones de compra:</p>
                       <ol className='d-md-none'>
@@ -63,13 +67,19 @@ const EntradaSorteo = ( { resultado, id } ) => {
                 </div>
                 <div className='col-12 col-md-5'>
                   <div className='bg-white shadow-sm p-3 rounded'>
-                      <h4 className='text-center fw-bold'>COMPRAR</h4>
-                      <div className={styles.description}>
-                        <p className='fs-4'><span className='fw-bold'>Descripción de la compra: </span>{`Sorteo de bajo costo: ${nombre}`}</p>
-                        {/* //TODO: validar precio a nivel del servidor */}
-                        <p className='fs-4'><span  className='fw-bold'>Precio: </span>{moneda}</p>
-                      </div>
-                      <FormSorteos id={id} valorTicket={valorTicket} />
+                      {pagoEnProceso === false ? (
+                        <>
+                          <h4 className='text-center fw-bold'>COMPRAR</h4>
+                          <div className={styles.description}>
+                            <p className='fs-4'><span className='fw-bold'>Descripción de la compra: </span>{`Sorteo de bajo costo: ${nombre}`}</p>
+                            {/* //TODO: validar precio a nivel del servidor */}
+                            <p className='fs-4'><span  className='fw-bold'>Precio: </span>{moneda}</p>
+                          </div>
+                          <FormSorteos id={id} valorTicket={valorTicket} />
+                        </>
+                      ) : (
+                        <PaymentProcess datos={datosSorteo} prod={'sorteo'} />
+                      )}
                   </div>
                 </div>
               </div>
