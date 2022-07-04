@@ -31,20 +31,6 @@ const Header = () => {
                         </Link>
                     </li>
                 </ul>
-
-                <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input
-                        type="search"
-                        className="form-control form-control-white text-white bg-white"
-                        placeholder="Buscar..."
-                        aria-label="Search"
-                    />
-                </form>
-
-                <div className="text-end">
-                    <button type="button" className="btn btn-outline-light me-2">Login</button>
-                    <button type="button" className="btn btn-warning">Sign-up</button>
-                </div>
             </div>
         </div>
     </header>
