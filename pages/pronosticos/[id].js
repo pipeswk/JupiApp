@@ -8,8 +8,9 @@ import FormPronosticos from '../../src/Components/FormPronosticos'
 import CountDown from '../../src/Components/CountDown'
 import useJupi from '../../src/Hooks/useJupi'
 import PaymentProcess from '../../src/Components/PaymentProcess'
+import axios from 'axios'
 
-const EntradaPronostico = ( { resultado, id } ) => {
+const EntradaPronostico = ( { resultado, entidades, id } ) => {
 
   const [cuota, setCuota] = useState('');
   const [transaction, setTransaction] = useState({});
@@ -127,7 +128,7 @@ const EntradaPronostico = ( { resultado, id } ) => {
                           {/* //TODO: validar precio a nivel del servidor */}
                           <p className='fs-4'><span  className='fw-bold'>Precio: </span>{moneda}</p>
                         </div>
-                        <FormPronosticos moneda={moneda} id={id} />
+                        <FormPronosticos moneda={moneda} entidades={entidades} id={id} />
                       </>
                     ) : (
                       <PaymentProcess datos={transaction} prod={'pronostico'} />
@@ -145,6 +146,15 @@ const EntradaPronostico = ( { resultado, id } ) => {
 export default EntradaPronostico
 
 export async function getServerSideProps( { params: {id} } ) {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + process.env.ACCESS_TOKEN
+    }
+  }
+  const {data} = await axios.get('https://api.mercadopago.com/v1/payment_methods', config);
+  const entidadesFiltradas = data.filter(method => method.payment_type_id === 'bank_transfer')
+  const entidades = entidadesFiltradas[0].financial_institutions
   const docRef = doc(db, 'pronosticos', id);
   const documento = await getDoc(docRef);
   const resultado = documento.data();
@@ -163,6 +173,7 @@ export async function getServerSideProps( { params: {id} } ) {
   return {
     props: {
         resultado,
+        entidades,
         id
     }
 }
