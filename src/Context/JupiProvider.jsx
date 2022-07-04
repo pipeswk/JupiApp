@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { collection, query, addDoc, updateDoc, onSnapshot, orderBy, doc } from "firebase/firestore";
 import { db } from '../../utils/Firebase';
 import axios from 'axios';
@@ -10,6 +11,7 @@ const JupiProvider = ( { children } ) => {
 
     const [pronosticoActual, setpronosticoActual] = useState({});
     const [sorteoActual, setSorteoActual] = useState({});
+    const [ip, setIp] = useState('');
     const [pronosticos, setPronosticos] = useState([]);
     const [sorteos, setSorteos] = useState([]);
     const [ganadores, setGanadores] = useState([]);
@@ -17,6 +19,19 @@ const JupiProvider = ( { children } ) => {
     const [paymentMethod, setPaymentMethod] = useState('');
     const [refPago, setRefPago] = useState('');
     const [efecty, setEfecty] = useState({});
+
+    const router = useRouter();
+
+    // Se obtiene la IP publica del cliente que accede a la pagina
+
+    const getIP = async () => {
+      try {
+        const response = await axios.get('https://api.ipify.org?format=json');
+        setIp(response.data.ip);
+      } catch (error) {
+        console.log(error);
+      }
+    }
 
     // Consulta en tiempo real de los pronosticos
     const obtenerPronosticos = async () => {
@@ -68,6 +83,7 @@ const JupiProvider = ( { children } ) => {
     // UseEffect que ejecuta las consultas tan pronto se renderiza el componente
 
     useEffect(() => {
+      getIP();
       obtenerPronosticos();
       obtenerSorteos();
       obtenerGanadores();
@@ -202,6 +218,21 @@ const JupiProvider = ( { children } ) => {
         setPagoEnProceso(true);
         setRefPago(respuesta.message);
         console.log(respuesta);
+      } else { // PSE
+        console.log(data, product);
+        const config = {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+        const {data: respuesta} = await axios.post('https://us-central1-jupi-e46aa.cloudfunctions.net/efectivo/api/mp/pse', {
+          data: data,
+          product: product,
+          ip: ip
+        }, config)
+        setPaymentMethod('PSE');
+        console.log(respuesta);
+        router.push(respuesta.response.transaction_details.external_resource_url);
       }
     }
 
