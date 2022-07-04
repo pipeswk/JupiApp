@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import styles from '../../styles/EntradaPronostico.module.css'
 import useJupi from '../Hooks/useJupi';
 
-const FormSorteos = ( { valorTicket, id } ) => {
+const FormSorteos = ( { valorTicket, id, entidades } ) => {
 
     const [metodo, setMetodo] = useState('');
     const [cantidad, setCantidad] = useState('1');
@@ -19,8 +19,9 @@ const FormSorteos = ( { valorTicket, id } ) => {
             telefono: '',
             method: '',
             telNequi: '',
-            telDaviplata: '',
-            cantidad: '1'
+            tipoDocumento: 'CC',
+            noDocumento: '',
+            cantidad: '1',
         },
         validationSchema: Yup.object({
             nombre: Yup.string()
@@ -48,14 +49,20 @@ const FormSorteos = ( { valorTicket, id } ) => {
                     then: Yup.string()
                         .required('El numero de nequi es obligatorio')
                 }),
-            telDaviplata: Yup.string()
-            .max(10, 'El numero de Daviplata no puede tener más de 10 caracteres')
-            .min(10, 'El numero de Daviplata debe tener al menos 10 caracteres')
-            .matches(/^[0-9]*$/, 'El numero de Daviplata solo puede contener números')
+            noDocumento: Yup.string()
+            .max(10, 'El numero de documento no puede tener más de 10 caracteres')
+            .min(6, 'El numero de documento debe tener al menos 6 caracteres')
+            .matches(/^[0-9]*$/, 'El numero de documento solo puede contener números')
             .when('method', {
-                is: 'DAVIPLATA',
+                is: 'PSE',
                 then: Yup.string()
-                    .required('El numero de Daviplata es obligatorio')
+                    .required('El numero de documento es obligatorio')
+            }),
+            entidad: Yup.string()
+            .when('method', {
+                is: 'PSE',
+                then: Yup.string()
+                    .required('La entidad es obligatoria')
             }),
             cantidad: Yup.number()
                 .required('La cantidad es obligatoria')
@@ -108,7 +115,7 @@ const FormSorteos = ( { valorTicket, id } ) => {
         </div>
 
         <div className="mb-3">
-            <label htmlFor='telefono' className="form-label fw-bold">Telefono</label>
+            <label htmlFor='telefono' className="form-label fw-bold">Teléfono</label>
             <div className="input-group mb-3">
             <span className="input-group-text" id="inputGroup-sizing-sm">+57</span>
             <input
@@ -127,7 +134,7 @@ const FormSorteos = ( { valorTicket, id } ) => {
             ) : null}
         </div>
         
-        <p className='fw-bold'>Selecciona el metodo de pago (Disponible solo en Colombia):</p>
+        <p className='fw-bold'>Selecciona el método de pago (Disponible solo en Colombia):</p>
         <div className={styles.pagos}>
             
             <div
@@ -155,15 +162,15 @@ const FormSorteos = ( { valorTicket, id } ) => {
             </div>
 
             <div
-            id='DAVIPLATA'
-            className={metodo === 'DAVIPLATA' ? styles.methodCard_Active : styles.methodCard_Desactive}
+            id='PSE'
+            className={metodo === 'PSE' ? styles.methodCard_Active : styles.methodCard_Desactive}
             onClick={(e) => {
                 e.preventDefault();
-                setMetodo('DAVIPLATA');
-                formik.setFieldValue('method', 'DAVIPLATA');
+                setMetodo('PSE');
+                formik.setFieldValue('method', 'PSE');
             } }
             >
-                <img src='/img/Daviplata.png' className="img-fluid" alt="Logo PSE"></img>
+                <img src='/img/logo-pse-300x300.png' className="img-fluid" alt="Logo PSE"></img>
             </div>
 
         </div>
@@ -173,7 +180,7 @@ const FormSorteos = ( { valorTicket, id } ) => {
         {metodo === 'NEQUI' && (
             <>
             <div className={styles.badge}>
-                <p>Recibiras una notificacion en tu celular para realizar el pago con tu saldo de NEQUI</p>
+                <p>Recibirás una notificación en tu celular para realizar el pago con tu saldo de NEQUI</p>
             </div>
             <div className="mb-3">
                 <label htmlFor='telnequi' className="form-label fw-bold">Numero de NEQUI:</label>
@@ -189,44 +196,66 @@ const FormSorteos = ( { valorTicket, id } ) => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                 />
+                </div>
                 {formik.touched.telNequi && formik.errors.telNequi ? (
                     <div className="text-danger">{formik.errors.telNequi}</div>
                 ) : null}
-                </div>
             </div>
             </>
         )}
         {metodo === 'EFECTY' && (
             <>
             <div className={styles.badge}>
-                <p>Obtendras un codigo que debes entregar al cajero en EFECTY para terminar tu pago</p>
+                <p>Obtendrás un código que debes entregar al cajero en EFECTY para terminar tu pago</p>
             </div>
             </>
         )}
 
-        {metodo === 'DAVIPLATA' && (
+        {metodo === 'PSE' && (
             <>
             <div className={styles.badge}>
-                <p>Recibiras una notificacion en tu celular para realizar el pago con tu saldo de DAVIPLATA</p>
+                <p>Se te redireccionara a la pagina oficial del banco que selecciones para completar la transacción.</p>
             </div>
             <div className="mb-3">
-                <label htmlFor='telDaviplata' className="form-label fw-bold">Numero de Daviplata:</label>
+                <label htmlFor='noDocumento' className="form-label fw-bold">Numero de documento de identidad:</label>
                 <div className="input-group mb-3">
-                    <span className="input-group-text" id="inputGroup-sizing-sm">+57</span>
+                    <span className="input-group-text" id="inputGroup-sizing-sm">C.C</span>
                     <input
-                        type="tel"
-                        id='telDaviplata'
-                        name='telDaviplata'
+                        type="number"
+                        id='noDocumento'
+                        name='noDocumento'
                         className="form-control"
-                        placeholder='Ej: 3153315875'
-                        value={formik.values.telDaviplata}
+                        placeholder='Ej: 1023943785'
+                        value={formik.values.noDocumento}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                     />
-                    {formik.touched.telDaviplata && formik.errors.telDaviplata ? (
-                        <div className="text-danger">{formik.errors.telDaviplata}</div>
-                    ) : null}
                 </div>
+                {formik.touched.noDocumento && formik.errors.noDocumento ? (
+                        <div className="text-danger">{formik.errors.noDocumento}</div>
+                    ) : null}
+            </div>
+
+            <div className="mb-3">
+                <label htmlFor='entidad' className="form-label fw-bold">Seleccione su banco</label>
+                <div className="input-group mb-3">
+                    <select
+                        className="form-control"
+                        id='entidad'
+                        name='entidad'
+                        value={formik.values.entidad}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                    >
+                        <option value=''>--Elige una entidad--</option>
+                        {entidades.map(entidad => (
+                            <option key={entidad.id} value={entidad.id}>{entidad.description}</option>
+                        ))}
+                    </select>
+                </div>
+                {formik.touched.entidad && formik.errors.entidad ? (
+                    <div className="text-danger">{formik.errors.entidad}</div>
+                ) : null}
             </div>
             </>
         )}
@@ -256,6 +285,7 @@ const FormSorteos = ( { valorTicket, id } ) => {
             <p className='fs-4'><span className='fw-bold'>Resumen: </span>{`${cantidad} Ticket/s`}</p>
             <p className='fs-4'><span  className='fw-bold'>Total a pagar: </span>{totalPagar}</p>
         </div>
+        <p>Al hacer clic en el botón "PAGAR" aceptas nuestros <span className='alert-link text-primary'>Términos y Condiciones</span></p>
         <button type='submit' className="btn btn-primary w-100 mt-5 fw-bold">PAGAR</button>
     </form>
   )
