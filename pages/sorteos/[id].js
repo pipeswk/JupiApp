@@ -56,13 +56,13 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
                       <li>Llena el formulario de <span className='fw-bold'>abajo.</span></li>
                       <li>Selecciona el metodo de pago de tu preferencia.</li>
                       <li>Elige la cantidad de tickets a comprar <span className='fw-bold'>(Entre mas tickets compres mayor probabilidad de ganar tienes).</span></li>
-                      <li>Haz clic en el boton <span className='fw-bold'>"PAGAR"</span> y sigue las instrucciones.</li>
+                      <li>Haz clic en el boton <span className='fw-bold'>PAGAR</span> y sigue las instrucciones.</li>
                     </ol>
                     <ol className='d-none d-md-block'>
                       <li>Llena el formulario del lado <span className='fw-bold'>derecho.</span></li>
                       <li>Selecciona el metodo de pago de tu preferencia.</li>
                       <li>Elige la cantidad de tickets a comprar <span className='fw-bold'>(Entre mas tickets compres mayor probabilidad de ganar tienes).</span></li>
-                      <li>Haz clic en el boton <span className='fw-bold'>"PAGAR"</span> y sigue las instrucciones.</li>
+                      <li>Haz clic en el boton <span className='fw-bold'>PAGAR</span> y sigue las instrucciones.</li>
                     </ol>
                   </div>
                 </div>
