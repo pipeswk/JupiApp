@@ -22,7 +22,7 @@ service cloud.firestore {
     }
 
     match /transactions/{transaction} {
-      allow read: if false;
+      allow read: if true;
       allow write: if false;
     }
   }
