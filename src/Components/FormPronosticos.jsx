@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import styles from '../../styles/EntradaPronostico.module.css'
@@ -8,6 +8,8 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
 
 
     const [metodo, setMetodo] = useState('');
+    const [cargando, setCargando] = useState(false);
+    
 
     const { sorteos, pagar } = useJupi();
 
@@ -68,6 +70,7 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
             }),
         }),
         onSubmit: values => {
+            setCargando(true);
             enviarDatos(values);
         }
     })
@@ -283,7 +286,14 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
             <p className='fs-4'><span className='fw-bold'>Resumen: </span>Pronostico deportivo</p>
             <p className='fs-4'><span  className='fw-bold'>Total a pagar: </span>{moneda}</p>
         </div>
-        <button type='submit' className="btn btn-primary w-100 mt-5 fw-bold">PAGAR</button>
+        {cargando === false ? (
+            <button type='submit' className="btn btn-primary w-100 mt-5 fw-bold">PAGAR</button>
+        ) : (
+            <button className="btn btn-primary w-100 mt-5 fw-bold" type="button" disabled>
+                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                {` Cargando...`}
+            </button>
+        )}
     </form>
   )
 }
