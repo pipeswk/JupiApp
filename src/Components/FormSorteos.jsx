@@ -8,6 +8,7 @@ const FormSorteos = ( { valorTicket, id, entidades } ) => {
 
     const [metodo, setMetodo] = useState('');
     const [cantidad, setCantidad] = useState('1');
+    const [cargando, setCargando] = useState(false);
     const { pagar } = useJupi();
     const totalPagar = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(cantidad * valorTicket);
 
@@ -70,6 +71,7 @@ const FormSorteos = ( { valorTicket, id, entidades } ) => {
                 .max(50, 'La cantidad no puede ser mayor a 50')
         }),
         onSubmit: values => {
+            setCargando(true);
             enviarDatos(values);
         }
     })
@@ -286,7 +288,14 @@ const FormSorteos = ( { valorTicket, id, entidades } ) => {
             <p className='fs-4'><span  className='fw-bold'>Total a pagar: </span>{totalPagar}</p>
         </div>
         <p>Al hacer clic en el botón "PAGAR" aceptas nuestros <span className='alert-link text-primary'>Términos y Condiciones</span></p>
-        <button type='submit' className="btn btn-primary w-100 mt-5 fw-bold">PAGAR</button>
+        {cargando === false ? (
+            <button type='submit' className="btn btn-primary w-100 mt-5 fw-bold">PAGAR</button>
+        ) : (
+            <button className="btn btn-primary w-100 mt-5 fw-bold" type="button" disabled>
+                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                {` Cargando...`}
+            </button>
+        )}
     </form>
   )
 }
