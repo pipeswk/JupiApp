@@ -14,11 +14,32 @@ const privateKey = process.env.PRIVATE_KEY;
 
 // ENDPOINT para procesar pagos via nequi PARA LOS SORTEOS
 const ejecutarPagoSorteo = async (req, res) => {
+  console.log(req.body);
+  const documento = await db.collection("transactions").add({
+    nombreCliente: req.body.data.nombre,
+    refPago: "",
+    method: req.body.data.method,
+    tipoCompra: req.body.product,
+    idSorteo: req.body.data.idSorteo,
+    cantidad: req.body.data.cantidad,
+    telefono: req.body.data.telefono,
+    telNequi: req.body.data.telNequi,
+    email: req.body.data.email,
+    tokenAceptacion: "",
+    statusTransaccion: false,
+    transaccionCreada: false,
+  });
+  const docId = documento.id;
+  const docRef = db.collection("transactions").doc(docId);
+  await docRef.update({
+    refPago: docId,
+  });
   try {
     const tokenAceptacion = await obtenerTokenAceptacion();
-    await crearTransaccion(req.body, tokenAceptacion);
+    await crearTransaccion(req.body, tokenAceptacion, docId);
     res.status(200).send({
       message: "Transaccion ejecutada con exito",
+      refPago: docId,
     });
   } catch (error) {
     res.status(500).send({
@@ -36,22 +57,21 @@ const obtenerTokenAceptacion = async () => {
 
 //  Crear transaccion Nequi
 
-const crearTransaccion = async (datos, token) => {
+const crearTransaccion = async (datos, token, reference) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${privateKey}`,
     },
   };
-  const reference = datos.reference;
   let precio;
   let precioNequi;
-  const sorteoRef = db.collection("sorteos").doc(datos.idSorteo);
+  const sorteoRef = db.collection("sorteos").doc(datos.data.idSorteo);
   const sorteo = await sorteoRef.get();
   if (!sorteo.exists) {
     console.log("No existe el sorteo");
   } else {
-    precio = (sorteo.data().valorTicket) * datos.cantidad;
+    precio = (sorteo.data().valorTicket) * datos.data.cantidad;
     precioNequi = parseInt(`${precio}00`);
   }
   try {
@@ -67,15 +87,15 @@ const crearTransaccion = async (datos, token) => {
       "acceptance_token": token,
       "amount_in_cents": precioNequi,
       "currency": "COP",
-      "customer_email": datos.customer_email,
+      "customer_email": datos.data.email,
       "payment_method": {
         "type": "NEQUI",
-        "phone_number": datos.phone_nequi,
+        "phone_number": datos.data.telNequi,
       },
       "reference": reference,
       "customer_data": {
-        "phone_number": `57${datos.phone_number}`,
-        "full_name": datos.full_name,
+        "phone_number": `57${datos.data.telefono}`,
+        "full_name": datos.data.nombre,
       },
     }, config);
     console.log(data);
@@ -86,11 +106,33 @@ const crearTransaccion = async (datos, token) => {
 
 // ENDPOINT para procesar pagos via nequi PARA LOS PRONOSTIOS
 const ejecutarPagoPronostico = async (req, res) => {
+  console.log(req.body);
+  const documento = await db.collection("transactions").add({
+    nombreCliente: req.body.data.nombre,
+    refPago: "",
+    method: req.body.data.method,
+    tipoCompra: req.body.product,
+    cantidad: 1,
+    idProductoComprado: req.body.data.idProdComprado,
+    telefono: req.body.data.telefono,
+    telNequi: req.body.data.telNequi,
+    email: req.body.data.email,
+    idSorteo: req.body.data.sorteo,
+    tokenAceptacion: "",
+    statusTransaccion: false,
+    transaccionCreada: false,
+  });
+  const docId = documento.id;
+  const docRef = db.collection("transactions").doc(docId);
+  await docRef.update({
+    refPago: docId,
+  });
   try {
     const tokenAceptacion = await obtenerTokenAceptacion();
-    await crearTransaccionPronosticos(req.body, tokenAceptacion);
+    await crearTransaccionPronosticos(req.body, tokenAceptacion, docId);
     res.status(200).send({
       message: "Transaccion ejecutada con exito",
+      refPago: docId,
     });
   } catch (error) {
     res.status(500).send({
@@ -101,17 +143,16 @@ const ejecutarPagoPronostico = async (req, res) => {
 
 //  Crear transaccion Nequi para pronosticos
 
-const crearTransaccionPronosticos = async (datos, token) => {
+const crearTransaccionPronosticos = async (datos, token, reference) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${privateKey}`,
     },
   };
-  const reference = datos.reference;
   let precio;
   let precioNequi;
-  const pronRef = db.collection("pronosticos").doc(datos.idPron);
+  const pronRef = db.collection("pronosticos").doc(datos.data.idProdComprado);
   const pronostico = await pronRef.get();
   if (!pronostico.exists) {
     console.log("No existe el pronostico");
@@ -132,15 +173,15 @@ const crearTransaccionPronosticos = async (datos, token) => {
       "acceptance_token": token,
       "amount_in_cents": precioNequi,
       "currency": "COP",
-      "customer_email": datos.customer_email,
+      "customer_email": datos.data.email,
       "payment_method": {
         "type": "NEQUI",
-        "phone_number": datos.phone_nequi,
+        "phone_number": datos.data.telNequi,
       },
       "reference": reference,
       "customer_data": {
-        "phone_number": `57${datos.phone_number}`,
-        "full_name": datos.full_name,
+        "phone_number": `57${datos.data.telefono}`,
+        "full_name": datos.data.nombre,
       },
     }, config);
     console.log(data);
