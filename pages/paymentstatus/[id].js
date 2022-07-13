@@ -28,6 +28,11 @@ export async function getServerSideProps( { params: {id} } ) {
         resultado = documento.data();
     } else {
         console.log('Documento no encontrado!');
+        return {
+            redirect: {
+              destination: '/',
+            }
+        }
     }
     return {
         props: {
