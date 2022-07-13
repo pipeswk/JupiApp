@@ -154,9 +154,14 @@ const eventosMercadoPago = async (req, res) => {
         res.status(200).send({
           message: "Evento escuchado",
         });
+      } else {
+        res.status(200).send({
+          message: "Evento escuchado, transacción no completada.",
+        });
       }
     } catch (error) {
       console.log(error);
+      res.end();
     }
   } else {
     res.status(200).send({
