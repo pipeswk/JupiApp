@@ -3,10 +3,11 @@ import { useState, useEffect } from 'react'
 const Progress = ( { data } ) => {
 
     const [porcentaje, setPorcentaje] = useState(0);
+    console.log(data);
 
     useEffect(() => {
         const calcularPorcentaje = () => {
-            const porc = Math.round((data?.participantes.length / 500) * 100);
+            const porc = Math.round((data?.participantes.length / data?.capacidad) * 100);
             setPorcentaje(porc);
             console.log(porcentaje);
         }
@@ -15,7 +16,7 @@ const Progress = ( { data } ) => {
 
   return (
     <div>
-        <p className='text-center fw-bold'>{`Cupos Disponibles: ${500 - data?.participantes.length}`}</p>
+        <p className='text-center fw-bold'>{`Cupos Disponibles: ${data?.capacidad - data?.participantes.length}`}</p>
         <div className='progress'>
             <div
                 className={porcentaje === 100 ? (
