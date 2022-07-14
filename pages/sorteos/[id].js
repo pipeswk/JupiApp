@@ -13,7 +13,7 @@ import axios from 'axios'
 const EntradaSorteo = ( { resultado, entidades, id } ) => {
   
   const [datosSorteo, setDatosSorteo] = useState([]);
-  const { nombre, img, valorTicket, participantes } = resultado
+  const { nombre, img, valorTicket } = resultado
   const { sorteos, pagoEnProceso } = useJupi()
   const moneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(valorTicket);
 
@@ -74,7 +74,6 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
                         <h4 className='text-center fw-bold'>COMPRAR</h4>
                         <div className={styles.description}>
                           <p className='fs-4'><span className='fw-bold'>Descripción de la compra: </span>{`Sorteo de bajo costo: ${nombre}`}</p>
-                          {/* //TODO: validar precio a nivel del servidor */}
                           <p className='fs-4'><span  className='fw-bold'>Precio: </span>{moneda}</p>
                         </div>
                         <FormSorteos id={id} valorTicket={valorTicket} entidades={entidades} />
