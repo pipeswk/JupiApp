@@ -79,8 +79,8 @@ const EntradaPronostico = ( { resultado, entidades, id } ) => {
 
                     <div>
                       <div className='container'>
-                        <p className='text-center fs-5 fw-bold'>El pronostico se cerrara en</p>
-                        <CountDown />
+                        {/* <p className='text-center fs-5 fw-bold'>El pronostico se cerrara en</p>
+                        <CountDown /> */}
                         <div className='row mt-4'>
                           <div className='col-12 col-md-6'>
                             <p className='text-center fw-bold fs-5'>Descripcion del pronostico:</p>
