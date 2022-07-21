@@ -13,7 +13,7 @@ const CountDown = () => {
     
 
     const calcularTiempo = () => {
-        const diferencia = new Date('2022-06-23T00:00:00-05:00') - +new Date();
+        const diferencia = new Date('2022-07-23T00:00:00-05:00') - +new Date();
         let tiempo = {};
 
         if(diferencia > 0) {
