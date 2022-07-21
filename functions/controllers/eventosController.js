@@ -336,6 +336,17 @@ const eventosMercadoPago = async (req, res) => {
             compradores: admin.firestore.FieldValue
                 .arrayUnion(...nuevosInscritos),
           });
+          const pronImgRef = db.collection("imgpronosticos");
+          const pronImg = await pronImgRef
+              .where("idPron", "==", docs[0].idProductoComprado).get();
+          if (pronImg.empty) {
+            console.log("Documento no encontrado");
+            return;
+          }
+          const imagen = [];
+          pronImg.forEach((doc) => {
+            imagen.push(doc.data().img_src);
+          });
           // Se envia mensaje de whatsapp
           const whatsappData = JSON.stringify({
             "messaging_product": "whatsapp",
@@ -353,7 +364,7 @@ const eventosMercadoPago = async (req, res) => {
                     {
                       "type": "image",
                       "image": {
-                        "link": "https://firebasestorage.googleapis.com/v0/b/jupi-e46aa.appspot.com/o/pronosticos%2FNHL.jpg?alt=media&token=276807f0-b780-460c-80a2-94f526300e17",
+                        "link": imagen[0],
                       },
                     },
                   ],
