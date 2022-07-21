@@ -68,7 +68,7 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
                   </div>
                 </div>
               </div>
-              <div className='col-12 col-md-5'>
+              <div className='col-12 col-md-5' id='pagoEfecty'>
                 <div className='bg-white shadow-sm p-3 rounded'>
                     {pagoEnProceso === false ? (
                       <>
