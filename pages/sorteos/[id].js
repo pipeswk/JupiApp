@@ -9,6 +9,7 @@ import Progress from '../../src/Components/Progress'
 import useJupi from '../../src/Hooks/useJupi'
 import PaymentProcess from '../../src/Components/PaymentProcess'
 import axios from 'axios'
+import SectionGanadores from '../../src/Components/SectionGanadores'
 
 const EntradaSorteo = ( { resultado, entidades, id } ) => {
   
@@ -31,7 +32,7 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
         <div className='py-4 bg-light'>
           <div className='container'>
             <h1 className='fs-1 fw-bold text-center py-2'>{`Sorteo: ${nombre}`}</h1>
-            <div className='row'>
+            <div className='row mb-5'>
               <div className='col-12 col-md-7 mb-4'>
                 <div className='bg-white shadow-sm p-3'>
                   <div className='d-flex flex-column w-100'>
@@ -84,6 +85,7 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
                 </div>
               </div>
             </div>
+            <SectionGanadores />
           </div>
         </div>
       </main>
