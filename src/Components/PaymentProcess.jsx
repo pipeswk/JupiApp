@@ -34,7 +34,7 @@ const PaymentProcess = ( { datos, prod } ) => {
   return (
     <>
       {paymentMethod === 'NEQUI' ? (
-        <div>
+        <div id='pagoNequi'>
           {pagoConfirmado === false ? (
             <h1 className='text-center my-4'>Completa la transacción</h1>
           ) : (
