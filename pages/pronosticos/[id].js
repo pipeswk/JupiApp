@@ -9,6 +9,7 @@ import CountDown from '../../src/Components/CountDown'
 import useJupi from '../../src/Hooks/useJupi'
 import PaymentProcess from '../../src/Components/PaymentProcess'
 import axios from 'axios'
+import SectionGanadores from '../../src/Components/SectionGanadores'
 
 const EntradaPronostico = ( { resultado, entidades, id } ) => {
 
@@ -136,6 +137,7 @@ const EntradaPronostico = ( { resultado, entidades, id } ) => {
                 </div>
               </div>
             </div>
+            <SectionGanadores />
           </div>
         </div>
       </main>
