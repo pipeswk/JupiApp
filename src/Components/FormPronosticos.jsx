@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import styles from '../../styles/EntradaPronostico.module.css'
@@ -10,6 +11,7 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
     const [metodo, setMetodo] = useState('');
     const [cargando, setCargando] = useState(false);
     
+    const router = useRouter();
 
     const { sorteos, pagar } = useJupi();
 
@@ -70,8 +72,18 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
             }),
         }),
         onSubmit: values => {
-            setCargando(true);
-            enviarDatos(values);
+            if (metodo === 'NEQUI') {
+                router.push(`/pronosticos/${id}#pagoNequi`);
+                setCargando(true);
+                enviarDatos(values);
+            } else if (metodo === 'EFECTY') {
+                router.push(`/pronosticos/${id}#pagoEfecty`);
+                setCargando(true);
+                enviarDatos(values);
+            } else {
+                setCargando(true);
+                enviarDatos(values);
+            }
         }
     })
 
