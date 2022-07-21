@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import styles from '../../styles/EntradaPronostico.module.css'
@@ -11,6 +12,7 @@ const FormSorteos = ( { valorTicket, id, entidades } ) => {
     const [cargando, setCargando] = useState(false);
     const { pagar } = useJupi();
     const totalPagar = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(cantidad * valorTicket);
+    const router = useRouter();
 
     const formik = useFormik({
         initialValues: {
@@ -71,8 +73,18 @@ const FormSorteos = ( { valorTicket, id, entidades } ) => {
                 .max(50, 'La cantidad no puede ser mayor a 50')
         }),
         onSubmit: values => {
-            setCargando(true);
-            enviarDatos(values);
+            if (metodo === 'NEQUI') {
+                router.push(`/sorteos/${id}#pagoNequi`);
+                setCargando(true);
+                enviarDatos(values);
+            } else if (metodo === 'EFECTY') {
+                setCargando(true);
+                enviarDatos(values);
+                router.push(`/sorteos/${id}#pagoEfecty`);
+            } else {
+                setCargando(true);
+                enviarDatos(values);
+            }
         }
     })
 
