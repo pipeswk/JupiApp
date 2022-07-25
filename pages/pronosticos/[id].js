@@ -98,14 +98,14 @@ const EntradaPronostico = ( { resultado, entidades, id } ) => {
                             <ol className='d-md-none'>
                               <li>Llena el formulario de <span className='fw-bold'>abajo</span></li>
                               <li>Elige el sorteo al que deseas participar con tu compra <span className='fw-bold'>(Incluido)</span></li>
-                              <li>Selecciona el metodo de pago de tu preferencia</li>
-                              <li>Haz clic en el boton PAGAR y sigue las instrucciones</li>
+                              <li>Selecciona el método de pago de tu preferencia</li>
+                              <li>Haz clic en el botón PAGAR y sigue las instrucciones</li>
                             </ol>
                             <ol className='d-none d-md-block'>
                               <li>Llena el formulario del lado <span className='fw-bold'>derecho</span></li>
                               <li>Elige el sorteo al que deseas participar con tu compra <span className='fw-bold'>(Incluido)</span></li>
-                              <li>Selecciona el metodo de pago de tu preferencia</li>
-                              <li>Haz clic en el boton PAGAR y sigue las instrucciones</li>
+                              <li>Selecciona el método de pago de tu preferencia</li>
+                              <li>Haz clic en el botón PAGAR y sigue las instrucciones</li>
                             </ol>
                           </div>
                         </div>
@@ -115,7 +115,7 @@ const EntradaPronostico = ( { resultado, entidades, id } ) => {
                   </div>
                 </div>
               </div>
-              <div className='col-12 col-md-5' id='pagoEfecty'>
+              <div className='col-12 col-md-5' id='pagoActive'>
                 <div className='bg-white shadow-sm p-3 rounded'>
                     {pagoEnProceso === false ? (
                       <>

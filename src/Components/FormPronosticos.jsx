@@ -73,11 +73,11 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
         }),
         onSubmit: values => {
             if (metodo === 'NEQUI') {
-                router.push(`/pronosticos/${id}#pagoNequi`);
+                router.push(`/pronosticos/${id}#pagoActive`);
                 setCargando(true);
                 enviarDatos(values);
             } else if (metodo === 'EFECTY') {
-                router.push(`/pronosticos/${id}#pagoEfecty`);
+                router.push(`/pronosticos/${id}#pagoActive`);
                 setCargando(true);
                 enviarDatos(values);
             } else {
@@ -128,7 +128,7 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
         </div>
 
         <div className="mb-3">
-            <label htmlFor='telefono' className="form-label fw-bold">Telefono</label>
+            <label htmlFor='telefono' className="form-label fw-bold">Teléfono (WhatSapp)</label>
             <div className="input-group mb-3">
                 <span className="input-group-text" id="inputGroup-sizing-sm">+57</span>
                 <input
@@ -169,7 +169,7 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
             ) : null}
         </div>
         
-        <p className='fw-bold'>Selecciona el metodo de pago (Disponible solo en Colombia):</p>
+        <p className='fw-bold'>Selecciona el método de pago (Disponible solo en Colombia):</p>
         <div className={styles.pagos}>
             
             <div
@@ -215,7 +215,7 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
         {metodo === 'NEQUI' && (
             <>
             <div className={styles.badge}>
-                <p>Recibiras una notificacion en tu celular para realizar el pago con tu saldo de NEQUI</p>
+                <p>Recibirás una notificación en tu celular para realizar el pago con tu saldo de NEQUI</p>
             </div>
             <div className="mb-3">
                 <label htmlFor='telnequi' className="form-label fw-bold">Numero de NEQUI:</label>
@@ -241,7 +241,7 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
         {metodo === 'EFECTY' && (
             <>
             <div className={styles.badge}>
-                <p>Obtendras un codigo que debes entregar al cajero en EFECTY para terminar tu pago</p>
+                <p>Obtendrás un código que debes entregar al cajero en EFECTY para terminar tu pago</p>
             </div>
             </>
         )}
@@ -249,7 +249,7 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
         {metodo === 'PSE' && (
             <>
                 <div className={styles.badge}>
-                    <p>Recibiras una notificacion en tu celular para realizar el pago con tu saldo de PSE</p>
+                    <p>Recibirás una notificación en tu celular para realizar el pago con tu saldo de PSE</p>
                 </div>
                 <div className="mb-3">
                     <label htmlFor='noDocumento' className="form-label fw-bold">Numero de documento de identidad:</label>

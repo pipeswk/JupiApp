@@ -25,8 +25,8 @@ const Pronosticos = () => {
             <section className='py-5 text-center container'>
               <div className='row py-lg-5'>
                 <div className='col-lg-6 col-md-8 mx-auto'>
-                  <h1 className='fw-bolder text-white'>Pronosticos disponibles</h1>
-                  <p className='text-white lead'>Compra pronosticos deportivos de alta confiabilidad. El 90% de nuestros pornosticos incluye un sorteo en el que podras participar ☺</p>
+                  <h1 className='fw-bolder text-white'>Pronósticos disponibles</h1>
+                  <p className='text-white lead'>Compra pronósticos deportivos de alta confiabilidad. Todos nuestros pronósticos incluye un sorteo en el que podrás participar ☺</p>
                 </div>
               </div>
             </section>
