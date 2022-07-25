@@ -10,7 +10,7 @@ const Ganadores = () => {
         pagina='Ganadores'
     >
       <div className='mt-5'>
-        <h1 className='text-center fw-bold'>Ultimos Ganadores</h1>
+        <h1 className='text-center fw-bold'>Últimos Ganadores</h1>
           <WrapperGanadores />
       </div>
       <div className='container mt-5'>
