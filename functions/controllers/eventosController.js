@@ -194,8 +194,31 @@ const escucharEventos = async (req, res) => {
           },
         };
         const url = "https://graph.facebook.com/v13.0/106635852120380/messages";
-        const {data} = await axios.post(url, whatsappData, whatsappConfig);
-        console.log(data);
+        const {data: reswtp} = await axios.post(url, whatsappData, whatsappConfig);
+        console.log(reswtp);
+        // Se envia SMS de respaldo
+        const smsData = JSON.stringify({
+          "messages": [
+            {
+              "destinations": [
+                {
+                  "to": "573192023226"
+                }
+              ],
+              "from": "InfoSMS",
+              "text": "Mensaje de prueba de Jupi https://jupi.com.co/pronosticos/fZ8eohnHRKBwMJKdtClr"
+            }
+          ]
+        });
+        const smsConfig = {
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `App ${process.env.ACCESS_TOKEN_INFOBIP}`,
+          },
+        };
+        const urlSms = "https://pwvx5l.api.infobip.com/sms/2/text/advanced";
+        const {data: ressms} = await axios.post(urlSms, smsData, smsConfig);
+        console.log(ressms);
         res.status(200).send({
           message: "Evento escuchado",
         });
