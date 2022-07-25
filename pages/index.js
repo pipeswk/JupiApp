@@ -21,9 +21,9 @@ export default function Home() {
         <div className="container my-5">
           <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
             <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
-              <h1 className="display-4 fw-bold lh-1">Sorteos y pronosticos deportivos a bajo costo</h1>
+              <h1 className="display-4 fw-bold lh-1">Sorteos y pronósticos deportivos a bajo costo</h1>
               <p className="lead">
-              Encuentra todo tipo de <span className={`fw-bold fs-3 ${styles.descripcion}`}>sorteos</span> para Colombia aqui: Viajes, consolas, vehiculos, telefonos y mucho mas... Ademas obten los mejores <span className={`fw-bold fs-3 ${styles.descripcion}`}>pronosticos</span> deportivos
+              Encuentra todo tipo de <span className={`fw-bold fs-3 ${styles.descripcion}`}>sorteos</span> para Colombia aquí: Viajes, consolas, vehículos, teléfonos y mucho mas... Ademas obtén los mejores <span className={`fw-bold fs-3 ${styles.descripcion}`}>pronosticos</span> deportivos.
               </p>
               <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
                 <a href='#sorteos'><button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold w-100">Ver sorteos</button></a>
@@ -32,7 +32,7 @@ export default function Home() {
                   className="btn btn-outline-secondary btn-lg px-4"
                   onClick={handleClickPronosticos}
                 >
-                  Ver Pronosticos
+                  Ver Pronósticos
                 </button>
               </div>
             </div>
