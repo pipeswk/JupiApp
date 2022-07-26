@@ -194,21 +194,21 @@ const escucharEventos = async (req, res) => {
           },
         };
         const url = "https://graph.facebook.com/v13.0/106635852120380/messages";
-        const {data: reswtp} = await axios.post(url, whatsappData, whatsappConfig);
-        console.log(reswtp);
+        const {data: rw} = await axios.post(url, whatsappData, whatsappConfig);
+        console.log(rw);
         // Se envia SMS de respaldo
         const smsData = JSON.stringify({
           "messages": [
             {
               "destinations": [
                 {
-                  "to": "573192023226"
-                }
+                  "to": "573192023226",
+                },
               ],
               "from": "InfoSMS",
-              "text": "Mensaje de prueba de Jupi https://jupi.com.co/pronosticos/fZ8eohnHRKBwMJKdtClr"
-            }
-          ]
+              "text": `Hola ${documento.data().nombreCliente}, mira tu pronostico en https://jupi.com.co/${documento.id}`,
+            },
+          ],
         });
         const smsConfig = {
           headers: {
