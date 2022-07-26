@@ -194,34 +194,40 @@ const escucharEventos = async (req, res) => {
           },
         };
         const url = "https://graph.facebook.com/v13.0/106635852120380/messages";
-        const {data: rw} = await axios.post(url, whatsappData, whatsappConfig);
-        console.log(rw);
-        // Se envia SMS de respaldo
-        const smsData = JSON.stringify({
-          "messages": [
-            {
-              "destinations": [
-                {
-                  "to": "573192023226",
-                },
-              ],
-              "from": "InfoSMS",
-              "text": `Hola ${documento.data().nombreCliente}, mira tu pronostico en https://jupi.com.co/${documento.id}`,
+        const resWa = await axios.post(url, whatsappData, whatsappConfig);
+        console.log(resWa.data);
+        if (resWa.status === 200) {
+          res.status(200).send({
+            message: "Evento escuchado",
+          });
+        } else {
+          // Se envia SMS de respaldo
+          const smsData = JSON.stringify({
+            "messages": [
+              {
+                "destinations": [
+                  {
+                    "to": `57${documento.data().telefono}`,
+                  },
+                ],
+                "from": "InfoSMS",
+                "text": `Hola ${documento.data().nombreCliente}, mira tu pronostico en https://jupi.com.co/pronostico/${documento.id}`,
+              },
+            ],
+          });
+          const smsConfig = {
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `App ${process.env.ACCESS_TOKEN_INFOBIP}`,
             },
-          ],
-        });
-        const smsConfig = {
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `App ${process.env.ACCESS_TOKEN_INFOBIP}`,
-          },
-        };
-        const urlSms = "https://pwvx5l.api.infobip.com/sms/2/text/advanced";
-        const {data: ressms} = await axios.post(urlSms, smsData, smsConfig);
-        console.log(ressms);
-        res.status(200).send({
-          message: "Evento escuchado",
-        });
+          };
+          const urlSms = "https://pwvx5l.api.infobip.com/sms/2/text/advanced";
+          const {data: ressms} = await axios.post(urlSms, smsData, smsConfig);
+          console.log(ressms);
+          res.status(200).send({
+            message: "Evento escuchado",
+          });
+        }
       }
     } catch (error) {
       console.error(error);
@@ -450,11 +456,40 @@ const eventosMercadoPago = async (req, res) => {
             },
           };
           const url = "https://graph.facebook.com/v13.0/106635852120380/messages";
-          const {data: r} = await axios.post(url, whatsappData, whatsappConfig);
-          console.log(r);
-          res.status(200).send({
-            message: "Evento escuchado",
-          });
+          const resWa = await axios.post(url, whatsappData, whatsappConfig);
+          console.log(resWa.data);
+          if (resWa.status === 200) {
+            res.status(200).send({
+              message: "Evento escuchado",
+            });
+          } else {
+            // Se envia SMS de respaldo
+            const smsData = JSON.stringify({
+              "messages": [
+                {
+                  "destinations": [
+                    {
+                      "to": `57${docs[0].telefono}`,
+                    },
+                  ],
+                  "from": "InfoSMS",
+                  "text": `Hola ${docs[0].nombreCliente}, mira tu pronostico en https://jupi.com.co/pronostico/${docs[0].refPago}`,
+                },
+              ],
+            });
+            const smsConfig = {
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": `App ${process.env.ACCESS_TOKEN_INFOBIP}`,
+              },
+            };
+            const urlSms = "https://pwvx5l.api.infobip.com/sms/2/text/advanced";
+            const {data: ressms} = await axios.post(urlSms, smsData, smsConfig);
+            console.log(ressms);
+            res.status(200).send({
+              message: "Evento escuchado",
+            });
+          }
         }
       } else {
         res.status(200).send({
