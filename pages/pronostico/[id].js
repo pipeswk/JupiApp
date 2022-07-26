@@ -19,7 +19,10 @@ const ResultadoCompraPronostico = ( { id, imagen } ) => {
             <div className='py-4 bg-light'>
                 <div className='container'>
                     <div className='bg-white my-5 rounded shadow-sm p-4 text-center'>
+                        <h2>Pronostico</h2>
+                        <p className='lead'>Selecciona las siguientes opciones en tu app de apuestas preferida</p>
                         <Image src={imagen.img_src} width={300} height={500} />
+                        <p className='text-primary fw-bold'>Recuerda que la compra de este pronostico incluye derecho a participar en el sorteo elegido</p>
                     </div>
                 </div>
             </div>
