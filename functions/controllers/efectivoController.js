@@ -1,7 +1,7 @@
 const admin = require("firebase-admin");
 const db = admin.firestore();
 const mercadopago = require("mercadopago");
-mercadopago.configurations.setAccessToken(process.env.ACCESS_TOKEN_MP);
+mercadopago.configurations.setAccessToken(process.env.ACCESS_TOKEN_MP_2);
 
 const efecty = async (req, res) => {
   console.log(req.body);
