@@ -249,7 +249,7 @@ const eventosMercadoPago = async (req, res) => {
       const config = {
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.ACCESS_TOKEN_MP}`,
+          "Authorization": `Bearer ${process.env.ACCESS_TOKEN_MP_2}`,
         },
       };
       const url = `https://api.mercadopago.com/v1/payments/${req.body.data.id}`;
