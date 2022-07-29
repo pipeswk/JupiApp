@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import Pronostico from '../src/Components/Pronostico';
 import useJupi from '../src/Hooks/useJupi';
 import Layout from '../src/Layout/Layout'
@@ -8,11 +9,18 @@ import styles from '../styles/Pronosticos.module.css'
 const Pronosticos = () => {
 
   const router = useRouter()
-  const { cambiarPronostico, pronosticos } = useJupi()
+  const { cambiarPronostico, pronosticos, setPagoEnProceso, setPaymentMethod, setRefPago } = useJupi()
+
+  useEffect(() => {
+    setPagoEnProceso(false);
+    setPaymentMethod('');
+    setRefPago('');
+  }, [])
+  
 
   const handleClickPronostico = (pronostico) => {
-    cambiarPronostico(pronostico)
-    router.push(`/pronosticos/${pronostico.id}`)
+    cambiarPronostico(pronostico);
+    router.push(`/pronosticos/${pronostico.id}`);
   }
 
   return (

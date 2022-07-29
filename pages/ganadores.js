@@ -1,9 +1,18 @@
+import { useEffect } from 'react'
 import TablaGanadores from '../src/Components/TablaGanadores'
 import WrapperGanadores from '../src/Components/WrapperGanadores'
+import useJupi from '../src/Hooks/useJupi'
 import Layout from '../src/Layout/Layout'
 
 const Ganadores = () => {
+  const { setPagoEnProceso, setPaymentMethod, setRefPago } = useJupi();
 
+  useEffect(() => {
+    setPagoEnProceso(false);
+    setPaymentMethod('');
+    setRefPago('');
+  }, [])
+  
 
   return (
     <Layout

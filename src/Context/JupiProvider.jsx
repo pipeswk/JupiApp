@@ -188,6 +188,9 @@ const JupiProvider = ( { children } ) => {
           value={{
             cambiarPronostico,
             cambiarSorteo,
+            setPagoEnProceso,
+            setPaymentMethod,
+            setRefPago,
             pronosticos,
             sorteos,
             ganadores,

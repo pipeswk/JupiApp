@@ -2,9 +2,19 @@ import Listado from '../src/Components/Listado'
 import Layout from '../src/Layout/Layout'
 import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import SectionGanadores from '../src/Components/SectionGanadores';
+import useJupi from '../src/Hooks/useJupi'
 
 export default function Home() {
+  const { setPagoEnProceso, setPaymentMethod, setRefPago } = useJupi();
+
+  useEffect(() => {
+    setPagoEnProceso(false);
+    setPaymentMethod('');
+    setRefPago('');
+  }, [])
+  
 
   const router = useRouter();
 
