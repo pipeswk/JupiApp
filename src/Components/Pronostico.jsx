@@ -1,7 +1,7 @@
 import styles from '../../styles/Pronostico.module.css'
-import { kebabCase } from '../Helpers/Kebab'
 
 const Pronostico = ( { pronostico } ) => {
+
 
     const { categoria, nombre, descripcion, valorTicket, sorteo, img } = pronostico
 
@@ -27,7 +27,7 @@ const Pronostico = ( { pronostico } ) => {
                 <li>{`Cuota: ${cuota()}`}</li>
                 <li>{`Stake: ${descripcion.stake}`}</li>
             </ul>
-            <p className={`container text-center rounded fw-bold w-50 ${styles.precio}`}>{`Precio: ${moneda}`}</p>
+            <p className={`container text-center rounded fw-bold w-50 ${styles.precio}`}>{`Ver pronostico ${moneda}`}</p>
         </div>
     </div>
   )

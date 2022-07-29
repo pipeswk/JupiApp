@@ -130,7 +130,7 @@ const pse = async (req, res) => {
       additional_info: {
         ip_address: req.body.ip,
       },
-      callback_url: `https://jupi.com.co/paymentstatus/${documento.id}`, // TODO: Cambiar a tu dominio
+      callback_url: `https://jupi.com.co/paymentstatus/${documento.id}`,
       notification_url: "https://us-central1-jupi-e46aa.cloudfunctions.net/eventos/mercadopago",
     };
     mercadopago.payment.create(paymentData).then(function(data) {
@@ -183,7 +183,7 @@ const pse = async (req, res) => {
       additional_info: {
         ip_address: req.body.ip,
       },
-      callback_url: `https://jupi.com.co/paymentstatus/${documento.id}`, // TODO: Cambiar a tu dominio
+      callback_url: `https://jupi.com.co/paymentstatus/${documento.id}`,
     };
     mercadopago.payment.create(paymentData).then(function(data) {
       console.log(data);

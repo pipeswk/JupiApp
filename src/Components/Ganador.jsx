@@ -21,6 +21,5 @@ const Ganador = ( { ganador } ) => {
   )
 }
 
-//TODO: Enlazar imagen
 
 export default Ganador

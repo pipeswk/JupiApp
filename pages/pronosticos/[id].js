@@ -126,7 +126,6 @@ const EntradaPronostico = ( { resultado, entidades, id } ) => {
                           ) : (
                             'Pronostico'
                           )}</p>
-                          {/* //TODO: validar precio a nivel del servidor */}
                           <p className='fs-4'><span  className='fw-bold'>Precio: </span>{moneda}</p>
                         </div>
                         <FormPronosticos moneda={moneda} entidades={entidades} id={id} />
