@@ -50,7 +50,7 @@ const ejecutarPagoSorteo = async (req, res) => {
 
 // Obtiene el token de aceptación de la API de Nequi
 const obtenerTokenAceptacion = async () => {
-  const {data} = await axios.get(`https://sandbox.wompi.co/v1/merchants/${publicKey}`);
+  const {data} = await axios.get(`https://production.wompi.co/v1/merchants/${publicKey}`);
   const token = data.data.presigned_acceptance.acceptance_token;
   return token;
 };
@@ -83,7 +83,7 @@ const crearTransaccion = async (datos, token, reference) => {
       transaccionCreada: true,
     });
 
-    const {data} = await axios.post("https://sandbox.wompi.co/v1/transactions", {
+    const {data} = await axios.post("https://production.wompi.co/v1/transactions", {
       "acceptance_token": token,
       "amount_in_cents": precioNequi,
       "currency": "COP",
@@ -169,7 +169,7 @@ const crearTransaccionPronosticos = async (datos, token, reference) => {
       transaccionCreada: true,
     });
 
-    const {data} = await axios.post("https://sandbox.wompi.co/v1/transactions", {
+    const {data} = await axios.post("https://production.wompi.co/v1/transactions", {
       "acceptance_token": token,
       "amount_in_cents": precioNequi,
       "currency": "COP",
