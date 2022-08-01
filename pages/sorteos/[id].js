@@ -10,6 +10,7 @@ import useJupi from '../../src/Hooks/useJupi'
 import PaymentProcess from '../../src/Components/PaymentProcess'
 import axios from 'axios'
 import SectionGanadores from '../../src/Components/SectionGanadores'
+import numeral from 'numeral'
 
 const EntradaSorteo = ( { resultado, entidades, id } ) => {
   
@@ -17,8 +18,7 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
   const { nombre, img, valorTicket } = resultado
   const { sorteos, pagoEnProceso } = useJupi()
   const [activo, setActivo] = useState(true);
-  const moneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(valorTicket);
-
+  const moneda = numeral(valorTicket).format('$0,0');
 
   useEffect(() => {
     setDatosSorteo(sorteos.filter(sorteo => sorteo.id === id));

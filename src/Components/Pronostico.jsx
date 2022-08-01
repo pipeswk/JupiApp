@@ -1,4 +1,5 @@
 import styles from '../../styles/Pronostico.module.css'
+import numeral from 'numeral'
 
 const Pronostico = ( { pronostico } ) => {
 
@@ -13,7 +14,7 @@ const Pronostico = ( { pronostico } ) => {
         }
     }
 
-    const moneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(valorTicket)
+    const moneda = numeral(valorTicket).format('$0,0');
 
   return (
     <div className='card shadow-sm mb-3 position-relative'>

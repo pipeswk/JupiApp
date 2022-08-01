@@ -10,6 +10,7 @@ import useJupi from '../../src/Hooks/useJupi'
 import PaymentProcess from '../../src/Components/PaymentProcess'
 import axios from 'axios'
 import SectionGanadores from '../../src/Components/SectionGanadores'
+import numeral from 'numeral'
 
 const EntradaPronostico = ( { resultado, entidades, id } ) => {
 
@@ -19,7 +20,7 @@ const EntradaPronostico = ( { resultado, entidades, id } ) => {
 
   const { nombre, descripcion, img, sorteo, valorTicket, activo } = resultado
   const { pagoEnProceso, refPago } = useJupi();
-  const moneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(valorTicket);
+  const moneda = numeral(valorTicket).format('$0,0');
 
 
   const operacionCuota = () => {

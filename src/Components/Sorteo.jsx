@@ -1,11 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
+import numeral from 'numeral'
 
 const Sorteo = ( { sorteo } ) => {
 
     const { categoria, nombre, valorTicket, onPronosticos, img } = sorteo
-
-    const moneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(valorTicket)
+    const moneda = numeral(valorTicket).format('$0,0');
 
   return (
     <div className="card w-100 shadow-lg">

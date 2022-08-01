@@ -4,6 +4,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import styles from '../../styles/EntradaPronostico.module.css'
 import useJupi from '../Hooks/useJupi';
+import numeral from 'numeral';
 
 const FormSorteos = ( { valorTicket, id, entidades } ) => {
 
@@ -11,7 +12,7 @@ const FormSorteos = ( { valorTicket, id, entidades } ) => {
     const [cantidad, setCantidad] = useState('1');
     const [cargando, setCargando] = useState(false);
     const { pagar } = useJupi();
-    const totalPagar = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(cantidad * valorTicket);
+    const totalPagar = numeral(cantidad * valorTicket).format('$0,0');
     const router = useRouter();
 
     const formik = useFormik({
