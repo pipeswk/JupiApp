@@ -16,12 +16,24 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
   const [datosSorteo, setDatosSorteo] = useState([]);
   const { nombre, img, valorTicket } = resultado
   const { sorteos, pagoEnProceso } = useJupi()
+  const [activo, setActivo] = useState(true);
   const moneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(valorTicket);
 
 
   useEffect(() => {
     setDatosSorteo(sorteos.filter(sorteo => sorteo.id === id));
   }, [sorteos])
+
+  useEffect(() => {
+    if (datosSorteo.length > 0) {
+      if (datosSorteo[0].participantes.length === datosSorteo[0].capacidad) {
+        setActivo(false);
+      } else {
+        setActivo(true);
+      }
+      return;
+    }
+  }, [datosSorteo])
   
 
   return (
@@ -77,7 +89,13 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
                           <p className='fs-4'><span className='fw-bold'>Descripción de la compra: </span>{`Sorteo de bajo costo: ${nombre}`}</p>
                           <p className='fs-4'><span  className='fw-bold'>Precio: </span>{moneda}</p>
                         </div>
-                        <FormSorteos id={id} valorTicket={valorTicket} entidades={entidades} />
+                        {activo === true ? (
+                          <FormSorteos id={id} valorTicket={valorTicket} entidades={entidades} />
+                        ) : (
+                          <div>
+                            <p className='text-center fs-5 fw-bold'>Lo sentimos, los cupos del sorteo se han agotado.</p>
+                          </div>
+                        )}
                       </>
                     ) : (
                       <PaymentProcess datos={datosSorteo} prod={'sorteo'} />

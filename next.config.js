@@ -4,7 +4,8 @@ const nextConfig = {
   images: {
     domains: [
       "firebasestorage.googleapis.com",
-      "media3.giphy.com"
+      "media3.giphy.com",
+      "media.giphy.com"
     ]
   }
 }

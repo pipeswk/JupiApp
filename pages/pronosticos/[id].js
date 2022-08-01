@@ -17,7 +17,7 @@ const EntradaPronostico = ( { resultado, entidades, id } ) => {
   const [transaction, setTransaction] = useState({});
 
 
-  const { nombre, descripcion, img, sorteo, valorTicket } = resultado
+  const { nombre, descripcion, img, sorteo, valorTicket, activo } = resultado
   const { pagoEnProceso, refPago } = useJupi();
   const moneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(valorTicket);
 
@@ -68,8 +68,8 @@ const EntradaPronostico = ( { resultado, entidades, id } ) => {
                     <div className='mx-auto'>
                       <Image
                         src={img}
-                        width={400}
-                        height={300}
+                        width={450}
+                        height={400}
                         // layout='responsive'
                         alt={nombre}
                         className='rounded mx-auto'  
@@ -83,7 +83,7 @@ const EntradaPronostico = ( { resultado, entidades, id } ) => {
                         <CountDown /> */}
                         <div className='row mt-4'>
                           <div className='col-12 col-md-6'>
-                            <p className='text-center fw-bold fs-5'>Descripcion del pronostico:</p>
+                            <p className='text-center fw-bold fs-5'>Descripción del pronostico:</p>
                             <div className='mt-3 p-md-3'>
                             <p className={styles.parrafo}><span className='fw-bold'>Cuota: </span>{cuota}</p>
                             <p className={styles.parrafo}><span className='fw-bold'>Stake: </span>{descripcion.stake}</p>
@@ -92,7 +92,7 @@ const EntradaPronostico = ( { resultado, entidades, id } ) => {
                           </div>
                           <div className='col-12 col-md-6 p-3'>
                             <div>
-                              <Image src='/img/Sorteo.gif' width={350} height={550} alt='logo-bet' className='img-fluid rounded-3' />
+                              <Image src='/img/Sorteo.gif' width={350} height={550} className='img-fluid rounded-3' />
                             </div>
                             <p className='text-decoration-underline fw-bold'>Instrucciones de compra:</p>
                             <ol className='d-md-none'>
@@ -128,7 +128,13 @@ const EntradaPronostico = ( { resultado, entidades, id } ) => {
                           )}</p>
                           <p className='fs-4'><span  className='fw-bold'>Precio: </span>{moneda}</p>
                         </div>
-                        <FormPronosticos moneda={moneda} entidades={entidades} id={id} />
+                        {activo === true ? (
+                          <FormPronosticos moneda={moneda} entidades={entidades} id={id} />
+                        ) : (
+                          <div>
+                            <p className='text-center fs-5 fw-bold'>Lo sentimos, el pronostico se encuentra cerrado.</p>
+                          </div>
+                        )}
                       </>
                     ) : (
                       <PaymentProcess datos={transaction} prod={'pronostico'} />
