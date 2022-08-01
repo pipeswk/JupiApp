@@ -9,7 +9,7 @@ const Layout = ( { children, pagina } ) => {
             <title>{`Jupi - ${pagina}`}</title>
             <meta name="description" content="App de sorteos a bajo costo" />
             <meta name="theme-color" content="#000428" /> 
-            <link rel="icon" href="/favicon.ico" />
+            <link rel="icon" href="/jupi.ico" />
         </Head>
         <Header />
         {children}
