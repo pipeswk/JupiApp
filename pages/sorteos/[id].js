@@ -64,6 +64,7 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
                     <div>
                       <Progress data={datosSorteo[0]} />
                     </div>
+                    {/* //TODO: Describir mejor los sorteos */}
                     <p className='text-decoration-underline fw-bold text-center mt-5'>Instrucciones de compra:</p>
                     <ol className='d-md-none'>
                       <li>Llena el formulario de <span className='fw-bold'>abajo.</span></li>

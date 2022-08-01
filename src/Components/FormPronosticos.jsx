@@ -128,7 +128,7 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
         </div>
 
         <div className="mb-3">
-            <label htmlFor='telefono' className="form-label fw-bold">Teléfono (WhatSapp)</label>
+            <label htmlFor='telefono' className="form-label fw-bold">Teléfono (WhatSapp... Enviaremos su pronostico ahi.)</label>
             <div className="input-group mb-3">
                 <span className="input-group-text" id="inputGroup-sizing-sm">+57</span>
                 <input

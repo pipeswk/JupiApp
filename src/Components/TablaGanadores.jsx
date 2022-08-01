@@ -7,6 +7,12 @@ const TablaGanadores = () => {
 
     const newGanadores = [...ganadores].reverse()
 
+    const fecha = (secs) => {
+        let t = new Date(1970, 0, 1);
+        t.setSeconds(secs);
+        return t.toLocaleString();
+    }
+
   return (
     <div>
         <table className='table table-hover'>
@@ -24,7 +30,7 @@ const TablaGanadores = () => {
                     <th scope="row">{index}</th>
                     <td>{ganador.nombre}</td>
                     <td>{ganador.premio}</td>
-                    <td>06-06-2022</td>
+                    <td>{fecha(ganador.fechayhora.seconds)}</td>
                 </tr>
             ))}
         </tbody>
