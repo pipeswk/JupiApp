@@ -75,7 +75,6 @@ const FormSorteos = ( { valorTicket, id, entidades } ) => {
         }),
         onSubmit: values => {
             if (metodo === 'NEQUI') {
-                router.push(`/sorteos/${id}#pagoNequi`);
                 setCargando(true);
                 enviarDatos(values);
             } else if (metodo === 'EFECTY') {

@@ -73,7 +73,6 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
         }),
         onSubmit: values => {
             if (metodo === 'NEQUI') {
-                router.push(`/pronosticos/${id}#pagoActive`);
                 setCargando(true);
                 enviarDatos(values);
             } else if (metodo === 'EFECTY') {
