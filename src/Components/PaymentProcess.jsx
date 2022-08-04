@@ -55,7 +55,7 @@ const PaymentProcess = ( { datos, prod } ) => {
           {pagoConfirmado === false ? (
             <p className='text-center'>Por favor completa el pago desde tu App de Nequi para finalizar tu compra</p>
           ) : (
-            <p className='text-center fw-bold'>Gracias por tu pago. Tu ticket del sorteo y confirmacion de compra se han enviado a tu correo y a tu whatsapp.</p>
+            <p className='text-center fw-bold'>Gracias por tu pago. Tu ticket del sorteo y confirmación de compra se han enviado a tu whatsapp (En caso de que no llegue el mensaje a whatsapp, revise sus SMS).</p>
           )}
         </div>
       ) : paymentMethod === 'EFECTY' ? (
@@ -87,7 +87,7 @@ const PaymentProcess = ( { datos, prod } ) => {
               </Link>
             </>
           ) : (
-            <p className='text-center fw-bold'>Gracias por tu pago. Tu ticket del sorteo y confirmacion de compra se han enviado a tu correo y a tu whatsapp.</p>
+            <p className='text-center fw-bold'>Gracias por tu pago. Tu ticket del sorteo y confirmación de compra se han enviado a tu whatsapp (En caso de que no llegue el mensaje a whatsapp, revise sus SMS).</p>
           )}
         </div>
       ) : (
