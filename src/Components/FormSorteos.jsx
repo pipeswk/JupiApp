@@ -81,7 +81,6 @@ const FormSorteos = ( { valorTicket, id, entidades } ) => {
             } else if (metodo === 'EFECTY') {
                 setCargando(true);
                 enviarDatos(values);
-                router.push(`/sorteos/${id}#pagoEfecty`);
             } else {
                 setCargando(true);
                 enviarDatos(values);
@@ -89,8 +88,9 @@ const FormSorteos = ( { valorTicket, id, entidades } ) => {
         }
     })
 
-    const enviarDatos = (values) => {
-        pagar(values, 'sorteo');
+    const enviarDatos = async (values) => {
+        await pagar(values, 'sorteo');
+        router.push(`/sorteos/${id}#pagoEfecty`);
     }
 
   return (

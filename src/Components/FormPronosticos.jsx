@@ -77,7 +77,6 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
                 setCargando(true);
                 enviarDatos(values);
             } else if (metodo === 'EFECTY') {
-                router.push(`/pronosticos/${id}#pagoActive`);
                 setCargando(true);
                 enviarDatos(values);
             } else {
@@ -87,8 +86,9 @@ const FormPronosticos = ( { moneda, entidades, id } ) => {
         }
     })
 
-    const enviarDatos = (values) => {
-        pagar(values, 'pronostico');
+    const enviarDatos = async (values) => {
+        await pagar(values, 'pronostico');
+        router.push(`/pronosticos/${id}#pagoActive`);
     }
 
   return (
