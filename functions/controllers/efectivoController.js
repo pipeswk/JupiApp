@@ -36,6 +36,7 @@ const efecty = async (req, res) => {
         refPago: documento.id,
         valorTransaccion: precioFinal,
         transaccionCreada: true,
+        idMercadoPago: data.response.id,
       });
       res.status(200).send({
         noConvenio: 110757,
@@ -80,6 +81,7 @@ const efecty = async (req, res) => {
         refPago: documento.id,
         valorTransaccion: precioFinal,
         transaccionCreada: true,
+        idMercadoPago: data.response.id,
       });
       res.status(200).send({
         noConvenio: 110757,
