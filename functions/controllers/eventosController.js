@@ -33,7 +33,7 @@ const escucharEventos = async (req, res) => {
           "to": `57${documento.data().telefono}`,
           "type": "template",
           "template": {
-            "name": "sort_with_img",
+            "name": "sort_with_img_2",
             "language": {
               "code": "es_MX",
             },
@@ -295,7 +295,7 @@ const eventosMercadoPago = async (req, res) => {
             "to": `57${docs[0].telefono}`,
             "type": "template",
             "template": {
-              "name": "sort_with_img",
+              "name": "sort_with_img_2",
               "language": {
                 "code": "es_MX",
               },
