@@ -13,6 +13,8 @@ import SectionGanadores from '../../src/Components/SectionGanadores'
 import numeral from 'numeral'
 
 const EntradaSorteo = ( { resultado, entidades, id } ) => {
+
+  console.log(resultado)
   
   const [datosSorteo, setDatosSorteo] = useState([]);
   const { nombre, img, valorTicket } = resultado
@@ -60,7 +62,11 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
                       />
                     </div>
                     {/* Cuerpo */}
-
+                    <ul className='m-3'>
+                      {resultado.caracteristicas.map((caracteristica, index) => (
+                        <li key={index}>{caracteristica}</li>
+                      ))}
+                    </ul>
                     <div>
                       <Progress data={datosSorteo[0]} />
                     </div>
@@ -68,15 +74,17 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
                     <p className='text-decoration-underline fw-bold text-center mt-5'>Instrucciones de compra:</p>
                     <ol className='d-md-none'>
                       <li>Llena el formulario de <span className='fw-bold'>abajo.</span></li>
-                      <li>Selecciona el metodo de pago de tu preferencia.</li>
+                      <li>Selecciona el método de pago de tu preferencia.</li>
                       <li>Elige la cantidad de tickets a comprar <span className='fw-bold'>(Entre mas tickets compres mayor probabilidad de ganar tienes).</span></li>
-                      <li>Haz clic en el boton <span className='fw-bold'>PAGAR</span> y sigue las instrucciones.</li>
+                      <li>Haz clic en el botón <span className='fw-bold'>PAGAR</span> y sigue las instrucciones.</li>
+                      <li>El sorteo iniciara cuando se completen los cupos, por medio de una transmisión en vivo.</li>
                     </ol>
                     <ol className='d-none d-md-block'>
                       <li>Llena el formulario del lado <span className='fw-bold'>derecho.</span></li>
-                      <li>Selecciona el metodo de pago de tu preferencia.</li>
+                      <li>Selecciona el método de pago de tu preferencia.</li>
                       <li>Elige la cantidad de tickets a comprar <span className='fw-bold'>(Entre mas tickets compres mayor probabilidad de ganar tienes).</span></li>
-                      <li>Haz clic en el boton <span className='fw-bold'>PAGAR</span> y sigue las instrucciones.</li>
+                      <li>Haz clic en el botón <span className='fw-bold'>PAGAR</span> y sigue las instrucciones.</li>
+                      <li>El sorteo iniciara cuando se completen los cupos, por medio de una transmisión en vivo.</li>
                     </ol>
                   </div>
                 </div>
