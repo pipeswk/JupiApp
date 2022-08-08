@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import styles from '../../styles/EntradaPronostico.module.css'
@@ -129,7 +130,7 @@ const FormSorteos = ( { valorTicket, id, entidades } ) => {
         </div>
 
         <div className="mb-3">
-            <label htmlFor='telefono' className="form-label fw-bold">Teléfono</label>
+            <label htmlFor='telefono' className="form-label fw-bold">Teléfono Whatsapp (Recibirás tu ticket al whatsapp)</label>
             <div className="input-group mb-3">
             <span className="input-group-text" id="inputGroup-sizing-sm">+57</span>
             <input
@@ -299,7 +300,7 @@ const FormSorteos = ( { valorTicket, id, entidades } ) => {
             <p className='fs-4'><span className='fw-bold'>Resumen: </span>{`${cantidad} Ticket/s`}</p>
             <p className='fs-4'><span  className='fw-bold'>Total a pagar: </span>{totalPagar}</p>
         </div>
-        <p>Al hacer clic en el botón "PAGAR" aceptas nuestros <span className='alert-link text-primary'>Términos y Condiciones</span></p>
+        <p>Al hacer clic en el botón "PAGAR" aceptas nuestros <Link href='/terminosycondiciones'><a className='alert-link text-primary'>Términos y Condiciones</a></Link></p>
         {cargando === false ? (
             <button type='submit' className="btn btn-primary w-100 mt-5 fw-bold">PAGAR</button>
         ) : (
