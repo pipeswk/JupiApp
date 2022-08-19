@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import useJupi from '../Hooks/useJupi'
 import Spinner from './Spinner';
@@ -53,7 +54,13 @@ const PaymentProcess = ( { datos, prod } ) => {
             )}
           </div>
           {pagoConfirmado === false ? (
-            <p className='text-center'>Por favor completa el pago desde tu App de Nequi para finalizar tu compra</p>
+            <>
+              <p className='text-center'>Por favor completa el pago desde tu App de Nequi para finalizar tu compra</p>
+              <div className='text-center fw-bold'>Instrucciones:</div>
+              <div className='text-center'>
+                <Image src='/img/NequiInstructions.gif' width={350} height={580} className='img-fluid rounded-3' />
+              </div>
+            </>
           ) : (
             <p className='text-center fw-bold'>Gracias por tu pago. Tu ticket del sorteo y confirmación de compra se han enviado a tu whatsapp (En caso de que no llegue el mensaje a whatsapp, revise sus SMS).</p>
           )}
