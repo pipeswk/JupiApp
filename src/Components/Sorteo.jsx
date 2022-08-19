@@ -4,12 +4,12 @@ import numeral from 'numeral'
 
 const Sorteo = ( { sorteo } ) => {
 
-    const { categoria, nombre, valorTicket, onPronosticos, img } = sorteo
+    const { categoria, nombre, valorTicket, preview_img } = sorteo
     const moneda = numeral(valorTicket).format('$0,0');
 
   return (
     <div className="card w-100 shadow-lg">
-        <Image className="card-img-top" src={img} width={500} height={500} alt={`Imagen ${nombre}`} />
+        <Image className="card-img-top" src={preview_img} width={500} height={500} alt={`Imagen ${nombre}`} />
         <div className="card-body">
             <p className='text-center'>{categoria}</p>
             <h4 className="card-title">{nombre}</h4>
