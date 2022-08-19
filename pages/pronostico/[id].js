@@ -1,14 +1,9 @@
-import { useEffect } from 'react'
 import Image from 'next/image'
 import { db } from '../../utils/Firebase'
 import { doc, getDoc, collection, query, where, getDocs } from 'firebase/firestore'
 import Layout from '../../src/Layout/Layout'
 
 const ResultadoCompraPronostico = ( { id, imagen } ) => {
-
-    useEffect(() => {
-      console.log(imagen);
-    }, [])
     
 
   return (

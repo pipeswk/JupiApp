@@ -112,7 +112,6 @@ const JupiProvider = ( { children } ) => {
           data: data,
           product: product
         }, config);
-        console.log(respuesta);
         setRefPago(respuesta.refPago);
       } catch (error) {
         console.error(error);
@@ -130,7 +129,6 @@ const JupiProvider = ( { children } ) => {
         data: data,
         product: product
       }, config);
-      console.log(respuesta);
       setRefPago(respuesta.refPago);
     } catch (error) {
       console.error(error);
@@ -139,13 +137,11 @@ const JupiProvider = ( { children } ) => {
   }
 
   const pagar = async (data, product) => {
-    console.log(data, product);
     if (data.method === 'NEQUI') {
       setPaymentMethod('NEQUI');
       setPagoEnProceso(true);
       nequi(data, product);
     } else if (data.method === 'EFECTY') {
-      console.log(data, product);
       const config = {
         headers: {
           'Content-Type': 'application/json'
@@ -163,9 +159,7 @@ const JupiProvider = ( { children } ) => {
       })
       setPagoEnProceso(true);
       setRefPago(respuesta.message);
-      console.log(respuesta);
     } else { // PSE
-      console.log(data, product);
       const config = {
         headers: {
           'Content-Type': 'application/json'
@@ -177,7 +171,6 @@ const JupiProvider = ( { children } ) => {
         ip: ip
       }, config)
       setPaymentMethod('PSE');
-      console.log(respuesta);
       router.push(respuesta.response.transaction_details.external_resource_url);
     }
   }

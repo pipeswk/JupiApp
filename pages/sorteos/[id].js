@@ -11,10 +11,9 @@ import PaymentProcess from '../../src/Components/PaymentProcess'
 import axios from 'axios'
 import SectionGanadores from '../../src/Components/SectionGanadores'
 import numeral from 'numeral'
+import ProductImages from '../../src/Components/ProductImages'
 
 const EntradaSorteo = ( { resultado, entidades, id } ) => {
-
-  console.log(resultado)
   
   const [datosSorteo, setDatosSorteo] = useState([]);
   const { nombre, img, valorTicket } = resultado
@@ -52,14 +51,7 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
                   <div className='d-flex flex-column w-100'>
                     {/* Imagen */}
                     <div className='mx-auto'>
-                      <Image
-                        src={img}
-                        width={400}
-                        height={400}
-                        // layout='responsive'
-                        alt={nombre}
-                        className='rounded mx-auto img-fluid'  
-                      />
+                      <ProductImages data={resultado} />
                     </div>
                     {/* Cuerpo */}
                     <ul className='m-3'>
@@ -70,7 +62,6 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
                     <div>
                       <Progress data={datosSorteo[0]} />
                     </div>
-                    {/* //TODO: Describir mejor los sorteos */}
                     <p className='text-decoration-underline fw-bold text-center mt-5'>Instrucciones de compra:</p>
                     <ol className='d-md-none'>
                       <li>Llena el formulario de <span className='fw-bold'>abajo.</span></li>

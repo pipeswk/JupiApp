@@ -3,13 +3,11 @@ import { useState, useEffect } from 'react'
 const Progress = ( { data } ) => {
 
     const [porcentaje, setPorcentaje] = useState(0);
-    console.log(data);
 
     useEffect(() => {
         const calcularPorcentaje = () => {
             const porc = Math.round((data?.participantes.length / data?.capacidad) * 100);
             setPorcentaje(porc);
-            console.log(porcentaje);
         }
         calcularPorcentaje();
     }, [data])
