@@ -34,7 +34,7 @@ const Pronosticos = () => {
               <div className='row py-lg-5'>
                 <div className='col-lg-6 col-md-8 mx-auto'>
                   <h1 className='fw-bolder text-white'>Pronósticos disponibles</h1>
-                  <p className='text-white lead'>Compra pronósticos deportivos de alta confiabilidad. Todos nuestros pronósticos incluye un sorteo en el que podrás participar ☺</p>
+                  <p className='text-white lead'>Compra pronósticos deportivos de alta confiabilidad. Todos nuestros pronósticos incluyen un sorteo en el que podrás participar ☺</p>
                 </div>
               </div>
             </section>
