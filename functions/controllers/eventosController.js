@@ -44,7 +44,7 @@ const escucharEventos = async (req, res) => {
                   {
                     "type": "image",
                     "image": {
-                      "link": sorteo.data().img,
+                      "link": sorteo.data().preview_img,
                     },
                   },
                 ],
@@ -306,7 +306,7 @@ const eventosMercadoPago = async (req, res) => {
                     {
                       "type": "image",
                       "image": {
-                        "link": sorteo.data().img,
+                        "link": sorteo.data().preview_img,
                       },
                     },
                   ],
