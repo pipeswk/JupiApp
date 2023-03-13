@@ -1,6 +1,14 @@
 import { createContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { collection, query, addDoc, updateDoc, onSnapshot, orderBy, doc } from "firebase/firestore";
+import {
+  collection,
+  query,
+  doc,
+  getDoc,
+  onSnapshot,
+  orderBy,
+  runTransaction
+} from "firebase/firestore";
 import { db } from '../../utils/Firebase';
 import axios from 'axios';
 
@@ -15,7 +23,9 @@ const JupiProvider = ( { children } ) => {
   const [pronosticos, setPronosticos] = useState([]);
   const [sorteos, setSorteos] = useState([]);
   const [ganadores, setGanadores] = useState([]);
-  const [pagoEnProceso, setPagoEnProceso] = useState(false); // TODO: cambiar a false
+  const [pagoEnProceso, setPagoEnProceso] = useState(false);
+  const [checkoutId, setCheckoutId] = useState('');
+  const [lottos, setLottos] = useState([]);
   const [paymentMethod, setPaymentMethod] = useState('');
   const [refPago, setRefPago] = useState('');
   const [efecty, setEfecty] = useState({});
@@ -175,6 +185,62 @@ const JupiProvider = ( { children } ) => {
     }
   }
 
+  // Se reseva el lotto number para el usuario
+
+  const reservarLottoNumber = async (id, condition, data) => {
+    console.log(id, condition, data);
+    if (condition === 'update') {
+      let newLottos = [];
+      const lottoRef = doc(db, "sorteos", id);
+      try {
+        await runTransaction(db, async (transaction) => {
+          const ref = await transaction.get(lottoRef);
+          if (!ref.exists()) {
+            throw "Document does not exist!";
+          } else {
+            newLottos = ref.data().lottos;
+            const lottoI = newLottos.findIndex(lotto => lotto.number === data);
+            console.log(lottoI);
+            newLottos[lottoI] = {
+              ...newLottos[lottoI],
+              checkoutId: checkoutId
+            }
+            transaction.update(lottoRef, { lottos: newLottos });
+          }
+        });
+        setLottos([
+          ...lottos,
+          data
+        ]);
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      let newLottos = [];
+      const lottoRef = doc(db, "sorteos", id);
+      try {
+        await runTransaction(db, async (transaction) => {
+          const ref = await transaction.get(lottoRef);
+          if (!ref.exists()) {
+            throw "Document does not exist!";
+          } else {
+            newLottos = ref.data().lottos;
+            const lottoI = newLottos.findIndex(lotto => lotto.number === data);
+            console.log(lottoI);
+            newLottos[lottoI] = {
+              ...newLottos[lottoI],
+              checkoutId: '',
+            }
+            transaction.update(lottoRef, { lottos: newLottos });
+          }
+        });
+        setLottos(lottos.filter(lotto => lotto !== data));
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+
 
   return (
       <JupiContext.Provider
@@ -191,7 +257,12 @@ const JupiProvider = ( { children } ) => {
             pagoEnProceso,
             paymentMethod,
             refPago,
-            efecty
+            efecty,
+            checkoutId,
+            setCheckoutId,
+            lottos,
+            setLottos,
+            reservarLottoNumber
           }}
       >
           {children}
