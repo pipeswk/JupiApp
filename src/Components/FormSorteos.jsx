@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useFormik } from 'formik'
@@ -6,15 +6,32 @@ import * as Yup from 'yup';
 import styles from '../../styles/EntradaPronostico.module.css'
 import useJupi from '../Hooks/useJupi';
 import numeral from 'numeral';
+import LottoSelect from './LottoSelect';
 
-const FormSorteos = ( { valorTicket, id, entidades } ) => {
+const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
 
     const [metodo, setMetodo] = useState('');
     const [cantidad, setCantidad] = useState('1');
     const [cargando, setCargando] = useState(false);
-    const { pagar } = useJupi();
+    const { pagar, setCheckoutId } = useJupi();
     const totalPagar = numeral(cantidad * valorTicket).format('$0,0');
     const router = useRouter();
+
+    useEffect(() => {
+        function makeid(length) {
+            let result = '';
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            const charactersLength = characters.length;
+            let counter = 0;
+            while (counter < length) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            counter += 1;
+            }
+            return result;
+        }
+        setCheckoutId(makeid(35));
+    }, [])
+    
 
     const formik = useFormik({
         initialValues: {
@@ -276,21 +293,10 @@ const FormSorteos = ( { valorTicket, id, entidades } ) => {
         )}
 
         <div className="mb-3">
-            <label htmlFor='cantidad' className="form-label fw-bold">Cantidad de tickets a comprar:</label>
-            <input
-                type="number"
-                id='cantidad'
-                name='cantidad'
-                className="form-control"
-                placeholder='Cantidad de tickets a comprar'
-                min={1}
-                value={formik.values.cantidad}
-                onChange={(e) => {
-                    formik.setFieldValue('cantidad', e.target.value);
-                    setCantidad(e.target.value);
-
-                }}
-                onBlur={formik.handleBlur}
+            <label htmlFor='cantidad' className="form-label fw-bold">Selecciona los números con los que deseas participar:</label>
+            <LottoSelect
+                datosSorteo={datosSorteo}
+                idSorteo={id}
             />
             {formik.touched.cantidad && formik.errors.cantidad ? (
                 <div className="text-danger">{formik.errors.cantidad}</div>
