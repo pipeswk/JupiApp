@@ -44,7 +44,7 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
       <main>
         <div className='py-4 bg-light'>
           <div className='container'>
-            <h1 className='fs-1 fw-bold text-center py-2'>{`Sorteo: ${nombre}`}</h1>
+            <h1 className='fs-1 fw-bold text-center py-2'>{`Rifa: ${nombre}`}</h1>
             <div className='row mb-5'>
               <div className='col-12 col-md-7 mb-4'>
                 <div className='bg-white shadow-sm p-3'>
@@ -86,11 +86,11 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
                       <>
                         <h4 className='text-center fw-bold'>COMPRAR</h4>
                         <div className={styles.description}>
-                          <p className='fs-4'><span className='fw-bold'>Descripción de la compra: </span>{`Sorteo de bajo costo: ${nombre}`}</p>
-                          <p className='fs-4'><span  className='fw-bold'>Precio: </span>{moneda}</p>
+                          <p className='fs-4'><span className='fw-bold'>Descripción de la compra: </span>{`Sorteo de ${nombre}`}</p>
+                          <p className='fs-4'><span  className='fw-bold'>Precio: </span>{`${moneda} Pesos Colombianos`}</p>
                         </div>
                         {activo === true ? (
-                          <FormSorteos id={id} valorTicket={valorTicket} entidades={entidades} />
+                          <FormSorteos id={id} valorTicket={valorTicket} entidades={entidades} datosSorteo={datosSorteo} />
                         ) : (
                           <div>
                             <p className='text-center fs-5 fw-bold'>Lo sentimos, los cupos del sorteo se han agotado.</p>
