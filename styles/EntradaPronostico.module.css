@@ -15,6 +15,16 @@
     box-shadow: 3px;
 }
 
+.lotto {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 3px;
+    box-shadow: 3px;
+    height: 150px;  
+}
+
 .pagos {
     background-color: whitesmoke;
     border-radius: 5px;
