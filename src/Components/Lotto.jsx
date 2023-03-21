@@ -2,16 +2,7 @@ import { useState, useEffect } from 'react'
 import useJupi from '../Hooks/useJupi'
 
 const Lotto = ( { lotto, setNumber } ) => {
-    const [active, setActive] = useState(false);
-    const { lottos, checkoutId } = useJupi();
-
-    useEffect(() => {
-        if (lottos.includes(lotto.number)) {
-            setActive(true);
-        } else {
-            setActive(false);
-        }
-    }, [lottos])
+    const { checkoutId, spinLotto } = useJupi();
     
 
   return (
@@ -22,7 +13,11 @@ const Lotto = ( { lotto, setNumber } ) => {
                 role="button"
                 onClick={() => setNumber(lotto.number, "update")}
             >
-                {lotto.number}
+                {spinLotto === false ? (
+                    lotto.number
+                ) : (
+                    <div className="spinner-border text-light" role="status"></div>
+                )}
             </div>
         ) : (
             <div
@@ -30,7 +25,11 @@ const Lotto = ( { lotto, setNumber } ) => {
                 role="button"
                 onClick={() => setNumber(lotto.number, "delete")}
             >
-                {lotto.number}
+                {spinLotto === false ? (
+                    lotto.number
+                ) : (
+                    <div className="spinner-border text-light" role="status"></div>
+                )}
             </div>
         )}
     </>
