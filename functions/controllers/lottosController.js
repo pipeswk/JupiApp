@@ -1,5 +1,6 @@
 const admin = require("firebase-admin");
 const db = admin.firestore();
+const moment = require("moment-timezone");
 
 // ENDPOINT: /reservar-lotto
 
@@ -7,6 +8,8 @@ const reservarLotto = async (req, res) => {
   const body = req.body;
   let newLottos = [];
   const lottoRef = db.collection("sorteos").doc(body.id);
+  const fechaR = moment().tz("America/Bogota");
+  console.log("fechaR: ", fechaR);
   try {
     await db.runTransaction(async (transaction) => {
       const ref = await transaction.get(lottoRef);
@@ -18,6 +21,7 @@ const reservarLotto = async (req, res) => {
         newLottos[lottoI] = {
           ...newLottos[lottoI],
           checkoutId: body.checkoutId,
+          fechaReserva: fechaR,
         };
         transaction.update(lottoRef, {lottos: newLottos});
         res.status(200).send({
@@ -29,6 +33,10 @@ const reservarLotto = async (req, res) => {
     });
   } catch (error) {
     console.error("Error al reservar lotto: ", error);
+    res.status(500).send({
+      status: "error",
+      message: "Error al reservar lotto",
+    });
   }
 };
 
@@ -60,6 +68,10 @@ const liberarLotto = async (req, res) => {
     });
   } catch (error) {
     console.error("Error al liberar lotto: ", error);
+    res.status(500).send({
+      status: "error",
+      message: "Error al liberar lotto",
+    });
   }
 };
 
