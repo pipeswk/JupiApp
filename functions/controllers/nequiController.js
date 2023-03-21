@@ -194,4 +194,5 @@ const crearTransaccionPronosticos = async (datos, token, reference) => {
 module.exports = {
   ejecutarPagoSorteo,
   ejecutarPagoPronostico,
+  db,
 };
