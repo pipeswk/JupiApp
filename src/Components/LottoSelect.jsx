@@ -1,19 +1,23 @@
-import React from 'react'
+import { useEffect } from 'react'
 import styles from '../../styles/EntradaPronostico.module.css'
 import useJupi from '../Hooks/useJupi'
 import Lotto from './Lotto'
 
 const LottoSelect = ( { datosSorteo, idSorteo } ) => {
 
-    const { lottos, reservarLottoNumber, checkoutId } = useJupi();
-    console.log(datosSorteo);
+    const { lottos, setLottos, reservarLottoNumber, checkoutId } = useJupi();
 
-    const setNumber = (number) => {
-        if (lottos.includes(number)) {
-            reservarLottoNumber(idSorteo, "delete", number);
-        } else {
-            reservarLottoNumber(idSorteo, "update", number);
-        }
+    useEffect(() => {
+        const arlott = [];
+        datosSorteo[0]?.lottos.filter( lott => lott.checkoutId === checkoutId ).map( lott => {
+            arlott.push(lott.number);
+        });
+        setLottos(arlott);
+    }, [datosSorteo])
+    
+
+    const setNumber = (number, operation) => {
+        reservarLottoNumber(idSorteo, operation, number);
     }
 
   return (

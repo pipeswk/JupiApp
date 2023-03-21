@@ -3,11 +3,8 @@ import { useRouter } from 'next/router';
 import {
   collection,
   query,
-  doc,
-  getDoc,
   onSnapshot,
-  orderBy,
-  runTransaction
+  orderBy
 } from "firebase/firestore";
 import { db } from '../../utils/Firebase';
 import axios from 'axios';
@@ -89,6 +86,7 @@ const JupiProvider = ( { children } ) => {
       setGanadores(ganadores);
     })
   }
+
   
   // UseEffect que ejecuta las consultas tan pronto se renderiza el componente
 
@@ -201,15 +199,6 @@ const JupiProvider = ( { children } ) => {
           number: number,
           checkoutId: checkoutId
         }, config);
-        console.log(data);
-        if (data.status === 'success') {
-          setLottos([
-            ...lottos,
-            data.lotto.number
-          ]);
-        } else {
-          console.log("No se actualizo el estado");
-        }
       } catch (error) {
        console.error(error); 
       }
@@ -225,12 +214,6 @@ const JupiProvider = ( { children } ) => {
           number: number,
           checkoutId: checkoutId
         }, config);
-        console.log(data);
-        if (data.status === 'success') {
-          setLottos(lottos.filter(lotto => lotto !== data.lotto.number));
-        } else {
-          console.log("No se actualizo el estado");
-        }
       } catch (error) {
         console.error(error);
       }

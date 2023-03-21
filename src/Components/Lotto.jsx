@@ -3,7 +3,7 @@ import useJupi from '../Hooks/useJupi'
 
 const Lotto = ( { lotto, setNumber } ) => {
     const [active, setActive] = useState(false);
-    const { lottos } = useJupi();
+    const { lottos, checkoutId } = useJupi();
 
     useEffect(() => {
         if (lottos.includes(lotto.number)) {
@@ -16,11 +16,11 @@ const Lotto = ( { lotto, setNumber } ) => {
 
   return (
     <>
-        {active === false ? (
+        {checkoutId !== lotto.checkoutId ? (
             <div
                 className="btn btn-dark"
                 role="button"
-                onClick={() => setNumber(lotto.number)}
+                onClick={() => setNumber(lotto.number, "update")}
             >
                 {lotto.number}
             </div>
@@ -28,7 +28,7 @@ const Lotto = ( { lotto, setNumber } ) => {
             <div
                 className="btn btn-success"
                 role="button"
-                onClick={() => setNumber(lotto.number)}
+                onClick={() => setNumber(lotto.number, "delete")}
             >
                 {lotto.number}
             </div>
