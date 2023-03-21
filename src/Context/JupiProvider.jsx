@@ -187,54 +187,50 @@ const JupiProvider = ( { children } ) => {
 
   // Se reseva el lotto number para el usuario
 
-  const reservarLottoNumber = async (id, condition, data) => {
-    console.log(id, condition, data);
+  const reservarLottoNumber = async (id, condition, number) => {
+    console.log(id, condition, number);
     if (condition === 'update') {
-      let newLottos = [];
-      const lottoRef = doc(db, "sorteos", id);
       try {
-        await runTransaction(db, async (transaction) => {
-          const ref = await transaction.get(lottoRef);
-          if (!ref.exists()) {
-            throw "Document does not exist!";
-          } else {
-            newLottos = ref.data().lottos;
-            const lottoI = newLottos.findIndex(lotto => lotto.number === data);
-            console.log(lottoI);
-            newLottos[lottoI] = {
-              ...newLottos[lottoI],
-              checkoutId: checkoutId
-            }
-            transaction.update(lottoRef, { lottos: newLottos });
+        const config = {
+          headers: {
+            'Content-Type': 'application/json'
           }
-        });
-        setLottos([
-          ...lottos,
-          data
-        ]);
+        };
+        const {data} = await axios.post('https://us-central1-jupi-e46aa.cloudfunctions.net/lottos/api/lottos/reservar-lotto', {
+          id: id,
+          number: number,
+          checkoutId: checkoutId
+        }, config);
+        console.log(data);
+        if (data.status === 'success') {
+          setLottos([
+            ...lottos,
+            data.lotto.number
+          ]);
+        } else {
+          console.log("No se actualizo el estado");
+        }
       } catch (error) {
-        console.error(error);
+       console.error(error); 
       }
     } else {
-      let newLottos = [];
-      const lottoRef = doc(db, "sorteos", id);
       try {
-        await runTransaction(db, async (transaction) => {
-          const ref = await transaction.get(lottoRef);
-          if (!ref.exists()) {
-            throw "Document does not exist!";
-          } else {
-            newLottos = ref.data().lottos;
-            const lottoI = newLottos.findIndex(lotto => lotto.number === data);
-            console.log(lottoI);
-            newLottos[lottoI] = {
-              ...newLottos[lottoI],
-              checkoutId: '',
-            }
-            transaction.update(lottoRef, { lottos: newLottos });
+        const config = {
+          headers: {
+            'Content-Type': 'application/json'
           }
-        });
-        setLottos(lottos.filter(lotto => lotto !== data));
+        };
+        const {data} = await axios.post('https://us-central1-jupi-e46aa.cloudfunctions.net/lottos/api/lottos/liberar-lotto', {
+          id: id,
+          number: number,
+          checkoutId: checkoutId
+        }, config);
+        console.log(data);
+        if (data.status === 'success') {
+          setLottos(lottos.filter(lotto => lotto !== data.lotto.number));
+        } else {
+          console.log("No se actualizo el estado");
+        }
       } catch (error) {
         console.error(error);
       }
