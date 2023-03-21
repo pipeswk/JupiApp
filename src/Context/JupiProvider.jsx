@@ -4,7 +4,8 @@ import {
   collection,
   query,
   onSnapshot,
-  orderBy
+  orderBy,
+  runTransaction
 } from "firebase/firestore";
 import { db } from '../../utils/Firebase';
 import axios from 'axios';
@@ -26,6 +27,7 @@ const JupiProvider = ( { children } ) => {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [refPago, setRefPago] = useState('');
   const [efecty, setEfecty] = useState({});
+  const [spinLotto, setSpinLotto] = useState(false);
 
   const router = useRouter();
 
@@ -188,32 +190,36 @@ const JupiProvider = ( { children } ) => {
   const reservarLottoNumber = async (id, condition, number) => {
     console.log(id, condition, number);
     if (condition === 'update') {
+      setSpinLotto(true);
       try {
         const config = {
           headers: {
             'Content-Type': 'application/json'
           }
         };
-        const {data} = await axios.post('https://us-central1-jupi-e46aa.cloudfunctions.net/lottos/api/lottos/reservar-lotto', {
+        await axios.post('https://us-central1-jupi-e46aa.cloudfunctions.net/lottos/api/lottos/reservar-lotto', {
           id: id,
           number: number,
           checkoutId: checkoutId
         }, config);
+        setSpinLotto(false);
       } catch (error) {
        console.error(error); 
       }
     } else {
+      setSpinLotto(true);
       try {
         const config = {
           headers: {
             'Content-Type': 'application/json'
           }
         };
-        const {data} = await axios.post('https://us-central1-jupi-e46aa.cloudfunctions.net/lottos/api/lottos/liberar-lotto', {
+        await axios.post('https://us-central1-jupi-e46aa.cloudfunctions.net/lottos/api/lottos/liberar-lotto', {
           id: id,
           number: number,
           checkoutId: checkoutId
         }, config);
+        setSpinLotto(false);
       } catch (error) {
         console.error(error);
       }
@@ -241,7 +247,8 @@ const JupiProvider = ( { children } ) => {
             setCheckoutId,
             lottos,
             setLottos,
-            reservarLottoNumber
+            reservarLottoNumber,
+            spinLotto
           }}
       >
           {children}
