@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const app = express();
 const efectivo = express();
 const eventos = express();
+const lottos = express();
 
 dotenv.config();
 
@@ -32,13 +33,16 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 efectivo.use(cors(corsOptions));
+lottos.use(cors(corsOptions));
 
 // Routing
 
 app.use("/api/nequi", require("./routes/nequi.routes.js"));
 efectivo.use("/api/mp", require("./routes/efectivo.routes.js"));
 eventos.use("/", require("./routes/eventos.routes.js"));
+lottos.use("/api/lottos", require("./routes/lottos.routes.js"));
 
 exports.app = functions.https.onRequest(app);
 exports.efectivo = functions.https.onRequest(efectivo);
 exports.eventos = functions.https.onRequest(eventos);
+exports.lottos = functions.https.onRequest(lottos);
