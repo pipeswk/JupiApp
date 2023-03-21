@@ -125,7 +125,7 @@ export async function getServerSideProps( { params: {id} } ) {
   const entidades = entidadesFiltradas[0].financial_institutions
   const docRef = doc(db, 'sorteos', id);
   const documento = await getDoc(docRef);
-  const resultado = documento.data();
+  const resultado = JSON.parse(JSON.stringify(documento.data()));
 
   if(documento.exists()) {
     console.log('Si existe el documento');
