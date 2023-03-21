@@ -11,9 +11,10 @@ module.exports = {
   "rules": {
     "quotes": ["error", "double"],
     "linebreak-style": 0,
+    "max-len": "off",
   },
   "parserOptions": {
     // Required for certain syntax usages
-    "ecmaVersion": 2017,
+    "ecmaVersion": 2020,
   },
 };
