@@ -20,12 +20,23 @@ const escucharEventos = async (req, res) => {
       }
 
       if (documento.data().tipoCompra === "sorteo") {
+        // const sortRef = db.collection("sorteos")
+        //     .doc(documento.data().idSorteo);
+        // const sorteo = await sortRef.get();
+        // await sortRef.update({
+        //   participantes: admin.firestore.FieldValue
+        //       .arrayUnion(...nuevosInscritos),
+        // });
+        // Se ejecuta transacción para actualizar documento de sorteo
         const sortRef = db.collection("sorteos")
             .doc(documento.data().idSorteo);
         const sorteo = await sortRef.get();
-        await sortRef.update({
-          participantes: admin.firestore.FieldValue
-              .arrayUnion(...nuevosInscritos),
+        await db.runTransaction(async (t) => {
+          let newPart = [];
+          const sorteo = await t.get(sortRef);
+          newPart = sorteo.data().participantes;
+          newPart.push(...nuevosInscritos);
+          t.update(sortRef, {participantes: newPart});
         });
         // Se envia mensaje de whatsapp
         const whatsappData = JSON.stringify({
@@ -285,10 +296,18 @@ const eventosMercadoPago = async (req, res) => {
           const sortRef = db.collection("sorteos")
               .doc(docs[0].idSorteo);
           const sorteo = await sortRef.get();
-          await sortRef.update({
-            participantes: admin.firestore.FieldValue
-                .arrayUnion(...nuevosInscritos),
+          await db.runTransaction(async (t) => {
+            let newPart = [];
+            const sorteo = await t.get(sortRef);
+            newPart = sorteo.data().participantes;
+            newPart.push(...nuevosInscritos);
+            t.update(sortRef, {participantes: newPart});
           });
+          // const sorteo = await sortRef.get();
+          // await sortRef.update({
+          //   participantes: admin.firestore.FieldValue
+          //       .arrayUnion(...nuevosInscritos),
+          // });
           // Se envia mensaje de whatsapp
           const whatsappData = JSON.stringify({
             "messaging_product": "whatsapp",
