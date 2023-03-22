@@ -53,6 +53,7 @@ const EntradaPronostico = ( { resultado, entidades, id } ) => {
   return (
     <Layout
         pagina={nombre}
+        description={nombre}
     >
       <main>
         <div className='py-4 bg-light'>
