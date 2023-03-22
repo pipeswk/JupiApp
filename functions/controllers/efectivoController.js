@@ -15,6 +15,8 @@ const efecty = async (req, res) => {
       cantidad: req.body.data.cantidad,
       telefono: req.body.data.telefono,
       email: req.body.data.email,
+      checkoutId: req.body.data.checkoutId,
+      lottos: req.body.data.lottos,
       statusTransaccion: false,
       transaccionCreada: false,
     });
@@ -108,6 +110,8 @@ const pse = async (req, res) => {
       cantidad: req.body.data.cantidad,
       telefono: req.body.data.telefono,
       email: req.body.data.email,
+      checkoutId: req.body.data.checkoutId,
+      lottos: req.body.data.lottos,
       statusTransaccion: false,
       transaccionCreada: false,
     });
