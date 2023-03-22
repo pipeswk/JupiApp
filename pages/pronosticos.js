@@ -26,6 +26,7 @@ const Pronosticos = () => {
   return (
     <Layout
         pagina='Pronosticos'
+        description='Pronósticos deportivos de alta confiabilidad'
     >
         <main>
           {/* Seccion superior */}

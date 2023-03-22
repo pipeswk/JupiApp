@@ -26,6 +26,7 @@ export default function Home() {
   return (
     <Layout
       pagina='Inicio'
+      description='Rifas y sorteos a bajo costo'
     >
       <main>
         <div className="container my-5">

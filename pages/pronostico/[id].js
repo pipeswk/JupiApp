@@ -9,6 +9,7 @@ const ResultadoCompraPronostico = ( { id, imagen } ) => {
   return (
     <Layout
         pagina='Vamos a ganar'
+        description='Vamos a ganar'
     >
         <main>
             <div className='py-4 bg-light'>

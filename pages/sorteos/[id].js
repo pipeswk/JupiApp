@@ -40,6 +40,7 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
   return (
     <Layout
         pagina={nombre}
+        description={`Gánate un/a ${nombre}`}
     >
       <main>
         <div className='py-4 bg-light'>

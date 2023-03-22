@@ -5,6 +5,7 @@ const Terminosycondiciones = () => {
   return (
     <Layout
         pagina='Términos y condiciones'
+        description='Términos y condiciones de Jupi'
     >
         <main>
             <div className='container'>

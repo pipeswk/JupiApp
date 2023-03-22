@@ -17,6 +17,7 @@ const Ganadores = () => {
   return (
     <Layout
         pagina='Ganadores'
+        description='Últimos ganadores de Jupi!'
     >
       <div className='mt-5'>
         <h1 className='text-center fw-bold'>Últimos Ganadores</h1>

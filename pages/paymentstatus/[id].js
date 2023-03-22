@@ -23,6 +23,7 @@ const EntradaPago = () => {
   return (
     <Layout
         pagina='Pago'
+        description='Estado de pago'
     >
         <main>
             <div className='py-4 bg-light'>
