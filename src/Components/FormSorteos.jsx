@@ -11,9 +11,9 @@ import LottoSelect from './LottoSelect';
 const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
 
     const [metodo, setMetodo] = useState('');
-    const [cantidad, setCantidad] = useState('1');
+    const [cantidad, setCantidad] = useState(0);
     const [cargando, setCargando] = useState(false);
-    const { pagar, setCheckoutId } = useJupi();
+    const { pagar, checkoutId, setCheckoutId, lottos } = useJupi();
     const totalPagar = numeral(cantidad * valorTicket).format('$0,0');
     const router = useRouter();
 
@@ -31,6 +31,11 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
         }
         setCheckoutId(makeid(35));
     }, [])
+
+    useEffect(() => {
+      setCantidad(lottos.length);
+    }, [lottos])
+    
     
 
     const formik = useFormik({
@@ -42,8 +47,7 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
             method: '',
             telNequi: '',
             tipoDocumento: 'CC',
-            noDocumento: '',
-            cantidad: '1',
+            noDocumento: ''
         },
         validationSchema: Yup.object({
             nombre: Yup.string()
@@ -85,22 +89,33 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
                 is: 'PSE',
                 then: Yup.string()
                     .required('La entidad es obligatoria')
-            }),
-            cantidad: Yup.number()
-                .required('La cantidad es obligatoria')
-                .min(1, 'La cantidad debe ser mayor a 0')
-                .max(50, 'La cantidad no puede ser mayor a 50')
+            })
         }),
         onSubmit: values => {
             if (metodo === 'NEQUI') {
                 setCargando(true);
-                enviarDatos(values);
+                enviarDatos({
+                    ...values,
+                    cantidad: cantidad,
+                    checkoutId: checkoutId,
+                    lottos: lottos
+                });
             } else if (metodo === 'EFECTY') {
                 setCargando(true);
-                enviarDatos(values);
+                enviarDatos({
+                    ...values,
+                    cantidad: cantidad,
+                    checkoutId: checkoutId,
+                    lottos: lottos
+                });
             } else {
                 setCargando(true);
-                enviarDatos(values);
+                enviarDatos({
+                    ...values,
+                    cantidad: cantidad,
+                    checkoutId: checkoutId,
+                    lottos: lottos
+                });
             }
         }
     })
@@ -112,6 +127,13 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
 
   return (
     <form onSubmit={formik.handleSubmit}>
+        <div className="mb-3">
+            <label htmlFor='cantidad' className="form-label fw-bold">Selecciona los números con los que deseas participar:</label>
+            <LottoSelect
+                datosSorteo={datosSorteo}
+                idSorteo={id}
+            />
+        </div>
         <div className="mb-3">
             <label htmlFor='nombre' className="form-label fw-bold">Nombre completo</label>
             <input
@@ -291,24 +313,28 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
             </div>
             </>
         )}
-
-        <div className="mb-3">
-            <label htmlFor='cantidad' className="form-label fw-bold">Selecciona los números con los que deseas participar:</label>
-            <LottoSelect
-                datosSorteo={datosSorteo}
-                idSorteo={id}
-            />
-            {formik.touched.cantidad && formik.errors.cantidad ? (
-                <div className="text-danger">{formik.errors.cantidad}</div>
-            ) : null}
-        </div>
         <div className={styles.description}>
             <p className='fs-4'><span className='fw-bold'>Resumen: </span>{`${cantidad} Ticket/s`}</p>
-            <p className='fs-4'><span  className='fw-bold'>Total a pagar: </span>{totalPagar}</p>
+            <div className='d-flex'>
+                {lottos.map((lotto, index) => (
+                    <p key={index} className='fs-8'>{`${lotto}, `}</p>
+                ))}
+            </div>
+            <p className='fs-4'><span  className='fw-bold'>Total a pagar: </span>
+            {cantidad > 0 ? (
+                totalPagar
+            ) : (
+                'Seleccione al menos un número de rifa'
+            )}
+            </p>
         </div>
         <p>Al hacer clic en el botón "PAGAR" aceptas nuestros <Link href='/terminosycondiciones'><a className='alert-link text-primary'>Términos y Condiciones</a></Link></p>
         {cargando === false ? (
-            <button type='submit' className="btn btn-primary w-100 mt-5 fw-bold">PAGAR</button>
+            cantidad > 0 ? (
+                <button type='submit' className="btn btn-primary w-100 mt-5 fw-bold">PAGAR</button>
+            ) : (
+                <button type='button' className="btn btn-primary w-100 mt-5 fw-bold" disabled>Seleccione al menos un numero de rifa</button>
+            )
         ) : (
             <button className="btn btn-primary w-100 mt-5 fw-bold" type="button" disabled>
                 <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>

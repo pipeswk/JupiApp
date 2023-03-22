@@ -5,7 +5,7 @@ import Lotto from './Lotto'
 
 const LottoSelect = ( { datosSorteo, idSorteo } ) => {
 
-    const { lottos, setLottos, reservarLottoNumber, checkoutId } = useJupi();
+    const { setLottos, reservarLottoNumber, checkoutId } = useJupi();
 
     useEffect(() => {
         const arlott = [];
