@@ -9,6 +9,7 @@ const app = express();
 const efectivo = express();
 const eventos = express();
 const lottos = express();
+const invernadero = express();
 
 dotenv.config();
 
@@ -43,11 +44,13 @@ app.use("/api/nequi", require("./routes/nequi.routes.js"));
 efectivo.use("/api/mp", require("./routes/efectivo.routes.js"));
 eventos.use("/", require("./routes/eventos.routes.js"));
 lottos.use("/api/lottos", require("./routes/lottos.routes.js"));
+invernadero.use("/api/invernadero", require("./routes/invernadero.routes.js"));
 
 exports.app = functions.https.onRequest(app);
 exports.efectivo = functions.https.onRequest(efectivo);
 exports.eventos = functions.https.onRequest(eventos);
 exports.lottos = functions.https.onRequest(lottos);
+exports.invernadero = functions.https.onRequest(invernadero);
 exports.liberador = functions.pubsub.schedule("every 15 minutes")
     .onRun(async (context) => {
       await db.runTransaction(async (t) => {
