@@ -20,23 +20,34 @@ const escucharEventos = async (req, res) => {
       }
 
       if (documento.data().tipoCompra === "sorteo") {
-        // const sortRef = db.collection("sorteos")
-        //     .doc(documento.data().idSorteo);
-        // const sorteo = await sortRef.get();
-        // await sortRef.update({
-        //   participantes: admin.firestore.FieldValue
-        //       .arrayUnion(...nuevosInscritos),
-        // });
         // Se ejecuta transacción para actualizar documento de sorteo
         const sortRef = db.collection("sorteos")
             .doc(documento.data().idSorteo);
-        const sorteo = await sortRef.get();
+        const sort = await sortRef.get();
         await db.runTransaction(async (t) => {
           let newPart = [];
+          let newLottos = [];
+          const resLottos = documento.data().lottos;
           const sorteo = await t.get(sortRef);
+          newLottos = sorteo.data().lottos;
           newPart = sorteo.data().participantes;
-          newPart.push(...nuevosInscritos);
-          t.update(sortRef, {participantes: newPart});
+          resLottos.forEach((lotto) => {
+            const lottoI = newLottos.findIndex((l) => l.number === lotto);
+            newLottos[lottoI] = {
+              ...newLottos[lottoI],
+              checkoutId: documento.data().checkoutId,
+              avaliable: false,
+            };
+            newPart.push(`${documento.data().refPago}-${lotto}`);
+          });
+          t.update(sortRef, {
+            lottos: newLottos,
+            participantes: newPart,
+          });
+        });
+        let buyNumbers = "|";
+        documento.data().lottos.forEach((lotto) => {
+          buyNumbers += `${lotto}|`;
         });
         // Se envia mensaje de whatsapp
         const whatsappData = JSON.stringify({
@@ -44,7 +55,7 @@ const escucharEventos = async (req, res) => {
           "to": `57${documento.data().telefono}`,
           "type": "template",
           "template": {
-            "name": "sort_with_img_2",
+            "name": "sort_with_img_3",
             "language": {
               "code": "es_MX",
             },
@@ -55,7 +66,7 @@ const escucharEventos = async (req, res) => {
                   {
                     "type": "image",
                     "image": {
-                      "link": sorteo.data().preview_img,
+                      "link": sort.data().preview_img,
                     },
                   },
                 ],
@@ -73,7 +84,7 @@ const escucharEventos = async (req, res) => {
                   },
                   {
                     "type": "text",
-                    "text": sorteo.data().nombre,
+                    "text": sort.data().nombre,
                   },
                   {
                     "type": "text",
@@ -82,6 +93,10 @@ const escucharEventos = async (req, res) => {
                   {
                     "type": "text",
                     "text": documento.data().refPago,
+                  },
+                  {
+                    "type": "text",
+                    "text": buyNumbers,
                   },
                 ],
               },
@@ -298,23 +313,36 @@ const eventosMercadoPago = async (req, res) => {
           const sorteo = await sortRef.get();
           await db.runTransaction(async (t) => {
             let newPart = [];
+            let newLottos = [];
+            const resLottos = docs[0].lottos;
             const sorteo = await t.get(sortRef);
+            newLottos = sorteo.data().lottos;
             newPart = sorteo.data().participantes;
-            newPart.push(...nuevosInscritos);
-            t.update(sortRef, {participantes: newPart});
+            resLottos.forEach((lotto) => {
+              const lottoI = newLottos.findIndex((l) => l.number === lotto);
+              newLottos[lottoI] = {
+                ...newLottos[lottoI],
+                checkoutId: docs[0].checkoutId,
+                avaliable: false,
+              };
+              newPart.push(`${docs[0].refPago}-${lotto}`);
+            });
+            t.update(sortRef, {
+              lottos: newLottos,
+              participantes: newPart,
+            });
           });
-          // const sorteo = await sortRef.get();
-          // await sortRef.update({
-          //   participantes: admin.firestore.FieldValue
-          //       .arrayUnion(...nuevosInscritos),
-          // });
           // Se envia mensaje de whatsapp
+          let buyNumbers = "|";
+          docs[0].lottos.forEach((lotto) => {
+            buyNumbers += `${lotto}|`;
+          });
           const whatsappData = JSON.stringify({
             "messaging_product": "whatsapp",
             "to": `57${docs[0].telefono}`,
             "type": "template",
             "template": {
-              "name": "sort_with_img_2",
+              "name": "sort_with_img_3",
               "language": {
                 "code": "es_MX",
               },
@@ -352,6 +380,10 @@ const eventosMercadoPago = async (req, res) => {
                     {
                       "type": "text",
                       "text": docs[0].refPago,
+                    },
+                    {
+                      "type": "text",
+                      "text": buyNumbers,
                     },
                   ],
                 },
