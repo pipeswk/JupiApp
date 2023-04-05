@@ -6,7 +6,7 @@ import Spinner from './Spinner';
 
 const PaymentProcess = ( { datos, prod } ) => {
   const [pagoConfirmado, setPagoConfirmado] = useState(false);
-  const { paymentMethod, refPago, efecty } = useJupi();
+  const { paymentMethod, refPago, efecty, lottos } = useJupi();
 
   const validarProducto = () => {
     if (prod === 'sorteo') {
@@ -17,7 +17,7 @@ const PaymentProcess = ( { datos, prod } ) => {
   useEffect(() => {
     const validador = validarProducto();
     if (validador === true) {
-      if (datos[0]?.participantes.includes(`${refPago}-0`)) {
+      if (datos[0]?.participantes.includes(`${refPago}-${lottos[0]}`)) {
         setPagoConfirmado(true);
       } else {
         setPagoConfirmado(false);
@@ -55,7 +55,7 @@ const PaymentProcess = ( { datos, prod } ) => {
           </div>
           {pagoConfirmado === false ? (
             <>
-              <p className='text-center'>Por favor completa el pago desde tu App de Nequi para finalizar tu compra</p>
+              <p className='text-center'>{"Por favor completa el pago desde tu App de Nequi para finalizar tu compra (La confirmación del pago puede tardar varios minutos)"}</p>
               <div className='text-center fw-bold'>Instrucciones:</div>
               <div className='text-center'>
                 <Image src='/img/NequiInstructions.gif' width={350} height={580} className='img-fluid rounded-3' />
