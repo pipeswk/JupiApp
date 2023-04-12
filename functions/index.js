@@ -51,7 +51,12 @@ exports.efectivo = functions.https.onRequest(efectivo);
 exports.eventos = functions.https.onRequest(eventos);
 exports.lottos = functions.https.onRequest(lottos);
 exports.invernadero = functions.https.onRequest(invernadero);
-exports.liberador = functions.pubsub.schedule("every 15 minutes")
+exports.liberador = functions
+    .runWith({
+      timeoutSeconds: 540,
+      memory: "1GB",
+    })
+    .pubsub.schedule("every 15 minutes")
     .onRun(async (context) => {
       await db.runTransaction(async (t) => {
         const sorteosDisponibles = await t.get(db.collection("sorteos").where("status", "==", "active"));
@@ -68,12 +73,83 @@ exports.liberador = functions.pubsub.schedule("every 15 minutes")
                 ...newLottos[i],
                 checkoutId: "",
               };
-              t.update(sorteo.ref, {lottos: newLottos});
-              console.log(lotto.number + " liberado");
+              // console.log(lotto.number + " liberado");
             } else {
               console.log("No se ha liberado el lotto" + lotto.number);
             }
           });
+          t.update(sorteo.ref, {lottos: newLottos});
+          // console.log(newLottos);
         });
+      });
+    });
+exports.createSorteo = functions.firestore
+    .document("sorteos/{sorteoId}")
+    .onCreate(async (snap, context) => {
+      const timestamp = moment().tz("America/Bogota");
+      timestamp.set({
+        hour: 0,
+        minute: 0,
+        second: 0,
+        millisecond: 0,
+      });
+      const sortRef = db.collection("sorteos").doc(snap.id);
+      const sorteo = snap.data();
+      const lottos = [];
+      for (let i = 0; i < sorteo.capacidad; i++) {
+        if (i < 10 && sorteo.capacidad === 100) {
+          lottos.push({
+            number: "0" + i.toString(),
+            avaliable: true,
+            checkoutId: "",
+            fechaReserva: timestamp,
+          });
+        } else if (i < 10 && sorteo.capacidad === 1000) {
+          lottos.push({
+            number: "00" + i.toString(),
+            avaliable: true,
+            checkoutId: "",
+            fechaReserva: timestamp,
+          });
+        } else if (i < 100 && sorteo.capacidad === 1000) {
+          lottos.push({
+            number: "0" + i.toString(),
+            avaliable: true,
+            checkoutId: "",
+            fechaReserva: timestamp,
+          });
+        } else if (i < 10 && sorteo.capacidad === 10000) {
+          lottos.push({
+            number: "000" + i.toString(),
+            avaliable: true,
+            checkoutId: "",
+            fechaReserva: timestamp,
+          });
+        } else if (i < 100 && sorteo.capacidad === 10000) {
+          lottos.push({
+            number: "00" + i.toString(),
+            avaliable: true,
+            checkoutId: "",
+            fechaReserva: timestamp,
+          });
+        } else if (i < 1000 && sorteo.capacidad === 10000) {
+          lottos.push({
+            number: "0" + i.toString(),
+            avaliable: true,
+            checkoutId: "",
+            fechaReserva: timestamp,
+          });
+        } else {
+          lottos.push({
+            number: i.toString(),
+            avaliable: true,
+            checkoutId: "",
+            fechaReserva: timestamp,
+          });
+        }
+      }
+      await sortRef.update({
+        lottos: lottos,
+        status: "active",
       });
     });

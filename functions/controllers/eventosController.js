@@ -80,7 +80,7 @@ const escucharEventos = async (req, res) => {
                   },
                   {
                     "type": "text",
-                    "text": documento.data().tipoCompra,
+                    "text": "rifa",
                   },
                   {
                     "type": "text",
@@ -367,7 +367,7 @@ const eventosMercadoPago = async (req, res) => {
                     },
                     {
                       "type": "text",
-                      "text": docs[0].tipoCompra,
+                      "text": "rifa",
                     },
                     {
                       "type": "text",
