@@ -7,6 +7,7 @@ import styles from '../../styles/EntradaPronostico.module.css'
 import useJupi from '../Hooks/useJupi';
 import numeral from 'numeral';
 import LottoSelect from './LottoSelect';
+import * as fbq from '../../lib/fpixel';
 
 const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
 
@@ -94,6 +95,7 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
         onSubmit: values => {
             if (metodo === 'NEQUI') {
                 setCargando(true);
+                fbq.event('Purchase', { currency: 'COP', value: cantidad * valorTicket });
                 enviarDatos({
                     ...values,
                     cantidad: cantidad,
@@ -102,6 +104,7 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
                 });
             } else if (metodo === 'EFECTY') {
                 setCargando(true);
+                fbq.event('Purchase', { currency: 'COP', value: cantidad * valorTicket });
                 enviarDatos({
                     ...values,
                     cantidad: cantidad,
@@ -110,6 +113,7 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
                 });
             } else {
                 setCargando(true);
+                fbq.event('Purchase', { currency: 'COP', value: cantidad * valorTicket });
                 enviarDatos({
                     ...values,
                     cantidad: cantidad,
@@ -144,6 +148,15 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
                 placeholder="Ej: Andres Rojas"
                 value={formik.values.nombre}
                 onChange={formik.handleChange}
+                onClick={() => fbq.event('initiateCheckout', {
+                    content_name: 'Sorteo',
+                    content_category: 'Sorteo',
+                    content_ids: [id],
+                    content_type: 'product',
+                    value: cantidad * valorTicket,
+                    currency: 'COP',
+                    num_items: cantidad,
+                })}
                 onBlur={formik.handleBlur}
             />
             {formik.touched.nombre && formik.errors.nombre ? (
@@ -197,6 +210,16 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
             onClick={(e) => {
                 e.preventDefault();
                 setMetodo('NEQUI');
+                fbq.event('AddPaymentInfo', {
+                    content_name: 'Sorteo',
+                    content_category: 'Sorteo',
+                    content_ids: [id],
+                    content_type: 'product',
+                    value: cantidad * valorTicket,
+                    currency: 'COP',
+                    num_items: cantidad,
+                    method: 'NEQUI'
+                });
                 formik.setFieldValue('method', 'NEQUI');
             } }
             >
@@ -209,6 +232,16 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
             onClick={(e) => {
                 e.preventDefault();
                 setMetodo('EFECTY');
+                fbq.event('AddPaymentInfo', {
+                    content_name: 'Sorteo',
+                    content_category: 'Sorteo',
+                    content_ids: [id],
+                    content_type: 'product',
+                    value: cantidad * valorTicket,
+                    currency: 'COP',
+                    num_items: cantidad,
+                    method: 'EFECTY'
+                });
                 formik.setFieldValue('method', 'EFECTY');
             } }
             >
@@ -221,6 +254,16 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
             onClick={(e) => {
                 e.preventDefault();
                 setMetodo('PSE');
+                fbq.event('AddPaymentInfo', {
+                    content_name: 'Sorteo',
+                    content_category: 'Sorteo',
+                    content_ids: [id],
+                    content_type: 'product',
+                    value: cantidad * valorTicket,
+                    currency: 'COP',
+                    num_items: cantidad,
+                    method: 'PSE'
+                });
                 formik.setFieldValue('method', 'PSE');
             } }
             >

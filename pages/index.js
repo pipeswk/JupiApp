@@ -38,13 +38,13 @@ export default function Home() {
               </p>
               <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
                 <a href='#sorteos'><button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold w-100">Ver sorteos</button></a>
-                <button
+                {/* <button
                   type="button"
                   className="btn btn-outline-secondary btn-lg px-4"
                   onClick={handleClickPronosticos}
                 >
                   Ver Pronósticos
-                </button>
+                </button> */}
               </div>
             </div>
             <div className="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg mx-md-5">

@@ -21,11 +21,11 @@ const Header = () => {
                             <a className={`nav-link px-2 text-white ${styles.navText}`}>Sorteos</a>
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link href='/pronosticos'>
                             <a className={`nav-link px-2 text-white ${styles.navText}`}>Pronosticos</a>
                         </Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link href='/ganadores'>
                             <a className={`nav-link px-2 text-white ${styles.navText}`}>Ganadores</a>
