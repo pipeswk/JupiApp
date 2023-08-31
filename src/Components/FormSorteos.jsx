@@ -414,7 +414,7 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
             )}
             </p>
         </div>
-        <p>Al hacer clic en el botón "PAGAR" aceptas nuestros <Link href='/terminosycondiciones'><a className='alert-link text-primary'>Términos y Condiciones</a></Link></p>
+        {/* <p>Al hacer clic en el botón "PAGAR" aceptas nuestros <Link href='/terminosycondiciones'><a className='alert-link text-primary'>Términos y Condiciones</a></Link></p> */}
         {cargando === false ? (
             cantidad > 0 ? (
                 <button type='submit' className="btn btn-primary w-100 mt-5 fw-bold">PAGAR</button>
