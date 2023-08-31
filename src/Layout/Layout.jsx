@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import TiktokPixel from 'tiktok-pixel'
 import Head from 'next/head'
 import Footer from '../Components/Footer'
@@ -22,6 +23,7 @@ const Layout = ( { children, pagina, description } ) => {
         </Head>
         <Header />
         {children}
+        <Analytics />
         <Footer />
     </div>
   )
