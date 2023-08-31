@@ -1,8 +1,17 @@
+import { useEffect } from 'react'
+import TiktokPixel from 'tiktok-pixel'
 import Head from 'next/head'
 import Footer from '../Components/Footer'
 import Header from '../Components/Header'
 
 const Layout = ( { children, pagina, description } ) => {
+
+  useEffect(() => {
+    TiktokPixel.init('CJO1CK3C77UEOD73L81G')
+    TiktokPixel.pageView()
+  }, [])
+  
+
   return (
     <div>
         <Head>

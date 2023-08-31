@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
+import TiktokPixel from 'tiktok-pixel'
 import Layout from '../../src/Layout/Layout'
 import styles from '../../styles/EntradaPronostico.module.css'
 import { db } from '../../utils/Firebase'
@@ -16,10 +16,15 @@ import ProductImages from '../../src/Components/ProductImages'
 const EntradaSorteo = ( { resultado, entidades, id } ) => {
   
   const [datosSorteo, setDatosSorteo] = useState([]);
-  const { nombre, img, valorTicket } = resultado
+  const { nombre, img, valorTicket, categoria } = resultado
   const { sorteos, pagoEnProceso } = useJupi()
   const [activo, setActivo] = useState(true);
   const moneda = numeral(valorTicket).format('$0,0');
+
+  useEffect(() => {
+    TiktokPixel.track('ViewContent', {'content_name': nombre, 'content_category': categoria, 'content_ids': id, 'content_type': 'product', 'value': valorTicket, 'currency': 'COP' })
+  }, [])
+  
 
   useEffect(() => {
     setDatosSorteo(sorteos.filter(sorteo => sorteo.id === id));

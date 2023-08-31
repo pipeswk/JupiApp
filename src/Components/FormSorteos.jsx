@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import TiktokPixel from 'tiktok-pixel'
 import Link from 'next/link'
 import { useFormik } from 'formik'
 import * as Yup from 'yup';
@@ -10,6 +11,8 @@ import LottoSelect from './LottoSelect';
 import * as fbq from '../../lib/fpixel';
 
 const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
+
+    console.log(datosSorteo);
 
     const [metodo, setMetodo] = useState('');
     const [cantidad, setCantidad] = useState(0);
@@ -96,6 +99,15 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
             if (metodo === 'NEQUI') {
                 setCargando(true);
                 fbq.event('Purchase', { currency: 'COP', value: cantidad * valorTicket });
+                TiktokPixel.track('CompletePayment', {
+                    content_name: datosSorteo.nombre,
+                    content_category: datosSorteo.categoria,
+                    content_ids: [id],
+                    content_type: 'product',
+                    value: cantidad * valorTicket,
+                    currency: 'COP',
+                    quantity: cantidad,
+                });
                 enviarDatos({
                     ...values,
                     cantidad: cantidad,
@@ -105,6 +117,15 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
             } else if (metodo === 'EFECTY') {
                 setCargando(true);
                 fbq.event('Purchase', { currency: 'COP', value: cantidad * valorTicket });
+                TiktokPixel.track('CompletePayment', {
+                    content_name: datosSorteo.nombre,
+                    content_category: datosSorteo.categoria,
+                    content_ids: [id],
+                    content_type: 'product',
+                    value: cantidad * valorTicket,
+                    currency: 'COP',
+                    quantity: cantidad,
+                });
                 enviarDatos({
                     ...values,
                     cantidad: cantidad,
@@ -114,6 +135,15 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
             } else {
                 setCargando(true);
                 fbq.event('Purchase', { currency: 'COP', value: cantidad * valorTicket });
+                TiktokPixel.track('CompletePayment', {
+                    content_name: datosSorteo.nombre,
+                    content_category: datosSorteo.categoria,
+                    content_ids: [id],
+                    content_type: 'product',
+                    value: cantidad * valorTicket,
+                    currency: 'COP',
+                    quantity: cantidad,
+                });
                 enviarDatos({
                     ...values,
                     cantidad: cantidad,
@@ -148,15 +178,25 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
                 placeholder="Ej: Andres Rojas"
                 value={formik.values.nombre}
                 onChange={formik.handleChange}
-                onClick={() => fbq.event('initiateCheckout', {
-                    content_name: 'Sorteo',
-                    content_category: 'Sorteo',
-                    content_ids: [id],
-                    content_type: 'product',
-                    value: cantidad * valorTicket,
-                    currency: 'COP',
-                    num_items: cantidad,
-                })}
+                onClick={() => {
+                    fbq.event('initiateCheckout', {
+                        content_name: 'Sorteo',
+                        content_category: 'Sorteo',
+                        content_ids: [id],
+                        content_type: 'product',
+                        value: cantidad * valorTicket,
+                        currency: 'COP',
+                        num_items: cantidad,
+                    });
+                    TiktokPixel.track('InitiateCheckout', {
+                        content_name: datosSorteo.nombre,
+                        content_category: datosSorteo.categoria,
+                        content_ids: [id],
+                        content_type: 'product',
+                        value: cantidad * valorTicket,
+                        currency: 'COP'
+                    });
+                }}
                 onBlur={formik.handleBlur}
             />
             {formik.touched.nombre && formik.errors.nombre ? (
@@ -220,6 +260,7 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
                     num_items: cantidad,
                     method: 'NEQUI'
                 });
+                TiktokPixel.track('AddPaymentInfo');
                 formik.setFieldValue('method', 'NEQUI');
             } }
             >
@@ -242,6 +283,7 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
                     num_items: cantidad,
                     method: 'EFECTY'
                 });
+                TiktokPixel.track('AddPaymentInfo');
                 formik.setFieldValue('method', 'EFECTY');
             } }
             >
@@ -264,6 +306,7 @@ const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
                     num_items: cantidad,
                     method: 'PSE'
                 });
+                TiktokPixel.track('AddPaymentInfo');
                 formik.setFieldValue('method', 'PSE');
             } }
             >

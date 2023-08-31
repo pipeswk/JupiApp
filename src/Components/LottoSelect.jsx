@@ -1,9 +1,13 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import TiktokPixel from 'tiktok-pixel'
 import styles from '../../styles/EntradaPronostico.module.css'
 import useJupi from '../Hooks/useJupi'
 import Lotto from './Lotto'
 
 const LottoSelect = ( { datosSorteo, idSorteo } ) => {
+
+    const [eventCheckout, setEventCheckout] = useState(false);
+    console.log(datosSorteo[0]);
 
     const { setLottos, reservarLottoNumber, checkoutId } = useJupi();
 
@@ -18,6 +22,15 @@ const LottoSelect = ( { datosSorteo, idSorteo } ) => {
 
     const setNumber = (number, operation) => {
         reservarLottoNumber(idSorteo, operation, number);
+        if (eventCheckout === false) {
+            setEventCheckout(true);
+            TiktokPixel.track('AddToCart', {
+                content_type: 'product',
+                content_ids: [idSorteo],
+                value: datosSorteo[0]?.valorTicket,
+                currency: 'COP'
+            });
+        }
     }
 
   return (
