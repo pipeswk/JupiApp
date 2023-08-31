@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 const Progress = ( { data } ) => {
 
     const [porcentaje, setPorcentaje] = useState(0);
+    const [lockBar, setLockBar] = useState(false);
     
 
     useEffect(() => {
@@ -11,7 +12,10 @@ const Progress = ( { data } ) => {
             const porc = Math.round((data?.participantes.length / data?.capacidad) * (100 - randomIndicator));
             setPorcentaje(randomIndicator + porc);
         }
-        calcularPorcentaje();
+        if (data && lockBar === false) {
+            calcularPorcentaje();
+            setLockBar(true);
+        }
     }, [data])
 
   return (
