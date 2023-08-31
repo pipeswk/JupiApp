@@ -5,7 +5,6 @@ import numeral from 'numeral'
 const Sorteo = ( { sorteo } ) => {
 
     const { categoria, nombre, valorTicket, preview_img } = sorteo
-    console.log(sorteo)
     const moneda = numeral(valorTicket).format('$0,0');
 
   return (

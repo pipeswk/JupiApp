@@ -188,7 +188,6 @@ const JupiProvider = ( { children } ) => {
   // Se reseva el lotto number para el usuario
 
   const reservarLottoNumber = async (id, condition, number) => {
-    console.log(id, condition, number);
     if (condition === 'update') {
       setSpinLotto(true);
       try {

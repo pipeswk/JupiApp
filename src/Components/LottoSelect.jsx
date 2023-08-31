@@ -7,7 +7,6 @@ import Lotto from './Lotto'
 const LottoSelect = ( { datosSorteo, idSorteo } ) => {
 
     const [eventCheckout, setEventCheckout] = useState(false);
-    console.log(datosSorteo[0]);
 
     const { setLottos, reservarLottoNumber, checkoutId } = useJupi();
 

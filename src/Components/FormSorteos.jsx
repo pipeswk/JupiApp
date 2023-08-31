@@ -12,8 +12,6 @@ import * as fbq from '../../lib/fpixel';
 
 const FormSorteos = ( { valorTicket, id, entidades, datosSorteo } ) => {
 
-    console.log(datosSorteo);
-
     const [metodo, setMetodo] = useState('');
     const [cantidad, setCantidad] = useState(0);
     const [cargando, setCargando] = useState(false);
