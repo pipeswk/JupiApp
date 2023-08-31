@@ -74,14 +74,14 @@ const EntradaSorteo = ( { resultado, entidades, id } ) => {
                       <li>Selecciona el método de pago de tu preferencia.</li>
                       <li>Elige la cantidad de tickets a comprar <span className='fw-bold'>(Entre mas tickets compres mayor probabilidad de ganar tienes).</span></li>
                       <li>Haz clic en el botón <span className='fw-bold'>PAGAR</span> y sigue las instrucciones..</li>
-                      <li>El sorteo iniciara cuando se completen los cupos, por medio de una transmisión en vivo.</li>
+                      <li>Tan pronto haga el pago le llegara un mensaje a su WhatsApp con su compra, y allí lo mantendremos informado cuando se llenen los cupos junto a la fecha del sorteo</li>
                     </ol>
                     <ol className='d-none d-md-block'>
                       <li>Llena el formulario del lado <span className='fw-bold'>derecho.</span></li>
                       <li>Selecciona el método de pago de tu preferencia.</li>
                       <li>Elige la cantidad de tickets a comprar <span className='fw-bold'>(Entre mas tickets compres mayor probabilidad de ganar tienes).</span></li>
                       <li>Haz clic en el botón <span className='fw-bold'>PAGAR</span> y sigue las instrucciones.</li>
-                      <li>Tan pronto haga el pago le llegara un mensaje a su WhatsApp con su compra, y allí lo mantendremos informado cuando se llenen los cupos y fecha del sorteo</li>
+                      <li>Tan pronto haga el pago le llegara un mensaje a su WhatsApp con su compra, y allí lo mantendremos informado cuando se llenen los cupos junto a la fecha del sorteo</li>
                     </ol>
                   </div>
                 </div>
