@@ -18,6 +18,7 @@ dotenv.config();
 const whitelist = [
   process.env.FRONTEND3,
   process.env.FRONTEND4,
+  process.env.FRONTEND5,
 ];
 
 const corsOptions = {
