@@ -20,7 +20,8 @@
       "port": 4000
     },
     "firestore": {
-      "port": 8080
+      "port": 8080,
+      "host": "127.0.0.1"
     },
     "database": {
       "port": 9000
@@ -30,7 +31,7 @@
     },
     "ui": {
       "enabled": true,
-      "host": "http://localhost",
+      "host": "127.0.0.1",
       "port": 5001
     }
   }

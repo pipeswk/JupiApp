@@ -26,7 +26,6 @@ const ejecutarPagoSorteo = async (req, res) => {
     telNequi: req.body.data.telNequi,
     email: req.body.data.email,
     checkoutId: req.body.data.checkoutId,
-    lottos: req.body.data.lottos,
     tokenAceptacion: "",
     statusTransaccion: false,
     transaccionCreada: false,

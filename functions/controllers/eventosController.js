@@ -14,42 +14,44 @@ const escucharEventos = async (req, res) => {
         statusTransaccion: true,
       });
       // Se alimenta el Array del Sorteo
-      const nuevosInscritos = [];
-      for (let i = 0; i < documento.data().cantidad; i++) {
-        nuevosInscritos.push(`${documento.data().refPago}-${i}`);
-      }
-
+      const cantidadComprada = documento.data().cantidad;
       if (documento.data().tipoCompra === "sorteo") {
         // Se ejecuta transacción para actualizar documento de sorteo
         const sortRef = db.collection("sorteos")
             .doc(documento.data().idSorteo);
-        const sort = await sortRef.get();
+        const lottoRef = db.collection("lottos")
+            .doc(documento.data().idSorteo);
+        const purchasedNumbers = [];
         await db.runTransaction(async (t) => {
-          let newPart = [];
-          let newLottos = [];
-          const resLottos = documento.data().lottos;
-          const sorteo = await t.get(sortRef);
-          newLottos = sorteo.data().lottos;
-          newPart = sorteo.data().participantes;
-          resLottos.forEach((lotto) => {
-            const lottoI = newLottos.findIndex((l) => l.number === lotto);
-            newLottos[lottoI] = {
-              ...newLottos[lottoI],
-              checkoutId: documento.data().checkoutId,
-              avaliable: false,
-            };
-            newPart.push(`${documento.data().refPago}-${lotto}`);
-          });
-          t.update(sortRef, {
-            lottos: newLottos,
-            participantes: newPart,
+          const lotto = await t.get(lottoRef);
+          const numerosDisponibles = lotto.data().avaliableNumbers;
+          const numerosOcupados = lotto.data().busyNumbers;
+          for (let i = 0; i < cantidadComprada; i++) {
+            const numeroAleatorio = Math.floor(Math.random() * numerosDisponibles.length);
+            if (numerosDisponibles[numeroAleatorio]) {
+              const lotto = numerosDisponibles[numeroAleatorio];
+              lotto.avaliable = false;
+              lotto.checkoutId = documento.data().checkoutId;
+              lotto.phoneNumber = documento.data().telefono;
+              lotto.refPago = documento.data().refPago;
+              purchasedNumbers.push(lotto.number);
+              numerosOcupados.push(lotto);
+              numerosDisponibles.splice(numeroAleatorio, 1);
+            }
+          }
+          // Se acutualiza el documento de lottos
+          t.update(lottoRef, {
+            avaliableNumbers: numerosDisponibles,
+            busyNumbers: numerosOcupados,
           });
         });
-        let buyNumbers = "|";
-        documento.data().lottos.forEach((lotto) => {
-          buyNumbers += `${lotto}|`;
-        });
+
         // Se envia mensaje de whatsapp
+        let buyNumbers = "|";
+        purchasedNumbers.forEach((lotto) => {
+          buyNumbers += `  ${lotto}  |`;
+        });
+        const sort = await sortRef.get();
         const whatsappData = JSON.stringify({
           "messaging_product": "whatsapp",
           "to": `57${documento.data().telefono}`,
@@ -116,144 +118,10 @@ const escucharEventos = async (req, res) => {
           message: "Evento escuchado",
         });
       } else {
-        const sortRef = db.collection("sorteos")
-            .doc(documento.data().idSorteo);
-        const sorteo = await sortRef.get();
-        await sortRef.update({
-          participantes: admin.firestore.FieldValue
-              .arrayUnion(...nuevosInscritos),
+        console.log("Evento diferente a sorteo escuchado");
+        res.status(200).send({
+          message: "Evento escuchado",
         });
-        const pronRef = db.collection("pronosticos")
-            .doc(documento.data().idProductoComprado);
-        await pronRef.update({
-          compradores: admin.firestore.FieldValue
-              .arrayUnion(...nuevosInscritos),
-        });
-        const pronImgRef = db.collection("imgpronosticos");
-        const pronImg = await pronImgRef
-            .where("idPron", "==", documento.data().idProductoComprado).get();
-        if (pronImg.empty) {
-          console.log("Documento no encontrado");
-          return;
-        }
-        const imagen = [];
-        pronImg.forEach((doc) => {
-          imagen.push(doc.data().img_src);
-        });
-        // Se envia mensaje de whatsapp
-        const whatsappData = JSON.stringify({
-          "messaging_product": "whatsapp",
-          "to": `57${documento.data().telefono}`,
-          "type": "template",
-          "template": {
-            "name": "pronos_normal_img_and_url",
-            "language": {
-              "code": "es_MX",
-            },
-            "components": [
-              {
-                "type": "header",
-                "parameters": [
-                  {
-                    "type": "image",
-                    "image": {
-                      "link": imagen[0],
-                    },
-                  },
-                ],
-              },
-              {
-                "type": "body",
-                "parameters": [
-                  {
-                    "type": "text",
-                    "text": documento.data().nombreCliente,
-                  },
-                  {
-                    "type": "text",
-                    "text": documento.data().tipoCompra,
-                  },
-                  {
-                    "type": "text",
-                    "text": "sorteo",
-                  },
-                  {
-                    "type": "text",
-                    "text": sorteo.data().nombre,
-                  },
-                  {
-                    "type": "text",
-                    "text": "sorteo",
-                  },
-                  {
-                    "type": "text",
-                    "text": documento.data().refPago,
-                  },
-                  {
-                    "type": "text",
-                    "text": "ganar",
-                  },
-                  {
-                    "type": "text",
-                    "text": "sorteo",
-                  },
-                ],
-              },
-              {
-                "type": "button",
-                "sub_type": "url",
-                "index": 0,
-                "parameters": [
-                  {
-                    "type": "text",
-                    "text": sorteo.id,
-                  },
-                ],
-              },
-            ],
-          },
-        });
-        const whatsappConfig = {
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${process.env.ACCESS_TOKEN_WHATSAPP}`,
-          },
-        };
-        const url = "https://graph.facebook.com/v13.0/106635852120380/messages";
-        const resWa = await axios.post(url, whatsappData, whatsappConfig);
-        console.log(resWa.data);
-        if (resWa.status === 200) {
-          res.status(200).send({
-            message: "Evento escuchado",
-          });
-        } else {
-          // Se envia SMS de respaldo
-          const smsData = JSON.stringify({
-            "messages": [
-              {
-                "destinations": [
-                  {
-                    "to": `57${documento.data().telefono}`,
-                  },
-                ],
-                "from": "InfoSMS",
-                "text": `Hola ${documento.data().nombreCliente}, mira tu pronostico en https://jupi.com.co/pronostico/${documento.id}`,
-              },
-            ],
-          });
-          const smsConfig = {
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization": `App ${process.env.ACCESS_TOKEN_INFOBIP}`,
-            },
-          };
-          const urlSms = "https://pwvx5l.api.infobip.com/sms/2/text/advanced";
-          const {data: ressms} = await axios.post(urlSms, smsData, smsConfig);
-          console.log(ressms);
-          res.status(200).send({
-            message: "Evento escuchado",
-          });
-        }
       }
     } catch (error) {
       console.error(error);
@@ -261,7 +129,7 @@ const escucharEventos = async (req, res) => {
     }
   } else {
     res.status(200).send({
-      message: "Evento escuchado, transaccion no completada.",
+      message: "Evento escuchado, transacción no completada.",
     });
   }
 };
@@ -301,42 +169,44 @@ const eventosMercadoPago = async (req, res) => {
         await docRef.update({
           statusTransaccion: true,
         });
-        // Se alimenta el Array del Sorteo
-        const nuevosInscritos = [];
-        for (let i = 0; i < docs[0].cantidad; i++) {
-          nuevosInscritos.push(`${docs[0].refPago}-${i}`);
-        }
 
+        const cantidadComprada = docs[0].cantidad;
         if (docs[0].tipoCompra === "sorteo") {
           const sortRef = db.collection("sorteos")
               .doc(docs[0].idSorteo);
-          const sorteo = await sortRef.get();
+          const lottoRef = db.collection("lottos")
+              .doc(docs[0].idSorteo);
+          const purchasedNumbers = [];
           await db.runTransaction(async (t) => {
-            let newPart = [];
-            let newLottos = [];
-            const resLottos = docs[0].lottos;
-            const sorteo = await t.get(sortRef);
-            newLottos = sorteo.data().lottos;
-            newPart = sorteo.data().participantes;
-            resLottos.forEach((lotto) => {
-              const lottoI = newLottos.findIndex((l) => l.number === lotto);
-              newLottos[lottoI] = {
-                ...newLottos[lottoI],
-                checkoutId: docs[0].checkoutId,
-                avaliable: false,
-              };
-              newPart.push(`${docs[0].refPago}-${lotto}`);
-            });
-            t.update(sortRef, {
-              lottos: newLottos,
-              participantes: newPart,
+            const lotto = await t.get(lottoRef);
+            const numerosDisponibles = lotto.data().avaliableNumbers;
+            const numerosOcupados = lotto.data().busyNumbers;
+            for (let i = 0; i < cantidadComprada; i++) {
+              const numeroAleatorio = Math.floor(Math.random() * numerosDisponibles.length);
+              if (numerosDisponibles[numeroAleatorio]) {
+                const lotto = numerosDisponibles[numeroAleatorio];
+                lotto.avaliable = false;
+                lotto.checkoutId = docs[0].checkoutId;
+                lotto.phoneNumber = docs[0].telefono;
+                lotto.refPago = docs[0].refPago;
+                purchasedNumbers.push(lotto.number);
+                numerosOcupados.push(lotto);
+                numerosDisponibles.splice(numeroAleatorio, 1);
+              }
+            }
+            // Se acutualiza el documento de lottos
+            t.update(lottoRef, {
+              avaliableNumbers: numerosDisponibles,
+              busyNumbers: numerosOcupados,
             });
           });
+
           // Se envia mensaje de whatsapp
           let buyNumbers = "|";
-          docs[0].lottos.forEach((lotto) => {
-            buyNumbers += `${lotto}|`;
+          purchasedNumbers.forEach((lotto) => {
+            buyNumbers += `  ${lotto}  |`;
           });
+          const sorteo = await sortRef.get();
           const whatsappData = JSON.stringify({
             "messaging_product": "whatsapp",
             "to": `57${docs[0].telefono}`,
@@ -402,145 +272,6 @@ const eventosMercadoPago = async (req, res) => {
           res.status(200).send({
             message: "Evento escuchado",
           });
-        } else {
-          const sortRef = db.collection("sorteos")
-              .doc(docs[0].idSorteo);
-          const sorteo = await sortRef.get();
-          await sortRef.update({
-            participantes: admin.firestore.FieldValue
-                .arrayUnion(...nuevosInscritos),
-          });
-          const pronRef = db.collection("pronosticos")
-              .doc(docs[0].idProductoComprado);
-          await pronRef.update({
-            compradores: admin.firestore.FieldValue
-                .arrayUnion(...nuevosInscritos),
-          });
-          const pronImgRef = db.collection("imgpronosticos");
-          const pronImg = await pronImgRef
-              .where("idPron", "==", docs[0].idProductoComprado).get();
-          if (pronImg.empty) {
-            console.log("Documento no encontrado");
-            return;
-          }
-          const imagen = [];
-          pronImg.forEach((doc) => {
-            imagen.push(doc.data().img_src);
-          });
-          // Se envia mensaje de whatsapp
-          const whatsappData = JSON.stringify({
-            "messaging_product": "whatsapp",
-            "to": `57${docs[0].telefono}`,
-            "type": "template",
-            "template": {
-              "name": "pronos_normal_img_and_url",
-              "language": {
-                "code": "es_MX",
-              },
-              "components": [
-                {
-                  "type": "header",
-                  "parameters": [
-                    {
-                      "type": "image",
-                      "image": {
-                        "link": imagen[0],
-                      },
-                    },
-                  ],
-                },
-                {
-                  "type": "body",
-                  "parameters": [
-                    {
-                      "type": "text",
-                      "text": docs[0].nombreCliente,
-                    },
-                    {
-                      "type": "text",
-                      "text": docs[0].tipoCompra,
-                    },
-                    {
-                      "type": "text",
-                      "text": "sorteo",
-                    },
-                    {
-                      "type": "text",
-                      "text": sorteo.data().nombre,
-                    },
-                    {
-                      "type": "text",
-                      "text": "sorteo",
-                    },
-                    {
-                      "type": "text",
-                      "text": docs[0].refPago,
-                    },
-                    {
-                      "type": "text",
-                      "text": "ganar",
-                    },
-                    {
-                      "type": "text",
-                      "text": "sorteo",
-                    },
-                  ],
-                },
-                {
-                  "type": "button",
-                  "sub_type": "url",
-                  "index": 0,
-                  "parameters": [
-                    {
-                      "type": "text",
-                      "text": sorteo.id,
-                    },
-                  ],
-                },
-              ],
-            },
-          });
-          const whatsappConfig = {
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization": `Bearer ${process.env.ACCESS_TOKEN_WHATSAPP}`,
-            },
-          };
-          const url = "https://graph.facebook.com/v13.0/106635852120380/messages";
-          const resWa = await axios.post(url, whatsappData, whatsappConfig);
-          console.log(resWa.data);
-          if (resWa.status === 200) {
-            res.status(200).send({
-              message: "Evento escuchado",
-            });
-          } else {
-            // Se envia SMS de respaldo
-            const smsData = JSON.stringify({
-              "messages": [
-                {
-                  "destinations": [
-                    {
-                      "to": `57${docs[0].telefono}`,
-                    },
-                  ],
-                  "from": "InfoSMS",
-                  "text": `Hola ${docs[0].nombreCliente}, mira tu pronostico en https://jupi.com.co/pronostico/${docs[0].refPago}`,
-                },
-              ],
-            });
-            const smsConfig = {
-              headers: {
-                "Content-Type": "application/json",
-                "Authorization": `App ${process.env.ACCESS_TOKEN_INFOBIP}`,
-              },
-            };
-            const urlSms = "https://pwvx5l.api.infobip.com/sms/2/text/advanced";
-            const {data: ressms} = await axios.post(urlSms, smsData, smsConfig);
-            console.log(ressms);
-            res.status(200).send({
-              message: "Evento escuchado",
-            });
-          }
         }
       } else {
         res.status(200).send({

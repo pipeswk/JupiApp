@@ -9,13 +9,14 @@ const app = express();
 const efectivo = express();
 const eventos = express();
 const lottos = express();
-const invernadero = express();
 
 dotenv.config();
 
 // cors
 
 const whitelist = [
+  process.env.FRONTEND1,
+  process.env.FRONTEND2,
   process.env.FRONTEND3,
   process.env.FRONTEND4,
   process.env.FRONTEND5,
@@ -44,13 +45,11 @@ app.use("/api/nequi", require("./routes/nequi.routes.js"));
 efectivo.use("/api/mp", require("./routes/efectivo.routes.js"));
 eventos.use("/", require("./routes/eventos.routes.js"));
 lottos.use("/api/lottos", require("./routes/lottos.routes.js"));
-invernadero.use("/api/invernadero", require("./routes/invernadero.routes.js"));
 
 exports.app = functions.https.onRequest(app);
 exports.efectivo = functions.https.onRequest(efectivo);
 exports.eventos = functions.https.onRequest(eventos);
 exports.lottos = functions.https.onRequest(lottos);
-exports.invernadero = functions.https.onRequest(invernadero);
 exports.liberador = functions
     .runWith({
       timeoutSeconds: 540,
@@ -102,6 +101,7 @@ exports.createSorteo = functions.firestore
             number: "0" + i.toString(),
             avaliable: true,
             checkoutId: "",
+            phoneNumber: "",
             fechaReserva: timestamp,
           });
         } else if (i < 10 && sorteo.capacidad === 1000) {
@@ -109,6 +109,7 @@ exports.createSorteo = functions.firestore
             number: "00" + i.toString(),
             avaliable: true,
             checkoutId: "",
+            phoneNumber: "",
             fechaReserva: timestamp,
           });
         } else if (i < 100 && sorteo.capacidad === 1000) {
@@ -116,6 +117,7 @@ exports.createSorteo = functions.firestore
             number: "0" + i.toString(),
             avaliable: true,
             checkoutId: "",
+            phoneNumber: "",
             fechaReserva: timestamp,
           });
         } else if (i < 10 && sorteo.capacidad === 10000) {
@@ -123,6 +125,7 @@ exports.createSorteo = functions.firestore
             number: "000" + i.toString(),
             avaliable: true,
             checkoutId: "",
+            phoneNumber: "",
             fechaReserva: timestamp,
           });
         } else if (i < 100 && sorteo.capacidad === 10000) {
@@ -130,6 +133,7 @@ exports.createSorteo = functions.firestore
             number: "00" + i.toString(),
             avaliable: true,
             checkoutId: "",
+            phoneNumber: "",
             fechaReserva: timestamp,
           });
         } else if (i < 1000 && sorteo.capacidad === 10000) {
@@ -137,6 +141,7 @@ exports.createSorteo = functions.firestore
             number: "0" + i.toString(),
             avaliable: true,
             checkoutId: "",
+            phoneNumber: "",
             fechaReserva: timestamp,
           });
         } else {
@@ -144,12 +149,18 @@ exports.createSorteo = functions.firestore
             number: i.toString(),
             avaliable: true,
             checkoutId: "",
+            phoneNumber: "",
             fechaReserva: timestamp,
           });
         }
       }
       await sortRef.update({
-        lottos: lottos,
         status: "active",
+      });
+      // Se crea documento en la colección lottos
+      const lottosRef = db.collection("lottos").doc(snap.id);
+      await lottosRef.set({
+        avaliableNumbers: lottos,
+        busyNumbers: [],
       });
     });

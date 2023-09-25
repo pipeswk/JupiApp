@@ -1,0 +1,20 @@
+[debug] [2023-09-24T23:15:32.469Z] ----------------------------------------------------------------------
+[debug] [2023-09-24T23:15:32.471Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\pipe1\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2023-09-24T23:15:32.471Z] CLI Version:   12.5.4
+[debug] [2023-09-24T23:15:32.472Z] Platform:      win32
+[debug] [2023-09-24T23:15:32.472Z] Node Version:  v16.14.0
+[debug] [2023-09-24T23:15:32.473Z] Time:          Sun Sep 24 2023 18:15:32 GMT-0500 (hora estándar de Colombia)
+[debug] [2023-09-24T23:15:32.473Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-09-24T23:15:32.478Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-09-24T23:15:32.664Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-09-24T23:15:32.664Z] > authorizing via signed-in user (afco1995@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2023-09-24T23:15:32.686Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[debug] [2023-09-24T23:15:32.942Z] Error: getaddrinfo ENOTFOUND http://localhost
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:internal/dns/promises:52:17)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-09-24T23:15:32.966Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-09-24T23:15:32.966Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
