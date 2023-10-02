@@ -7,6 +7,7 @@ const efecty = async (req, res) => {
   console.log(req.body);
   if (req.body.product === "sorteo") {
     const documento = await db.collection("transactions").add({
+      uid: req.body.uid,
       nombreCliente: req.body.data.nombre,
       refPago: "",
       method: req.body.data.method,
@@ -18,6 +19,13 @@ const efecty = async (req, res) => {
       checkoutId: req.body.data.checkoutId,
       statusTransaccion: false,
       transaccionCreada: false,
+    });
+    const clientRef = db.collection("clientes").doc(req.body.uid);
+    await clientRef.update({
+      nombre: req.body.data.nombre,
+      telefono: req.body.data.telefono,
+      email: req.body.data.email,
+      telNequi: req.body.data.telNequi,
     });
     const sortRef = db.collection("sorteos").doc(req.body.data.idSorteo);
     const sort = await sortRef.get();
@@ -101,6 +109,7 @@ const pse = async (req, res) => {
   console.log(req.body);
   if (req.body.product === "sorteo") {
     const documento = await db.collection("transactions").add({
+      uid: req.body.uid,
       nombreCliente: req.body.data.nombre,
       refPago: "",
       method: req.body.data.method,
@@ -112,6 +121,13 @@ const pse = async (req, res) => {
       checkoutId: req.body.data.checkoutId,
       statusTransaccion: false,
       transaccionCreada: false,
+    });
+    const clientRef = db.collection("clientes").doc(req.body.uid);
+    await clientRef.update({
+      nombre: req.body.data.nombre,
+      telefono: req.body.data.telefono,
+      email: req.body.data.email,
+      telNequi: req.body.data.telNequi,
     });
     const sortRef = db.collection("sorteos").doc(req.body.data.idSorteo);
     const sort = await sortRef.get();

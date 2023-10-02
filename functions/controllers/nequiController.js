@@ -16,6 +16,7 @@ const privateKey = process.env.PRIVATE_KEY;
 const ejecutarPagoSorteo = async (req, res) => {
   console.log(req.body);
   const documento = await db.collection("transactions").add({
+    uid: req.body.uid,
     nombreCliente: req.body.data.nombre,
     refPago: "",
     method: req.body.data.method,
@@ -34,6 +35,13 @@ const ejecutarPagoSorteo = async (req, res) => {
   const docRef = db.collection("transactions").doc(docId);
   await docRef.update({
     refPago: docId,
+  });
+  const clientRef = db.collection("clientes").doc(req.body.uid);
+  await clientRef.update({
+    nombre: req.body.data.nombre,
+    telefono: req.body.data.telefono,
+    email: req.body.data.email,
+    telNequi: req.body.data.telNequi,
   });
   try {
     const tokenAceptacion = await obtenerTokenAceptacion();
@@ -76,14 +84,6 @@ const crearTransaccion = async (datos, token, reference) => {
     precioNequi = parseInt(`${precio}00`);
   }
   try {
-    const docRef = db.collection("transactions")
-        .doc(reference);
-    await docRef.update({
-      tokenAceptacion: token,
-      valorTransaccion: precio,
-      transaccionCreada: true,
-    });
-
     const {data} = await axios.post("https://production.wompi.co/v1/transactions", {
       "acceptance_token": token,
       "amount_in_cents": precioNequi,
@@ -99,6 +99,13 @@ const crearTransaccion = async (datos, token, reference) => {
         "full_name": datos.data.nombre,
       },
     }, config);
+    const docRef = db.collection("transactions")
+        .doc(reference);
+    await docRef.update({
+      tokenAceptacion: token,
+      valorTransaccion: precio,
+      transaccionCreada: true,
+    });
     console.log(data);
   } catch (error) {
     console.log(error);
