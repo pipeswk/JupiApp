@@ -30,5 +30,17 @@ service cloud.firestore {
       allow read: if true;
       allow write: if false;
     }
+
+    match /lottos/{lotto} {
+      allow read: if true;
+      allow write: if false;
+    }
+    
+    match /clientes/{cliente} {
+      allow read: if true;
+      allow write: if true;
+      allow create: if true;
+      allow delete: if false;
+    }
   }
 }
