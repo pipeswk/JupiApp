@@ -7,7 +7,6 @@ const efecty = async (req, res) => {
   console.log(req.body);
   if (req.body.product === "sorteo") {
     const documento = await db.collection("transactions").add({
-      uid: req.body.uid,
       nombreCliente: req.body.data.nombre,
       refPago: "",
       method: req.body.data.method,
@@ -19,13 +18,14 @@ const efecty = async (req, res) => {
       checkoutId: req.body.data.checkoutId,
       statusTransaccion: false,
       transaccionCreada: false,
+      createdDate: admin.firestore.FieldValue.serverTimestamp(),
     });
-    const clientRef = db.collection("clientes").doc(req.body.uid);
-    await clientRef.update({
-      nombre: req.body.data.nombre,
+    const user = await validarUsuario({
       telefono: req.body.data.telefono,
       email: req.body.data.email,
-      telNequi: req.body.data.telNequi,
+      refPago: documento.id,
+      nombre: req.body.data.nombre,
+      telNequi: null,
     });
     const sortRef = db.collection("sorteos").doc(req.body.data.idSorteo);
     const sort = await sortRef.get();
@@ -42,12 +42,14 @@ const efecty = async (req, res) => {
       console.log(data);
       const docRef = db.collection("transactions").doc(documento.id);
       docRef.update({
+        uid: user.uid,
         refPago: documento.id,
         valorTransaccion: precioFinal,
         transaccionCreada: true,
         idMercadoPago: data.response.id,
       });
       res.status(200).send({
+        uid: user.uid,
         noConvenio: 110757,
         noPago: data.response.id,
         message: documento.id,
@@ -105,11 +107,56 @@ const efecty = async (req, res) => {
   }
 };
 
+// Se valida si el usuario existe en la base de datos
+
+const validarUsuario = async (data) => {
+  const {telefono, email, refPago, nombre, telNequi} = data;
+  // Se valida existentes de cliente
+  let userDoc;
+  const clienteRef = db.collection("clientes");
+  const phoneQuery = await clienteRef.where("telefono", "array-contains", telefono).get();
+  if (!phoneQuery.empty) {
+    userDoc = phoneQuery.docs[0];
+  } else {
+    // Buscar por email
+    const emailQuery = await clienteRef.where("email", "array-contains", email).get();
+    if (!emailQuery.empty) {
+      userDoc = emailQuery.docs[0];
+    }
+  }
+
+  if (userDoc) {
+    // Se actualiza el documento existente
+    await userDoc.ref.update({
+      relatedOrders: admin.firestore.FieldValue.arrayUnion(refPago),
+      telefono: admin.firestore.FieldValue.arrayUnion(telefono),
+      email: admin.firestore.FieldValue.arrayUnion(email),
+    });
+    return {
+      newUser: false,
+      uid: userDoc.id,
+    };
+  } else {
+    // Se crea nuevo documento
+    const newUserDoc = await clienteRef.add({
+      nombreCliente: nombre,
+      telefono: [telefono],
+      email: [email],
+      relatedOrders: [refPago],
+      telNequi: telNequi,
+      createdDate: admin.firestore.FieldValue.serverTimestamp(),
+    });
+    return {
+      newUser: true,
+      uid: newUserDoc.id,
+    };
+  }
+};
+
 const pse = async (req, res) => {
   console.log(req.body);
   if (req.body.product === "sorteo") {
     const documento = await db.collection("transactions").add({
-      uid: req.body.uid,
       nombreCliente: req.body.data.nombre,
       refPago: "",
       method: req.body.data.method,
@@ -121,13 +168,14 @@ const pse = async (req, res) => {
       checkoutId: req.body.data.checkoutId,
       statusTransaccion: false,
       transaccionCreada: false,
+      createdDate: admin.firestore.FieldValue.serverTimestamp(),
     });
-    const clientRef = db.collection("clientes").doc(req.body.uid);
-    await clientRef.update({
-      nombre: req.body.data.nombre,
+    const user = await validarUsuario({
       telefono: req.body.data.telefono,
       email: req.body.data.email,
-      telNequi: req.body.data.telNequi,
+      refPago: documento.id,
+      nombre: req.body.data.nombre,
+      telNequi: null,
     });
     const sortRef = db.collection("sorteos").doc(req.body.data.idSorteo);
     const sort = await sortRef.get();
@@ -150,19 +198,23 @@ const pse = async (req, res) => {
       additional_info: {
         ip_address: req.body.ip,
       },
-      callback_url: `https://jupi-app-beta.vercel.app/paymentstatus/${documento.id}`,
+      callback_url: `https://jupi-appv2.vercel.app/paymentstatus/${documento.id}`,
       notification_url: "https://us-central1-jupi-e46aa.cloudfunctions.net/eventos/mercadopago",
     };
     mercadopago.payment.create(paymentData).then(function(data) {
       console.log(data);
       const docRef = db.collection("transactions").doc(documento.id);
       docRef.update({
+        uid: user.uid,
         refPago: documento.id,
         valorTransaccion: precioFinal,
         transaccionCreada: true,
         idMercadoPago: data.response.id,
       });
-      res.status(200).send(data);
+      res.status(200).send({
+        ...data,
+        uid: user.uid,
+      });
     }).catch(function(error) {
       console.log(error);
       res.status(500).send(error);
