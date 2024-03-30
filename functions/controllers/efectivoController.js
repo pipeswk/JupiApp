@@ -18,6 +18,9 @@ const efecty = async (req, res) => {
       checkoutId: req.body.data.checkoutId,
       statusTransaccion: false,
       transaccionCreada: false,
+      influencer_id: req.body.data.influencer_id,
+      utm_campaign: req.body.data.utm_campaign,
+      resolvedUrl: req.body.data.resolvedUrl,
       createdDate: admin.firestore.FieldValue.serverTimestamp(),
     });
     const user = await validarUsuario({
@@ -168,6 +171,9 @@ const pse = async (req, res) => {
       checkoutId: req.body.data.checkoutId,
       statusTransaccion: false,
       transaccionCreada: false,
+      influencer_id: req.body.data.influencer_id,
+      utm_campaign: req.body.data.utm_campaign,
+      resolvedUrl: req.body.data.resolvedUrl,
       createdDate: admin.firestore.FieldValue.serverTimestamp(),
     });
     const user = await validarUsuario({
