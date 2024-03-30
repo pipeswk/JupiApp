@@ -3,7 +3,7 @@ const {
   ejecutarPagoSorteo,
   ejecutarPagoPronostico,
 } = require("../controllers/nequiController.js");
-const {newSorteo} = require("../controllers/newSorteo.js")
+const {newSorteo} = require("../controllers/newSorteo.js");
 
 const router = new express.Router();
 

@@ -12,6 +12,7 @@ module.exports = {
     "quotes": ["error", "double"],
     "linebreak-style": 0,
     "max-len": "off",
+    "indent": "off",
   },
   "parserOptions": {
     // Required for certain syntax usages
