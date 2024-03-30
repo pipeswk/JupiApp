@@ -24,7 +24,7 @@ const whitelist = [
 
 const corsOptions = {
   origin: function(origin, callback) {
-    console.log(origin);
+    console.log(`Origen del request: ${origin}`);
     if (whitelist.includes(origin)) {
       // Puede consultar la API
       callback(null, true);
