@@ -7,21 +7,21 @@ const newSorteo = async (req, res) => {
     console.log(sorteo);
     // Se crea el sorteo en la colección "sorteos"
     try {
-        const idSorteo = db.collection("sorteos").doc().id;
+        const idSorteo = sorteo.campaign_id;
         const sortRef = db.collection("sorteos").doc(idSorteo);
         await sortRef.set({
             id: idSorteo,
-            capacidad: sorteo.total_quotas,
+            capacidad: sorteo.capacidad,
             caracteristicas: [],
-            categoria: sorteo.category,
-            img: sorteo.images,
-            nombre: sorteo.title,
+            categoria: sorteo.categoria,
+            img: sorteo.img,
+            nombre: sorteo.nombre,
             onPronosticos: false,
             participantes: [],
-            preview_img: sorteo.video_placeholder,
+            preview_img: sorteo.preview_img,
             status: "active",
-            valorTicket: sorteo.price,
-            video_poster: sorteo.video_placeholder,
+            valorTicket: sorteo.valorTicket,
+            video_poster: sorteo.video_poster,
             video_src: sorteo.video_src,
         });
         res.status(200).send({
