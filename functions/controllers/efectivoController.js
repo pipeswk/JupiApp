@@ -188,7 +188,7 @@ const pse = async (req, res) => {
     const precioFinal = sort.data().valorTicket * req.body.data.cantidad;
     const paymentData = {
       transaction_amount: precioFinal,
-      description: `Sorteo ${sort.data().nombre}`,
+      description: `SP - ${sort.data().nombre}`,
       payment_method_id: "pse",
       payer: {
         email: req.body.data.email,

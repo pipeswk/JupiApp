@@ -149,7 +149,8 @@ const eventosMercadoPago = async (req, res) => {
       const url = `https://api.mercadopago.com/v1/payments/${req.body.data.id}`;
       const {data} = await axios.get(url, config);
       if (data.status === "approved") {
-        console.log("El resultado en MP es", data);
+        console.log("Transacción aprobada en MP:")
+        console.log(data);
         const id = req.body.data.id;
         const ref = db.collection("transactions");
         const snap = await ref.where("idMercadoPago", "==", parseInt(id)).get();
@@ -223,7 +224,7 @@ const eventosMercadoPago = async (req, res) => {
                     {
                       "type": "image",
                       "image": {
-                        "link": sorteo.data().preview_img,
+                        "link": sorteo.data().video_poster,
                       },
                     },
                   ],
@@ -268,7 +269,22 @@ const eventosMercadoPago = async (req, res) => {
           };
           const url = "https://graph.facebook.com/v13.0/106635852120380/messages";
           const {data: r} = await axios.post(url, whatsappData, whatsappConfig);
-          console.log(r);
+          
+          // Se traquea evento en XYZ
+
+          const axiosInstance = axios.create({
+            headers: {
+              "Origin": "https://xyz-inside.web.app",
+            },
+          });
+
+          const {data: response} = await axiosInstance.post("https://us-central1-influencer-marketing-project.cloudfunctions.net/app/set-conversion", {
+            influencer_id: docs[0].influencer_id,
+            utm_campaign: sorteo.data().id, // Cambiar después por UTM 
+            url: docs[0].resolvedUrl,
+          });
+          console.log("Enviado a XYZ");
+
           res.status(200).send({
             message: "Evento escuchado",
           });
