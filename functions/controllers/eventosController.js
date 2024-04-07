@@ -165,6 +165,13 @@ const eventosMercadoPago = async (req, res) => {
         console.log(doc.id, "=>", doc.data());
         docs.push(doc.data());
       });
+
+      if (docs[0].statusTransaccion === true) {
+        res.status(200).send({
+          message: "Evento escuchado",
+        });
+        return;
+      }
       const docRef = db.collection("transactions").doc(docs[0].refPago);
       await docRef.update({
         statusTransaccion: true,
