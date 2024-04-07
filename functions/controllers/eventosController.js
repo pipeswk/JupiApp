@@ -139,75 +139,78 @@ const escucharEventos = async (req, res) => {
 const eventosMercadoPago = async (req, res) => {
   console.log(req.body);
   if (req.body.action === "payment.updated") {
-    try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.ACCESS_TOKEN_MP_2}`,
-        },
-      };
-      const url = `https://api.mercadopago.com/v1/payments/${req.body.data.id}`;
-      const {data} = await axios.get(url, config);
-      if (data.status === "approved") {
-        console.log("Transacción aprobada en MP:")
-        console.log(data);
-        const id = req.body.data.id;
-        const ref = db.collection("transactions");
-        const snap = await ref.where("idMercadoPago", "==", parseInt(id)).get();
-        if (snap.empty) {
-          console.log(`No se encontro el id ${req.body.data.id}`);
-          res.status(200).send({
-            message: "Evento escuchado",
-          });
-          return;
-        }
-        const docs = [];
-        snap.forEach((doc) => {
-          console.log(doc.id, "=>", doc.data());
-          docs.push(doc.data());
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${process.env.ACCESS_TOKEN_MP_2}`,
+      },
+    };
+    const url = `https://api.mercadopago.com/v1/payments/${req.body.data.id}`;
+    const {data} = await axios.get(url, config);
+    if (data.status === "approved") {
+      console.log("Transacción aprobada en MP:");
+      console.log(data);
+      const id = req.body.data.id;
+      const ref = db.collection("transactions");
+      const snap = await ref.where("idMercadoPago", "==", parseInt(id)).get();
+      if (snap.empty) {
+        console.log(`No se encontro el id ${req.body.data.id}`);
+        res.status(200).send({
+          message: "Evento escuchado",
         });
-        const docRef = db.collection("transactions").doc(docs[0].refPago);
-        await docRef.update({
-          statusTransaccion: true,
-        });
+        return;
+      }
+      const docs = [];
+      snap.forEach((doc) => {
+        console.log(doc.id, "=>", doc.data());
+        docs.push(doc.data());
+      });
+      const docRef = db.collection("transactions").doc(docs[0].refPago);
+      await docRef.update({
+        statusTransaccion: true,
+        net_received_amount: data.transaction_details.net_received_amount,
+      });
 
-        const cantidadComprada = docs[0].cantidad;
-        if (docs[0].tipoCompra === "sorteo") {
-          const sortRef = db.collection("sorteos")
-              .doc(docs[0].idSorteo);
-          const lottoRef = db.collection("lottos")
-              .doc(docs[0].idSorteo);
-          const purchasedNumbers = [];
-          await db.runTransaction(async (t) => {
-            const lotto = await t.get(lottoRef);
-            const numerosDisponibles = lotto.data().avaliableNumbers;
-            const numerosOcupados = lotto.data().busyNumbers;
-            for (let i = 0; i < cantidadComprada; i++) {
-              const numeroAleatorio = Math.floor(Math.random() * numerosDisponibles.length);
-              if (numerosDisponibles[numeroAleatorio]) {
-                const lotto = numerosDisponibles[numeroAleatorio];
-                lotto.avaliable = false;
-                lotto.checkoutId = docs[0].checkoutId;
-                lotto.phoneNumber = docs[0].telefono;
-                lotto.refPago = docs[0].refPago;
-                purchasedNumbers.push(lotto.number);
-                numerosOcupados.push(lotto);
-                numerosDisponibles.splice(numeroAleatorio, 1);
-              }
+      const cantidadComprada = docs[0].cantidad;
+      if (docs[0].tipoCompra === "sorteo") {
+        const sortRef = db.collection("sorteos")
+            .doc(docs[0].idSorteo);
+        const lottoRef = db.collection("lottos")
+            .doc(docs[0].idSorteo);
+        const purchasedNumbers = [];
+        await db.runTransaction(async (t) => {
+          const lotto = await t.get(lottoRef);
+          const numerosDisponibles = lotto.data().avaliableNumbers;
+          const numerosOcupados = lotto.data().busyNumbers;
+          for (let i = 0; i < cantidadComprada; i++) {
+            const numeroAleatorio = Math.floor(Math.random() * numerosDisponibles.length);
+            if (numerosDisponibles[numeroAleatorio]) {
+              const lotto = numerosDisponibles[numeroAleatorio];
+              lotto.avaliable = false;
+              lotto.checkoutId = docs[0].checkoutId;
+              lotto.phoneNumber = docs[0].telefono;
+              lotto.refPago = docs[0].refPago;
+              purchasedNumbers.push(lotto.number);
+              numerosOcupados.push(lotto);
+              numerosDisponibles.splice(numeroAleatorio, 1);
             }
-            // Se acutualiza el documento de lottos
-            t.update(lottoRef, {
-              avaliableNumbers: numerosDisponibles,
-              busyNumbers: numerosOcupados,
-            });
+          }
+          // Se acutualiza el documento de lottos
+          t.update(lottoRef, {
+            avaliableNumbers: numerosDisponibles,
+            busyNumbers: numerosOcupados,
           });
+        });
 
-          // Se envia mensaje de whatsapp
+        const sorteo = await sortRef.get();
+
+        // Se envia mensaje de whatsapp
+
+        try {
           let buyNumbers = "|";
           purchasedNumbers.forEach((lotto) => {
             buyNumbers += `  ${lotto}  |`;
           });
-          const sorteo = await sortRef.get();
           const whatsappData = JSON.stringify({
             "messaging_product": "whatsapp",
             "to": `57${docs[0].telefono}`,
@@ -268,10 +271,16 @@ const eventosMercadoPago = async (req, res) => {
             },
           };
           const url = "https://graph.facebook.com/v13.0/106635852120380/messages";
-          const {data: r} = await axios.post(url, whatsappData, whatsappConfig);
-          
-          // Se traquea evento en XYZ
-
+          await axios.post(url, whatsappData, whatsappConfig);
+        } catch (error) {
+          console.error({
+            message: "Error al enviar mensaje de whatsapp",
+            error: error,
+          });
+        }
+        
+        // Se traquea evento en XYZ
+        try {
           const axiosInstance = axios.create({
             headers: {
               "Origin": "https://xyz-inside.web.app",
@@ -282,21 +291,25 @@ const eventosMercadoPago = async (req, res) => {
             influencer_id: docs[0].influencer_id,
             utm_campaign: sorteo.data().id, // Cambiar después por UTM 
             url: docs[0].resolvedUrl,
+            net_ammount: data.transaction_details.net_received_amount,
           });
           console.log("Enviado a XYZ");
-
-          res.status(200).send({
-            message: "Evento escuchado",
+          console.log(response);
+        } catch (error) {
+          console.error({
+            message: "Error al enviar a XYZ",
+            error: error,
           });
         }
-      } else {
+
         res.status(200).send({
-          message: "Evento escuchado, transacción no completada.",
+          message: "Evento escuchado",
         });
       }
-    } catch (error) {
-      console.log(error);
-      res.end();
+    } else {
+      res.status(200).send({
+        message: "Evento escuchado, transacción no completada.",
+      });
     }
   } else {
     res.status(200).send({

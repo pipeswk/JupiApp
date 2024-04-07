@@ -13,6 +13,7 @@ module.exports = {
     "linebreak-style": 0,
     "max-len": "off",
     "indent": "off",
+    "no-trailing-spaces": "off",
   },
   "parserOptions": {
     // Required for certain syntax usages
