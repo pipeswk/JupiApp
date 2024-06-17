@@ -31,7 +31,7 @@ const newProspecto = async (req, res) => {
                 idSorteo: data.idSorteo,
                 cantidad: data.cantidad,
             },
-            createdDate: admin.firestore.FieldValue.serverTimestamp()
+            createdDate: admin.firestore.FieldValue.serverTimestamp(),
         });
         res.status(200).send({
             status: "success",
@@ -44,7 +44,7 @@ const newProspecto = async (req, res) => {
             status: "error",
             message: "Error al crear el prospecto",
             error: error,
-        })
+        });
     }
 };
 

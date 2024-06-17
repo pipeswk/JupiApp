@@ -295,14 +295,15 @@ const eventosMercadoPago = async (req, res) => {
           });
 
           const {data: response} = await axiosInstance.post("https://us-central1-influencer-marketing-project.cloudfunctions.net/app/set-conversion", {
-            influencer_id: docs[0].influencer_id,
-            utm_campaign: sorteo.data().id, // Cambiar después por UTM 
-            url: docs[0].resolvedUrl,
+            business_id: docs[0].influencer_id || null,
+            utm_campaign: docs[0].utm_campaign || sorteo.data().id, // Cambiar después por UTM 
+            url: docs[0].resolvedUrl || null,
             net_ammount: data.transaction_details.net_received_amount,
           });
           console.log("Enviado a XYZ");
           console.log(response);
         } catch (error) {
+          // TODO: Manejar reintento
           console.error({
             message: "Error al enviar a XYZ",
             error: error,

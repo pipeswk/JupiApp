@@ -1,6 +1,6 @@
 const express = require("express");
 const {
-    newProspecto
+    newProspecto,
 } = require("../controllers/prospectosController.js");
 
 const router = new express.Router();
