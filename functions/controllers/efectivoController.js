@@ -35,7 +35,7 @@ const efecty = async (req, res) => {
     const precioFinal = sort.data().valorTicket * req.body.data.cantidad;
     const paymentData = {
       transaction_amount: precioFinal,
-      description: `Sorteo ${sort.data().nombre}`,
+      description: `SP ${sort.data().nombre}`,
       payment_method_id: "efecty",
       payer: {
         email: req.body.data.email,
@@ -204,7 +204,7 @@ const pse = async (req, res) => {
       additional_info: {
         ip_address: req.body.ip,
       },
-      callback_url: `https://jupi-appv2.vercel.app/paymentstatus/${documento.id}`,
+      callback_url: `https://tusrecordatorios.vercel.app/paymentstatus/${documento.id}`,
       notification_url: "https://us-central1-jupi-e46aa.cloudfunctions.net/eventos/mercadopago",
     };
     mercadopago.payment.create(paymentData).then(function(data) {
