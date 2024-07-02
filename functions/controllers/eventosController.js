@@ -82,19 +82,15 @@ const escucharEventos = async (req, res) => {
                   },
                   {
                     "type": "text",
-                    "text": "rifa",
-                  },
-                  {
-                    "type": "text",
                     "text": sort.data().nombre,
                   },
                   {
                     "type": "text",
-                    "text": documento.data().cantidad,
+                    "text": documento.data().refPago,
                   },
                   {
                     "type": "text",
-                    "text": documento.data().refPago,
+                    "text": documento.data().cantidad,
                   },
                   {
                     "type": "text",
@@ -248,19 +244,15 @@ const eventosMercadoPago = async (req, res) => {
                     },
                     {
                       "type": "text",
-                      "text": "rifa",
-                    },
-                    {
-                      "type": "text",
                       "text": sorteo.data().nombre,
                     },
                     {
                       "type": "text",
-                      "text": docs[0].cantidad,
+                      "text": docs[0].refPago,
                     },
                     {
                       "type": "text",
-                      "text": docs[0].refPago,
+                      "text": docs[0].cantidad,
                     },
                     {
                       "type": "text",
