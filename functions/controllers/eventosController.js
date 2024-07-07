@@ -291,6 +291,7 @@ const eventosMercadoPago = async (req, res) => {
             utm_campaign: docs[0].utm_campaign || sorteo.data().id, // Cambiar después por UTM 
             url: docs[0].resolvedUrl || null,
             net_ammount: data.transaction_details.net_received_amount,
+            qty: cantidadComprada || docs[0].cantidad,
           });
           console.log("Enviado a XYZ");
           console.log(response);
