@@ -29,6 +29,7 @@ const efecty = async (req, res) => {
       refPago: documento.id,
       nombre: req.body.data.nombre,
       telNequi: null,
+      noDocumento: req.body.data.noDocumento || null,
     });
     const sortRef = db.collection("sorteos").doc(req.body.data.idSorteo);
     const sort = await sortRef.get();
@@ -113,7 +114,7 @@ const efecty = async (req, res) => {
 // Se valida si el usuario existe en la base de datos
 
 const validarUsuario = async (data) => {
-  const {telefono, email, refPago, nombre, telNequi} = data;
+  const {telefono, email, refPago, nombre, telNequi, noDocumento} = data;
   // Se valida existentes de cliente
   let userDoc;
   const clienteRef = db.collection("clientes");
@@ -143,6 +144,7 @@ const validarUsuario = async (data) => {
     // Se crea nuevo documento
     const newUserDoc = await clienteRef.add({
       nombreCliente: nombre,
+      cedula: noDocumento || null,
       telefono: [telefono],
       email: [email],
       relatedOrders: [refPago],
@@ -182,6 +184,7 @@ const pse = async (req, res) => {
       refPago: documento.id,
       nombre: req.body.data.nombre,
       telNequi: null,
+      noDocumento: req.body.data.noDocumento || null,
     });
     const sortRef = db.collection("sorteos").doc(req.body.data.idSorteo);
     const sort = await sortRef.get();
