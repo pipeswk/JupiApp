@@ -1,5 +1,5 @@
 const admin = require("firebase-admin");
-const {FieldPath, FieldValue} =require("firebase-admin/firestore");
+const {FieldValue} =require("firebase-admin/firestore");
 const axios = require("axios");
 const db = admin.firestore();
 
@@ -144,6 +144,7 @@ const eventosMercadoPago = async (req, res) => {
     };
     const url = `https://api.mercadopago.com/v1/payments/${req.body.data.id}`;
     const {data} = await axios.get(url, config);
+
     if (data.status === "approved") {
       console.log("Transacción aprobada en MP:");
       console.log(data);
@@ -169,11 +170,6 @@ const eventosMercadoPago = async (req, res) => {
         });
         return;
       }
-      const docRef = db.collection("transactions").doc(docs[0].refPago);
-      await docRef.update({
-        statusTransaccion: true,
-        net_received_amount: data.transaction_details.net_received_amount,
-      });
 
       const cantidadComprada = docs[0].cantidad;
       if (docs[0].tipoCompra === "sorteo") {
@@ -194,17 +190,10 @@ const eventosMercadoPago = async (req, res) => {
           try {
             await db.runTransaction(async (t) => {
               // Consulta aleatoria limitada, excluyendo documentos seleccionados en intentos previos
-              const querySnapshot = await t.get(
-                lottosRef
-                  .where("available", "==", true)
-                  .where(FieldPath.documentId(), "not-in", Array.from(excludedDocIds))
-                  .limit(cantidadComprada - purchasedNumbers.length),
-              );
-      
-              // Si no hay suficientes números disponibles después de la exclusión, lanzamos un error
-              if (querySnapshot.size < (cantidadComprada - purchasedNumbers.length)) {
-                throw new Error("No hay suficientes números disponibles para completar la compra.");
-              }
+
+              const query = lottosRef.where("available", "==", true);
+
+              const querySnapshot = await t.get(query.limit(cantidadComprada - purchasedNumbers.length));
       
               // Aleatorizar y seleccionar los documentos
               const numerosDisponibles = querySnapshot.docs.sort(() => 0.5 - Math.random());
@@ -218,6 +207,7 @@ const eventosMercadoPago = async (req, res) => {
                 t.update(lottoRef, {
                   available: false,
                   checkoutId: docs[0].checkoutId,
+                  buyerName: docs[0].nombreCliente,
                   phoneNumber: docs[0].telefono,
                   fechaReserva: new Date(),
                   refPago: docs[0].refPago,
@@ -227,18 +217,22 @@ const eventosMercadoPago = async (req, res) => {
                 purchasedNumbers.push(lottoData.number);
                 excludedDocIds.add(selectedDoc.id);
               }
-      
-              console.log("Números comprados:", purchasedNumbers);
+              
+              console.log("Números comprados:", purchasedNumbers);      
             });
       
+            // Validar al final si se alcanzó la cantidad deseada
+            if (purchasedNumbers.length < cantidadComprada) {
+              throw new Error("No hay suficientes números disponibles para completar la compra.");
+            }
             transactionSuccess = true; // Marcar éxito en la transacción
           } catch (error) {
             console.log(`Error en el intento ${attempts}:`, error);
             if (attempts === MAX_RETRIES) {
               await db.collection("failedTransactions").add({
-                checkout_id: docs[0].checkoutId,
-                customer_name: docs[0].nombreCliente,
-                customer_phone: docs[0].telefono,
+                checkout_id: docs[0].checkoutId || null,
+                customer_name: docs[0].nombreCliente || null,
+                customer_phone: docs[0].telefono || null,
                 cantidad_comprada: cantidadComprada,
                 cantidad_asignada: purchasedNumbers.length,
                 numeros_asignados: purchasedNumbers,
@@ -262,13 +256,42 @@ const eventosMercadoPago = async (req, res) => {
           }
         }
 
-        // Se corre transacción para decrementar valor disponible en sorteo
-        await db.runTransaction(async (t) => {
-          // Se actualiza contador "availableNumbers" del documento del sorteo con un increment
-          t.update(sortRef, {
-            availableNumbers: FieldValue.increment(-purchasedNumbers.length),
+        try {
+          // Se corre transacción para decrementar valor disponible en sorteo
+          await db.runTransaction(async (t) => {
+            // Se actualiza contador "availableNumbers" del documento del sorteo con un increment
+            t.update(sortRef, {
+              availableNumbers: FieldValue.increment(-purchasedNumbers.length),
+            });
           });
-        });
+        } catch (error) {
+          console.error({
+            message: "Error al decrementar valor disponible en sorteo",
+            cantidad: cantidadComprada,
+            error: error,
+          });
+        }
+
+        try {
+          // Se actualiza documento de la transacción
+          const docRef = db.collection("transactions").doc(docs[0].refPago);
+          await docRef.update({
+            statusTransaccion: true,
+            net_received_amount: data.transaction_details.net_received_amount,
+          });
+        } catch (error) {
+          if (error.response) {
+            console.error({
+              message: "Error al actualizar documento de transacción",
+              error: error.response.data,
+            });
+          } else {
+            console.error({
+              message: "Error al actualizar documento de transacción",
+              error: error,
+            });
+          }
+        }
 
         const sorteo = await sortRef.get();
 
@@ -335,12 +358,20 @@ const eventosMercadoPago = async (req, res) => {
             },
           };
           const url = "https://graph.facebook.com/v13.0/106635852120380/messages";
-          await axios.post(url, whatsappData, whatsappConfig);
+          const {data} = await axios.post(url, whatsappData, whatsappConfig);
+          console.log("Whatsapp Response => ", data);
         } catch (error) {
-          console.error({
-            message: "Error al enviar mensaje de whatsapp",
-            error: error,
-          });
+          if (error.response) {
+            console.error({
+              message: "Error al enviar mensaje de whatsapp",
+              error: error.response.data,
+            });
+          } else {
+            console.error({
+              message: "Error al enviar mensaje de whatsapp",
+              error: error,
+            });
+          }
         }
         
         // Se traquea evento en XYZ
@@ -362,10 +393,17 @@ const eventosMercadoPago = async (req, res) => {
           console.log(response);
         } catch (error) {
           // TODO: Manejar reintento
-          console.error({
-            message: "Error al enviar a XYZ",
-            error: error,
-          });
+          if (error.response) {
+            console.error({
+              message: "Error al enviar a XYZ",
+              error: error.response.data,
+            });
+          } else {
+            console.error({
+              message: "Error al enviar a XYZ",
+              error: error,
+            });
+          }
         }
 
         res.status(200).send({

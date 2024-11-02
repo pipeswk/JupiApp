@@ -1,4 +1,4 @@
-Nov 01, 2024 12:44:14 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+Nov 02, 2024 1:35:49 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
 INFO: Started WebSocket server on ws://127.0.0.1:9150
 API endpoint: http://127.0.0.1:8080
 If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
@@ -12,77 +12,55 @@ If you are running a Firestore in Datastore Mode project, run:
 Note: Support for Datastore Mode is in preview. If you encounter any bugs please file at https://github.com/firebase/firebase-tools/issues.
 Dev App Server is now running.
 
-Nov 01, 2024 12:44:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:35:51 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:44:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected HTTP/2 connection.
-Nov 01, 2024 12:44:51 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
+Nov 02, 2024 1:35:52 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:35:52 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:36:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:36:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:36:01 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreListenHandler onClose
+INFO: channel closed
+Nov 02, 2024 1:36:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:36:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:36:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:36:02 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
 INFO: Connected to new websocket client
-Nov 01, 2024 12:44:51 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:36:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:45:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:45:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:45:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:45:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:45:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:45:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:45:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:36:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected HTTP/2 connection.
-Nov 01, 2024 12:45:35 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:36:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:45:35 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:36:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:45:41 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:36:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:45:53 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:36:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:45:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:36:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:36:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:36:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:05 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:36:36 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 1:36:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:07 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:36:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:37:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:37:39 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:26 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:27 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
-INFO: channel closed
-Nov 01, 2024 12:46:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:30 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:41 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:46:41 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:47:06 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+Nov 02, 2024 1:37:39 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
 WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
 java.net.SocketException: Connection reset
 	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
@@ -101,89 +79,179 @@ java.net.SocketException: Connection reset
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:1575)
 
-Nov 01, 2024 12:47:30 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:37:39 PM com.google.cloud.datastore.emulator.impl.events.FunctionsEmulatorEventPublisher sendHttpRequest
+WARNING: Unsuccessful HTTP response when publishing event for projects/jupi-e46aa/triggers/us-central1-createSorteo-0: 500 Internal Server Error
+POST http://127.0.0.1:5001/functions/projects/jupi-e46aa/triggers/us-central1-createSorteo-0
+Update() requires either a single JavaScript object or an alternating list of field/value pairs that can be followed by an optional precondition. Value for argument "dataOrField" is not a valid Firestore value. Cannot use "undefined" as a Firestore value (found in field "availableNumbers"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.
+Nov 02, 2024 1:37:39 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:47:30 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:37:43 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:47:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:37:43 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:47:42 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:37:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:47:44 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:37:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:47:54 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:38:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:47:55 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:38:44 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:48:00 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:38:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:48:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:48:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:48:25 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:48:25 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:48:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:48:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:48:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:49:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:49:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:49:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:49:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:49:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected HTTP/2 connection.
-Nov 01, 2024 12:49:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:49:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:49:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:50:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:50:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:50:06 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+Nov 02, 2024 1:38:59 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
 INFO: channel closed
-Nov 01, 2024 12:50:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:39:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:51:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:39:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:52:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:39:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:53:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:39:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:53:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:39:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:53:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:39:30 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:53:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:39:30 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:53:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:39:35 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:54:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:39:47 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:55:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:40:07 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:56:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:40:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:57:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:40:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:57:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:40:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:57:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:40:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:58:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:40:45 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:59:02 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+Nov 02, 2024 1:41:00 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:41:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:41:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:41:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:41:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:42:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:42:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:42:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:42:18 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+INFO: channel closed
+Nov 02, 2024 1:42:25 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:42:25 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:42:25 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:42:25 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:42:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:42:45 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:42:53 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:43:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:43:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:43:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 1:43:53 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:43:53 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+INFO: channel closed
+Nov 02, 2024 1:44:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:45:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:45:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:45:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:45:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:45:36 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:45:36 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:45:40 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 1:45:53 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:46:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:46:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:46:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:46:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:46:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:46:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:46:53 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:47:05 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:47:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:47:23 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+INFO: channel closed
+Nov 02, 2024 1:47:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:47:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:47:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:47:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:47:45 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:47:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:47:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:48:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:48:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:48:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:48:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:48:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:48:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:49:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:49:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:49:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:49:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:49:22 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+INFO: channel closed
+Nov 02, 2024 1:50:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:51:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 1:51:50 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
 WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
 java.net.SocketException: Connection reset
 	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
@@ -202,79 +270,7 @@ java.net.SocketException: Connection reset
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:1575)
 
-Nov 01, 2024 12:59:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:59:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:59:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:59:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:59:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 12:59:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected HTTP/2 connection.
-Nov 01, 2024 12:59:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:00:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:00:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:00:16 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
-INFO: channel closed
-Nov 01, 2024 1:00:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:01:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:02:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:03:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:04:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:05:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:06:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:07:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:08:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:09:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:10:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:11:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:12:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:13:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:14:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:15:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:16:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:17:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:18:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:18:35 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:18:35 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:18:35 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:19:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:20:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:21:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:22:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:22:56 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+Nov 02, 2024 1:51:50 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
 WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
 java.net.SocketException: Connection reset
 	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
@@ -293,67 +289,926 @@ java.net.SocketException: Connection reset
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:1575)
 
-Nov 01, 2024 1:23:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:52:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:24:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:52:25 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 1:52:56 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:25:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:53:41 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:26:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:54:41 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:27:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:55:41 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:28:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:56:41 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:29:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:56:46 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:435)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:493)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 1:57:29 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:30:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:57:29 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:31:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:57:29 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:32:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:57:29 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:33:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:57:29 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:34:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:57:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 1:57:43 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:35:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:58:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:36:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:58:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:37:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:58:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:38:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:58:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:39:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:58:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:40:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:58:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:41:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:58:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 1:59:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:41:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:59:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:41:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:59:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:41:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 1:59:22 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+INFO: channel closed
+Nov 02, 2024 2:00:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:42:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 2:01:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:43:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 2:02:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:44:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 2:03:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:45:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 2:03:33 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:435)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:493)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:03:33 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:435)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:493)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:03:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:46:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 2:03:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:47:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 2:03:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:48:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 2:03:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:49:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 2:03:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:50:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 2:03:54 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 2:04:07 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Nov 01, 2024 1:51:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Nov 02, 2024 2:04:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:04:38 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:04:38 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:04:38 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:04:42 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:05:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 2:05:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:05:42 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:05:43 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:05:43 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+INFO: channel closed
+Nov 02, 2024 2:06:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:07:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:07:48 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:435)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:493)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:07:48 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:435)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:493)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:08:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:09:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:10:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:10:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:10:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:10:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:10:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:10:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 2:10:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:11:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:11:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:11:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:11:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:12:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:12:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:12:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:12:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:12:29 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 2:12:29 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:12:44 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:13:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:13:14 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+INFO: channel closed
+Nov 02, 2024 2:13:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:14:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:15:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:16:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:16:25 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:435)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:493)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:16:25 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:435)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:493)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:17:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:17:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:17:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:17:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:17:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:17:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 2:17:44 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:18:00 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:18:00 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:18:05 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:18:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:18:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:18:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:18:59 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:435)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:493)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:19:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 2:19:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:19:13 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+WARNING: Operation failed: 'NOT_IN' supports up to 10 comparison values.
+com.google.cloud.datastore.core.exception.InvalidConversionException: 'NOT_IN' supports up to 10 comparison values.
+	at com.google.cloud.datastore.core.exception.InvalidConversionException.checkConversion(InvalidConversionException.java:51)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.makeArrayCondition(FirestoreV1QueryToRepConverter.java:374)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:315)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:236)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertConditions(FirestoreV1QueryToRepConverter.java:224)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:255)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:234)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertStructuredQuery(FirestoreV1QueryToRepConverter.java:181)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1RequestToRepConverter.toQuery(FirestoreV1RequestToRepConverter.java:510)
+	at com.google.cloud.datastore.emulator.impl.util.FirestoreEmulatorConverters.toQuery(FirestoreEmulatorConverters.java:464)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1.runQuery(CloudFirestoreV1.java:546)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1Router.runQuery(CloudFirestoreV1Router.java:185)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.lambda$runQuery$10(FirestoreV1GrpcAdapter.java:176)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter.streaming(FirestoreV1GrpcAdapter.java:80)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.runQuery(FirestoreV1GrpcAdapter.java:176)
+	at com.google.firestore.v1.FirestoreGrpc$MethodHandlers.invoke(FirestoreGrpc.java:1242)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:19:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:19:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:19:15 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+INFO: channel closed
+Nov 02, 2024 2:19:16 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+WARNING: Operation failed: 'NOT_IN' supports up to 10 comparison values.
+com.google.cloud.datastore.core.exception.InvalidConversionException: 'NOT_IN' supports up to 10 comparison values.
+	at com.google.cloud.datastore.core.exception.InvalidConversionException.checkConversion(InvalidConversionException.java:51)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.makeArrayCondition(FirestoreV1QueryToRepConverter.java:374)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:315)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:236)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertConditions(FirestoreV1QueryToRepConverter.java:224)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:255)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:234)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertStructuredQuery(FirestoreV1QueryToRepConverter.java:181)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1RequestToRepConverter.toQuery(FirestoreV1RequestToRepConverter.java:510)
+	at com.google.cloud.datastore.emulator.impl.util.FirestoreEmulatorConverters.toQuery(FirestoreEmulatorConverters.java:464)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1.runQuery(CloudFirestoreV1.java:546)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1Router.runQuery(CloudFirestoreV1Router.java:185)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.lambda$runQuery$10(FirestoreV1GrpcAdapter.java:176)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter.streaming(FirestoreV1GrpcAdapter.java:80)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.runQuery(FirestoreV1GrpcAdapter.java:176)
+	at com.google.firestore.v1.FirestoreGrpc$MethodHandlers.invoke(FirestoreGrpc.java:1242)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:19:20 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+WARNING: Operation failed: 'NOT_IN' supports up to 10 comparison values.
+com.google.cloud.datastore.core.exception.InvalidConversionException: 'NOT_IN' supports up to 10 comparison values.
+	at com.google.cloud.datastore.core.exception.InvalidConversionException.checkConversion(InvalidConversionException.java:51)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.makeArrayCondition(FirestoreV1QueryToRepConverter.java:374)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:315)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:236)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertConditions(FirestoreV1QueryToRepConverter.java:224)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:255)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:234)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertStructuredQuery(FirestoreV1QueryToRepConverter.java:181)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1RequestToRepConverter.toQuery(FirestoreV1RequestToRepConverter.java:510)
+	at com.google.cloud.datastore.emulator.impl.util.FirestoreEmulatorConverters.toQuery(FirestoreEmulatorConverters.java:464)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1.runQuery(CloudFirestoreV1.java:546)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1Router.runQuery(CloudFirestoreV1Router.java:185)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.lambda$runQuery$10(FirestoreV1GrpcAdapter.java:176)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter.streaming(FirestoreV1GrpcAdapter.java:80)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.runQuery(FirestoreV1GrpcAdapter.java:176)
+	at com.google.firestore.v1.FirestoreGrpc$MethodHandlers.invoke(FirestoreGrpc.java:1242)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:19:20 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+WARNING: Operation failed: 'NOT_IN' supports up to 10 comparison values.
+com.google.cloud.datastore.core.exception.InvalidConversionException: 'NOT_IN' supports up to 10 comparison values.
+	at com.google.cloud.datastore.core.exception.InvalidConversionException.checkConversion(InvalidConversionException.java:51)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.makeArrayCondition(FirestoreV1QueryToRepConverter.java:374)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:315)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:236)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertConditions(FirestoreV1QueryToRepConverter.java:224)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:255)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:234)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertStructuredQuery(FirestoreV1QueryToRepConverter.java:181)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1RequestToRepConverter.toQuery(FirestoreV1RequestToRepConverter.java:510)
+	at com.google.cloud.datastore.emulator.impl.util.FirestoreEmulatorConverters.toQuery(FirestoreEmulatorConverters.java:464)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1.runQuery(CloudFirestoreV1.java:546)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1Router.runQuery(CloudFirestoreV1Router.java:185)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.lambda$runQuery$10(FirestoreV1GrpcAdapter.java:176)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter.streaming(FirestoreV1GrpcAdapter.java:80)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.runQuery(FirestoreV1GrpcAdapter.java:176)
+	at com.google.firestore.v1.FirestoreGrpc$MethodHandlers.invoke(FirestoreGrpc.java:1242)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:19:23 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+WARNING: Operation failed: 'NOT_IN' supports up to 10 comparison values.
+com.google.cloud.datastore.core.exception.InvalidConversionException: 'NOT_IN' supports up to 10 comparison values.
+	at com.google.cloud.datastore.core.exception.InvalidConversionException.checkConversion(InvalidConversionException.java:51)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.makeArrayCondition(FirestoreV1QueryToRepConverter.java:374)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:315)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:236)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertConditions(FirestoreV1QueryToRepConverter.java:224)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:255)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:234)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertStructuredQuery(FirestoreV1QueryToRepConverter.java:181)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1RequestToRepConverter.toQuery(FirestoreV1RequestToRepConverter.java:510)
+	at com.google.cloud.datastore.emulator.impl.util.FirestoreEmulatorConverters.toQuery(FirestoreEmulatorConverters.java:464)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1.runQuery(CloudFirestoreV1.java:546)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1Router.runQuery(CloudFirestoreV1Router.java:185)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.lambda$runQuery$10(FirestoreV1GrpcAdapter.java:176)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter.streaming(FirestoreV1GrpcAdapter.java:80)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.runQuery(FirestoreV1GrpcAdapter.java:176)
+	at com.google.firestore.v1.FirestoreGrpc$MethodHandlers.invoke(FirestoreGrpc.java:1242)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:19:28 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+WARNING: Operation failed: 'NOT_IN' supports up to 10 comparison values.
+com.google.cloud.datastore.core.exception.InvalidConversionException: 'NOT_IN' supports up to 10 comparison values.
+	at com.google.cloud.datastore.core.exception.InvalidConversionException.checkConversion(InvalidConversionException.java:51)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.makeArrayCondition(FirestoreV1QueryToRepConverter.java:374)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:315)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:236)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertConditions(FirestoreV1QueryToRepConverter.java:224)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:255)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:234)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertStructuredQuery(FirestoreV1QueryToRepConverter.java:181)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1RequestToRepConverter.toQuery(FirestoreV1RequestToRepConverter.java:510)
+	at com.google.cloud.datastore.emulator.impl.util.FirestoreEmulatorConverters.toQuery(FirestoreEmulatorConverters.java:464)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1.runQuery(CloudFirestoreV1.java:546)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1Router.runQuery(CloudFirestoreV1Router.java:185)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.lambda$runQuery$10(FirestoreV1GrpcAdapter.java:176)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter.streaming(FirestoreV1GrpcAdapter.java:80)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.runQuery(FirestoreV1GrpcAdapter.java:176)
+	at com.google.firestore.v1.FirestoreGrpc$MethodHandlers.invoke(FirestoreGrpc.java:1242)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:19:28 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+WARNING: Operation failed: 'NOT_IN' supports up to 10 comparison values.
+com.google.cloud.datastore.core.exception.InvalidConversionException: 'NOT_IN' supports up to 10 comparison values.
+	at com.google.cloud.datastore.core.exception.InvalidConversionException.checkConversion(InvalidConversionException.java:51)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.makeArrayCondition(FirestoreV1QueryToRepConverter.java:374)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:315)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:236)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertConditions(FirestoreV1QueryToRepConverter.java:224)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:255)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:234)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertStructuredQuery(FirestoreV1QueryToRepConverter.java:181)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1RequestToRepConverter.toQuery(FirestoreV1RequestToRepConverter.java:510)
+	at com.google.cloud.datastore.emulator.impl.util.FirestoreEmulatorConverters.toQuery(FirestoreEmulatorConverters.java:464)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1.runQuery(CloudFirestoreV1.java:546)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1Router.runQuery(CloudFirestoreV1Router.java:185)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.lambda$runQuery$10(FirestoreV1GrpcAdapter.java:176)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter.streaming(FirestoreV1GrpcAdapter.java:80)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.runQuery(FirestoreV1GrpcAdapter.java:176)
+	at com.google.firestore.v1.FirestoreGrpc$MethodHandlers.invoke(FirestoreGrpc.java:1242)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:19:30 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+WARNING: Operation failed: 'NOT_IN' supports up to 10 comparison values.
+com.google.cloud.datastore.core.exception.InvalidConversionException: 'NOT_IN' supports up to 10 comparison values.
+	at com.google.cloud.datastore.core.exception.InvalidConversionException.checkConversion(InvalidConversionException.java:51)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.makeArrayCondition(FirestoreV1QueryToRepConverter.java:374)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:315)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:236)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertConditions(FirestoreV1QueryToRepConverter.java:224)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:255)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:234)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertStructuredQuery(FirestoreV1QueryToRepConverter.java:181)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1RequestToRepConverter.toQuery(FirestoreV1RequestToRepConverter.java:510)
+	at com.google.cloud.datastore.emulator.impl.util.FirestoreEmulatorConverters.toQuery(FirestoreEmulatorConverters.java:464)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1.runQuery(CloudFirestoreV1.java:546)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1Router.runQuery(CloudFirestoreV1Router.java:185)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.lambda$runQuery$10(FirestoreV1GrpcAdapter.java:176)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter.streaming(FirestoreV1GrpcAdapter.java:80)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.runQuery(FirestoreV1GrpcAdapter.java:176)
+	at com.google.firestore.v1.FirestoreGrpc$MethodHandlers.invoke(FirestoreGrpc.java:1242)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:19:34 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+WARNING: Operation failed: 'NOT_IN' supports up to 10 comparison values.
+com.google.cloud.datastore.core.exception.InvalidConversionException: 'NOT_IN' supports up to 10 comparison values.
+	at com.google.cloud.datastore.core.exception.InvalidConversionException.checkConversion(InvalidConversionException.java:51)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.makeArrayCondition(FirestoreV1QueryToRepConverter.java:374)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:315)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:236)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertConditions(FirestoreV1QueryToRepConverter.java:224)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:255)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:234)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertStructuredQuery(FirestoreV1QueryToRepConverter.java:181)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1RequestToRepConverter.toQuery(FirestoreV1RequestToRepConverter.java:510)
+	at com.google.cloud.datastore.emulator.impl.util.FirestoreEmulatorConverters.toQuery(FirestoreEmulatorConverters.java:464)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1.runQuery(CloudFirestoreV1.java:546)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1Router.runQuery(CloudFirestoreV1Router.java:185)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.lambda$runQuery$10(FirestoreV1GrpcAdapter.java:176)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter.streaming(FirestoreV1GrpcAdapter.java:80)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.runQuery(FirestoreV1GrpcAdapter.java:176)
+	at com.google.firestore.v1.FirestoreGrpc$MethodHandlers.invoke(FirestoreGrpc.java:1242)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:19:34 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+WARNING: Operation failed: 'NOT_IN' supports up to 10 comparison values.
+com.google.cloud.datastore.core.exception.InvalidConversionException: 'NOT_IN' supports up to 10 comparison values.
+	at com.google.cloud.datastore.core.exception.InvalidConversionException.checkConversion(InvalidConversionException.java:51)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.makeArrayCondition(FirestoreV1QueryToRepConverter.java:374)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:315)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:236)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertConditions(FirestoreV1QueryToRepConverter.java:224)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:255)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:234)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertStructuredQuery(FirestoreV1QueryToRepConverter.java:181)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1RequestToRepConverter.toQuery(FirestoreV1RequestToRepConverter.java:510)
+	at com.google.cloud.datastore.emulator.impl.util.FirestoreEmulatorConverters.toQuery(FirestoreEmulatorConverters.java:464)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1.runQuery(CloudFirestoreV1.java:546)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1Router.runQuery(CloudFirestoreV1Router.java:185)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.lambda$runQuery$10(FirestoreV1GrpcAdapter.java:176)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter.streaming(FirestoreV1GrpcAdapter.java:80)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.runQuery(FirestoreV1GrpcAdapter.java:176)
+	at com.google.firestore.v1.FirestoreGrpc$MethodHandlers.invoke(FirestoreGrpc.java:1242)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:19:37 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+WARNING: Operation failed: 'NOT_IN' supports up to 10 comparison values.
+com.google.cloud.datastore.core.exception.InvalidConversionException: 'NOT_IN' supports up to 10 comparison values.
+	at com.google.cloud.datastore.core.exception.InvalidConversionException.checkConversion(InvalidConversionException.java:51)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.makeArrayCondition(FirestoreV1QueryToRepConverter.java:374)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:315)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:236)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertConditions(FirestoreV1QueryToRepConverter.java:224)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:255)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:234)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertStructuredQuery(FirestoreV1QueryToRepConverter.java:181)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1RequestToRepConverter.toQuery(FirestoreV1RequestToRepConverter.java:510)
+	at com.google.cloud.datastore.emulator.impl.util.FirestoreEmulatorConverters.toQuery(FirestoreEmulatorConverters.java:464)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1.runQuery(CloudFirestoreV1.java:546)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1Router.runQuery(CloudFirestoreV1Router.java:185)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.lambda$runQuery$10(FirestoreV1GrpcAdapter.java:176)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter.streaming(FirestoreV1GrpcAdapter.java:80)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.runQuery(FirestoreV1GrpcAdapter.java:176)
+	at com.google.firestore.v1.FirestoreGrpc$MethodHandlers.invoke(FirestoreGrpc.java:1242)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:19:42 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+WARNING: Operation failed: 'NOT_IN' supports up to 10 comparison values.
+com.google.cloud.datastore.core.exception.InvalidConversionException: 'NOT_IN' supports up to 10 comparison values.
+	at com.google.cloud.datastore.core.exception.InvalidConversionException.checkConversion(InvalidConversionException.java:51)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.makeArrayCondition(FirestoreV1QueryToRepConverter.java:374)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:315)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:236)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertConditions(FirestoreV1QueryToRepConverter.java:224)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:255)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertCondition(FirestoreV1QueryToRepConverter.java:234)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1QueryToRepConverter.convertStructuredQuery(FirestoreV1QueryToRepConverter.java:181)
+	at com.google.cloud.datastore.core.firestorev1.converter.FirestoreV1RequestToRepConverter.toQuery(FirestoreV1RequestToRepConverter.java:510)
+	at com.google.cloud.datastore.emulator.impl.util.FirestoreEmulatorConverters.toQuery(FirestoreEmulatorConverters.java:464)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1.runQuery(CloudFirestoreV1.java:546)
+	at com.google.cloud.datastore.emulator.impl.firestore.CloudFirestoreV1Router.runQuery(CloudFirestoreV1Router.java:185)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.lambda$runQuery$10(FirestoreV1GrpcAdapter.java:176)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter.streaming(FirestoreV1GrpcAdapter.java:80)
+	at com.google.cloud.datastore.emulator.firestore.v1.FirestoreV1GrpcAdapter$1.runQuery(FirestoreV1GrpcAdapter.java:176)
+	at com.google.firestore.v1.FirestoreGrpc$MethodHandlers.invoke(FirestoreGrpc.java:1242)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:20:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:20:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:21:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:22:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:23:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:23:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:23:34 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:435)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:493)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:24:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:24:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:24:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:24:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:24:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:24:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 2:24:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:24:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:24:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:24:39 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:24:45 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:24:46 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:25:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:25:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:25:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 2:25:45 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:25:45 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+INFO: channel closed
+Nov 02, 2024 2:26:05 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:26:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:26:52 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:27:52 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:28:01 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:435)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:493)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:28:01 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:435)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:493)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+Nov 02, 2024 2:28:52 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:29:52 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:30:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:30:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:30:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:30:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:30:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:30:41 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 2:30:49 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:30:56 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:31:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:31:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:31:26 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:31:26 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:31:26 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:32:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 02, 2024 2:32:26 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:32:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:32:27 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+INFO: channel closed
+Nov 02, 2024 2:32:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:33:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 02, 2024 2:33:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
