@@ -191,7 +191,9 @@ const eventosMercadoPago = async (req, res) => {
             await db.runTransaction(async (t) => {
               // Consulta aleatoria limitada, excluyendo documentos seleccionados en intentos previos
 
-              const query = lottosRef.where("available", "==", true);
+              const query = lottosRef
+                .where("available", "==", true)
+                .where("numberLocked", "==", false);
 
               const querySnapshot = await t.get(query.limit(cantidadComprada - purchasedNumbers.length));
       
