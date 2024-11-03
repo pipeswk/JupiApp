@@ -1,10 +1,12 @@
 const express = require("express");
 const {
     newProspecto,
-} = require("../controllers/prospectosController.js");
+    addCollectionField,
+} = require("../controllers/utilsController.js");
 
 const router = new express.Router();
 
 router.post("/create-prospect", newProspecto);
+router.post("/add-collection-field", addCollectionField);
 
 module.exports = router;

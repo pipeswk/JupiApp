@@ -4,12 +4,13 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const moment = require("moment-timezone");
 const {db} = require("./controllers/nequiController.js");
+const authMiddleware = require("./middleware/authMiddleware.js");
 
 const app = express();
 const efectivo = express();
 const eventos = express();
 const lottos = express();
-const prospectos = express();
+const utils = express();
 
 dotenv.config();
 
@@ -39,7 +40,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 efectivo.use(cors(corsOptions));
 lottos.use(cors(corsOptions));
-prospectos.use(cors(corsOptions));
+utils.use(cors({origin: true}));
 
 // Routing
 
@@ -47,13 +48,13 @@ app.use("/api/nequi", require("./routes/nequi.routes.js"));
 efectivo.use("/api/mp", require("./routes/efectivo.routes.js"));
 eventos.use("/", require("./routes/eventos.routes.js"));
 lottos.use("/api/lottos", require("./routes/lottos.routes.js"));
-prospectos.use("/", require("./routes/prospectos.routes.js"));
+utils.use("/", authMiddleware, require("./routes/utils.routes.js"));
 
 exports.app = functions.https.onRequest(app);
 exports.efectivo = functions.https.onRequest(efectivo);
 exports.eventos = functions.https.onRequest(eventos);
 exports.lottos = functions.https.onRequest(lottos);
-exports.prospectos = functions.https.onRequest(prospectos);
+exports.utils = functions.https.onRequest(utils);
 exports.createSorteo = functions.firestore
     .document("sorteos/{sorteoId}")
     .onCreate(async (snap, context) => {
@@ -82,6 +83,7 @@ exports.createSorteo = functions.firestore
           phoneNumber: "",
           fechaReserva: timestamp,
           buyerName: "",
+          numberBlocked: false,
         });
       }
 
@@ -103,3 +105,25 @@ exports.createSorteo = functions.firestore
         await batch.commit();
       }
     });
+
+// exports.generateJwt = functions.https.onRequest(async (req, res) => {
+//     const secretPass = req.body.secretPass;
+//     const name = req.body.name;
+
+//     if (!secretPass || secretPass !== process.env.SECRET_PASS) {
+//         res.status(401).send({
+//             status: "error",
+//             message: "No autorizado",
+//         });
+//         return;
+//     }
+
+//     const token = jwt.sign({ name: name }, process.env.JUPI_BCK_SECRET_KEY, {
+//         expiresIn: "1h",
+//     });
+//     res.status(200).send({
+//         status: "success",
+//         message: "Token generado",
+//         token: token,
+//     });
+// });
