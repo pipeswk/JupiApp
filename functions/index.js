@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const moment = require("moment-timezone");
 const {db} = require("./controllers/nequiController.js");
 const authMiddleware = require("./middleware/authMiddleware.js");
+// const jwt = require("jsonwebtoken");
 
 const app = express();
 const efectivo = express();

@@ -74,13 +74,13 @@ const addCollectionField = async (req, res) => {
                 });
                 await batch.commit();
             }
-            res.status(200).send({
+            return res.status(200).send({
                 status: "success",
                 message: `Campo añadido en ${docs.docs.length} documentos`,
             });
         } catch (error) {
             console.error(error);
-            res.status(500).send({
+            return res.status(500).send({
                 status: "error",
                 message: "Error al añadir el campo",
                 error: error,
@@ -102,13 +102,13 @@ const addCollectionField = async (req, res) => {
                 });
                 await batch.commit();
             }
-            res.status(200).send({
+            return res.status(200).send({
                 status: "success",
                 message: `Campo añadido en ${docs.docs.length} documentos`,
             });
         } catch (error) {
             console.error(error);
-            res.status(500).send({
+            return res.status(500).send({
                 status: "error",
                 message: "Error al añadir el campo",
                 error: error,
@@ -117,7 +117,130 @@ const addCollectionField = async (req, res) => {
     }
 };
 
+const lockNumbers = async (req, res) => {
+    const sortId = req.body.sortId;
+    const numbersToLock = req.body.numbersToLock;
+
+    if (!sortId || !numbersToLock) {
+        return res.status(400).send({
+            status: "error",
+            message: "Faltan parámetros: sortId o numbersToLock",
+        });
+    }
+
+    if (numbersToLock > 100) {
+        return res.status(400).send({
+            status: "error",
+            message: "No se pueden bloquear más de 100 números",
+        });
+    }
+
+    const collectionRef = db.collection("sorteos").doc(sortId).collection("lottos");
+    const query = collectionRef
+        .where("numberLocked", "==", false)
+        .where("available", "==", true)
+        .limit(numbersToLock);
+    const docs = await query.get();
+    if (docs.empty) {
+        return res.status(404).send({
+            status: "error",
+            message: "No hay números disponibles",
+        });
+    } else {
+        const batch = db.batch();
+        const docsLocked = [];
+        docs.docs.forEach((doc) => {
+            docsLocked.push(doc.data());
+            batch.update(doc.ref, {
+                numberLocked: true,
+            });
+        });
+        await batch.commit();
+        return res.status(200).send({
+            status: "success",
+            message: `Se han bloqueado ${docs.docs.length} números`,
+            numbersLocked: docsLocked,
+        });
+    }
+};
+
+const unlockNumbers = async (req, res) => {
+    const sortId = req.body.sortId;
+    const numbersToUnlock = req.body.numbersToUnlock;
+
+    if (!sortId || !numbersToUnlock) {
+        return res.status(400).send({
+            status: "error",
+            message: "Faltan parámetros: sortId o numbersToUnlock",
+        });
+    }
+
+    const collectionRef = db.collection("sorteos").doc(sortId).collection("lottos");
+    const query = collectionRef.where("numberLocked", "==", true).limit(numbersToUnlock);
+    const docs = await query.get();
+    if (docs.empty) {
+        return res.status(404).send({
+            status: "error",
+            message: "No hay números disponibles",
+        });
+    } else {
+        const docsUnlocked = [];
+        const batch = db.batch();
+        docs.docs.forEach((doc) => {
+            docsUnlocked.push(doc.data());
+            batch.update(doc.ref, {
+                numberLocked: false,
+            });
+        });
+        await batch.commit();
+        return res.status(200).send({
+            status: "success",
+            message: `Se han desbloqueado ${docs.docs.length} números`,
+            numbersUnlocked: docsUnlocked,
+        });
+    }
+};
+
+const unlockAllNumbers = async (req, res) => {
+    const sortId = req.body.sortId;
+
+    if (!sortId) {
+        return res.status(400).send({
+            status: "error",
+            message: "Faltan parámetros: sortId",
+        });
+    }
+
+    const collectionRef = db.collection("sorteos").doc(sortId).collection("lottos");
+    const query = collectionRef.where("numberLocked", "==", true);
+    const docs = await query.get();
+    if (docs.empty) {
+        return res.status(404).send({
+            status: "error",
+            message: "No hay números disponibles",
+        });
+    } else {
+        const docsUnlocked = [];
+        const batch = db.batch();
+        docs.docs.forEach((doc) => {
+            docsUnlocked.push(doc.data().number);
+            batch.update(doc.ref, {
+                numberLocked: false,
+            });
+        });
+        await batch.commit();
+        return res.status(200).send({
+            status: "success",
+            message: `Se han desbloqueado ${docs.docs.length} números`,
+            numbersUnlocked: docsUnlocked,
+        });
+    }
+};
+
 module.exports = {
     newProspecto,
     addCollectionField,
+    lockNumbers,
+    unlockNumbers,
+    unlockAllNumbers,
 };
