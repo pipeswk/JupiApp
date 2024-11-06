@@ -52,16 +52,17 @@ const efecty = async (req, res) => {
         transaccionCreada: true,
         idMercadoPago: data.response.id,
       });
-      res.status(200).send({
+      return res.status(200).send({
         uid: user.uid,
         noConvenio: 110757,
         noPago: data.response.id,
-        message: documento.id,
+        internalTransactionId: documento.id,
+        valorTransaccion: precioFinal,
         linkExterno: data.response.transaction_details.external_resource_url,
       });
     }).catch(function(error) {
       console.log(error);
-      res.status(500).send(error);
+      return res.status(500).send(error);
     });
   } else {
     const documento = await db.collection("transactions").add({
@@ -220,13 +221,15 @@ const pse = async (req, res) => {
         transaccionCreada: true,
         idMercadoPago: data.response.id,
       });
-      res.status(200).send({
+      return res.status(200).send({
         ...data,
+        internalTransactionId: documento.id,
+        valorTransaccion: precioFinal,
         uid: user.uid,
       });
     }).catch(function(error) {
       console.log(error);
-      res.status(500).send(error);
+      return res.status(500).send(error);
     });
   } else {
     const documento = await db.collection("transactions").add({
@@ -275,10 +278,10 @@ const pse = async (req, res) => {
         transaccionCreada: true,
         idMercadoPago: data.response.id,
       });
-      res.status(200).send(data);
+      return res.status(200).send(data);
     }).catch(function(error) {
       console.log(error);
-      res.status(500).send(error);
+      return res.status(500).send(error);
     });
   }
 };
