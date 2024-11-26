@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 const moment = require("moment-timezone");
 const {db} = require("./controllers/nequiController.js");
 const authMiddleware = require("./middleware/authMiddleware.js");
-// const jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 
 const app = express();
 const efectivo = express();
@@ -84,7 +84,7 @@ exports.createSorteo = functions.firestore
           phoneNumber: "",
           fechaReserva: timestamp,
           buyerName: "",
-          numberBlocked: false,
+          numberLocked: false,
         });
       }
 
@@ -107,24 +107,24 @@ exports.createSorteo = functions.firestore
       }
     });
 
-// exports.generateJwt = functions.https.onRequest(async (req, res) => {
-//     const secretPass = req.body.secretPass;
-//     const name = req.body.name;
+exports.generateJwt = functions.https.onRequest(async (req, res) => {
+    const secretPass = req.body.secretPass;
+    const name = req.body.name;
 
-//     if (!secretPass || secretPass !== process.env.SECRET_PASS) {
-//         res.status(401).send({
-//             status: "error",
-//             message: "No autorizado",
-//         });
-//         return;
-//     }
+    if (!secretPass || secretPass !== process.env.SECRET_PASS) {
+        res.status(401).send({
+            status: "error",
+            message: "No autorizado",
+        });
+        return;
+    }
 
-//     const token = jwt.sign({ name: name }, process.env.JUPI_BCK_SECRET_KEY, {
-//         expiresIn: "1h",
-//     });
-//     res.status(200).send({
-//         status: "success",
-//         message: "Token generado",
-//         token: token,
-//     });
-// });
+    const token = jwt.sign({name: name}, process.env.JUPI_BCK_SECRET_KEY, {
+        expiresIn: "1h",
+    });
+    res.status(200).send({
+        status: "success",
+        message: "Token generado",
+        token: token,
+    });
+});

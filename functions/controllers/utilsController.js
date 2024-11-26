@@ -164,6 +164,50 @@ const lockNumbers = async (req, res) => {
     }
 };
 
+const lockSpecificNumbers = async (req, res) => {
+    const sortId = req.body.sortId;
+    const numbersToLock = req.body.numbersToLock;
+
+    if (!sortId || !numbersToLock) {
+        return res.status(400).send({
+            status: "error",
+            message: "Faltan parámetros: sortId o numbersToLock",
+        });
+    }
+
+    if (numbersToLock.length > 100) {
+        return res.status(400).send({
+            status: "error",
+            message: "No se pueden bloquear más de 10 números por transacción especifica",
+        });
+    }
+
+    const collectionRef = db.collection("sorteos").doc(sortId).collection("lottos");
+    const query = collectionRef.where("number", "in", numbersToLock);
+    const docs = await query.get();
+    if (docs.empty) {
+        return res.status(404).send({
+            status: "error",
+            message: "No hay números disponibles",
+        });
+    } else {
+        const batch = db.batch();
+        const docsLocked = [];
+        docs.docs.forEach((doc) => {
+            docsLocked.push(doc.data());
+            batch.update(doc.ref, {
+                numberLocked: true,
+            });
+        });
+        await batch.commit();
+        return res.status(200).send({
+            status: "success",
+            message: `Se han bloqueado ${docs.docs.length} números`,
+            numbersLocked: docsLocked,
+        });
+    }
+};
+
 const unlockNumbers = async (req, res) => {
     const sortId = req.body.sortId;
     const numbersToUnlock = req.body.numbersToUnlock;
@@ -241,6 +285,7 @@ module.exports = {
     newProspecto,
     addCollectionField,
     lockNumbers,
+    lockSpecificNumbers,
     unlockNumbers,
     unlockAllNumbers,
 };
